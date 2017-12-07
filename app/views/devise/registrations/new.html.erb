@@ -22,31 +22,3 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
-
-<input type="radio" value ="indi" name="radio_btn">개인회원
-<input type="radio" value="enter" name="radio_btn">기업회원
-
-   <br>
-
-<select>
-  <% @company_fields.each do |field|%>
-    <option class="enter"><%= field.name %></option>
-  <% end %>
-</select>
-
-
-
-<script>
-$(function(){
-  $("input").change(function(e){
-    $("select").val('');
-      if(e.target.value == "regression"){
-         $(".regression").show();
-         $(".classification").hide()
-        }else{
-         $(".classification").show()
-         $(".regression").hide();
-        }
-      });
-})
-</script>
