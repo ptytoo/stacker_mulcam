@@ -40,6 +40,7 @@ File.open(Rails.root.join('seed_data_company/fintech.csv'), "r") do |file|
   )
   puts company.inspect
 end
+<<<<<<< HEAD
 #
 #
 #
@@ -127,3 +128,92 @@ end
 #     count: a["count"]
 #   )
 # end
+=======
+
+
+
+CSV.foreach(Rails.root.join('seed_data_stack/language_stack.csv')) do |row|
+  Stack.create(
+    name: row[0].to_s.downcase,
+    site_url: row[1],
+    short_describe: row[2],
+    describe: row[3],
+    version: row[4],
+    stack_field_id: 1
+  )
+end
+
+CSV.foreach(Rails.root.join('seed_data_stack/db_stack.csv')) do |row|
+  Stack.create(
+    name: row[0].to_s.downcase,
+    site_url: row[1],
+    short_describe: row[2],
+    describe: row[3],
+    version: row[4],
+    stack_field_id: 2
+  )
+end
+
+CSV.foreach(Rails.root.join('seed_data_stack/server_stack.csv')) do |row|
+  Stack.create(
+    name: row[0].to_s.downcase,
+    site_url: row[1],
+    short_describe: row[2],
+    describe: row[3],
+    version: row[4],
+    stack_field_id: 3
+  )
+end
+
+CSV.foreach(Rails.root.join('seed_data_stack/frontend_stack.csv')) do |row|
+  Stack.create(
+    name: row[0].to_s.downcase,
+    site_url: row[1],
+    short_describe: row[2],
+    describe: row[3],
+    version: row[4],
+    stack_field_id: 4
+  )
+end
+
+CSV.foreach(Rails.root.join('seed_data_stack/app_stack.csv')) do |row|
+  Stack.create(
+    name: row[0].to_s.downcase,
+    site_url: row[1],
+    short_describe: row[2],
+    describe: row[3],
+    version: row[4],
+    stack_field_id: 5
+  )
+end
+
+
+CSV.foreach(Rails.root.join('seed_data_stack/etc_stack.csv')) do |row|
+  Stack.create(
+    name: row[0].to_s.downcase,
+    site_url: row[1],
+    short_describe: row[2],
+    describe: row[3],
+    version: row[4],
+    stack_field_id: 6
+  )
+end
+
+require 'nokogiri'
+require 'json'
+require 'awesome_print'
+
+#rails g model gittrend name year quarter count
+arr = Array.new
+File.open("gitdata.json", "r").each_line do |row|
+  arr << JSON.parse(row)
+end
+arr[0..10].each do |a|
+  Gittrend.create(
+    name: a["name"],
+    year: a["year"],
+    quarter: a["quarter"],
+    count: a["count"]
+  )
+end
+>>>>>>> 4b60a18bc6ac4baf7298f69e459aaffe50e4385b
