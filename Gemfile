@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'trix'
 gem 'carrierwave', '~> 1.0'
 gem 'cancancan', '~> 2.0'
 gem 'git-trend'
