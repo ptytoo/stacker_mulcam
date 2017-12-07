@@ -1,5 +1,12 @@
 source 'https://rubygems.org'
 
+
+gem 'poltergeist'
+gem 'phantomjs', :require => 'phantomjs/poltergeist'
+gem 'capybara'
+gem 'httparty'
+gem 'nokogiri'
+gem 'chromedriver-helper'
 gem 'trix'
 gem 'carrierwave', '~> 1.0'
 gem 'cancancan', '~> 2.0'
