@@ -9,9 +9,9 @@
     <%= f.input :password_confirmation, required: true %>
     <%= f.input :nickname, required: true, autofocus: true %>
     <%= f.input :phone, required: true, autofocus: true %>
-    <%= f.radio_button(:role, "indi") %>
+    <%= f.radio_button(:role, "indi", value: "indi") %>
     <%= f.label(:indi, "개인회원") %>
-    <%= f.radio_button(:role, "enter",data: {behavior: "toggle-products" }) %>
+    <%= f.radio_button(:role, "enter", value: "enter") %>
     <%= f.label(:enter, "기업회원") %>
 
   </div>
@@ -22,16 +22,29 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+<br>
 
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+<input type="radio" value ="regression" name="radio_btn">regression
+  <br>
+   <input type="radio" value="classification" name="radio_btn">classification
+   <br>
+
+<select>
+<option class="regression">Mean Absolute Error</option><option class="regression">Root Mean Squared Error</option><option class="regression">Weighted Mean Absolute Error</option><option class="classification">Accuracy</option><option class="classification">Mean Utility</option>
+</select>
 
 <script>
-$(document).ready(function() {
-  $('input[type="radio"][data-behavior="toggle-products"]').click(function(evt) {
-    if($(this).val() == "true") {
-      $('.products').show();
-    } else {
-      $('.products').hide();
-    }
-  });
-});
+$(function(){
+  $("input").change(function(e){
+    $("select").val('');
+      if(e.target.value == "regression"){
+         $(".regression").show();
+         $(".classification").hide()
+        }else{
+         $(".classification").show()
+         $(".regression").hide();
+        }
+      });
+})
 </script>
