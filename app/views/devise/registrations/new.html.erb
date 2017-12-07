@@ -9,8 +9,39 @@
     <%= f.input :password_confirmation, required: true %>
     <%= f.input :nickname, required: true, autofocus: true %>
     <%= f.input :phone, required: true, autofocus: true %>
-    <%= f.radio_button(:role, "indi") %>
+    <%= f.radio_button(:role, "indi", value: "indi", id: "indi", data: {behavior: "clickable" }) %>
     <%= f.label(:indi, "개인회원") %>
-    <%= f.radio_button(:role, "enter") %>
+    <%#= f.radio_button(:role, "enter", value: "enter") %>
+    <%= f.radio_button(:role, "enter", value: "enter", id: "enter", data: {behavior: "clickable" })%>
     <%= f.label(:enter, "기업회원") %>
-    <br>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, t(".sign_up") %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+<br>
+<div id="group_user_id" class="form-group">
+      <span>
+        <%= text_field_tag "account_id", nil, :id => "autocomplete_text", :class => "form-control", :placeholder => "Account Id" %>
+      </span>
+</div>
+
+
+
+<script>
+$(document).ready(function() {
+  $('input[type="radio"][data-behavior="clickable"]').click(function(evt) {
+    // alert("you chose the option: " + $(this).val());
+    var content = $(this).val();
+    if(content=="indi"){
+      $("#group_user_id").hide();
+    }else if (content=="enter"){
+      $("#group_user_id").show();
+    }
+  });
+});
+</script>
