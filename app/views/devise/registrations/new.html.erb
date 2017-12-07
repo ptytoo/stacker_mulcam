@@ -22,3 +22,33 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+<input type="radio" value ="indi" name="radio_btn">개인회원
+<input type="radio" value="enter" name="radio_btn">기업회원
+
+   <br>
+
+<select>
+  <option class="regression">Mean Absolute Error</option>
+  <option class="regression">Root Mean Squared Error</option>
+  <option class="regression">Weighted Mean Absolute Error</option>
+  <option class="classification">Accuracy</option>
+  <option class="classification">Mean Utility</option>
+</select>
+
+
+
+<script>
+$(function(){
+  $("input").change(function(e){
+    $("select").val('');
+      if(e.target.value == "regression"){
+         $(".regression").show();
+         $(".classification").hide()
+        }else{
+         $(".classification").show()
+         $(".regression").hide();
+        }
+      });
+})
+</script>
