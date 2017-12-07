@@ -114,7 +114,7 @@ require 'nokogiri'
 require 'json'
 require 'awesome_print'
 
-#rails g model git_trend
+#rails g model gittrend name year quarter count
 arr = Array.new
 File.open("gitdata.json", "r").each_line do |row|
   arr << JSON.parse(row)
