@@ -29,11 +29,9 @@
    <br>
 
 <select>
-  <option class="regression">Mean Absolute Error</option>
-  <option class="regression">Root Mean Squared Error</option>
-  <option class="regression">Weighted Mean Absolute Error</option>
-  <option class="classification">Accuracy</option>
-  <option class="classification">Mean Utility</option>
+  <% @company_fields.each do |field|%>
+    <option class="enter"><%= field.name %></option>
+  <% end %>
 </select>
 
 
