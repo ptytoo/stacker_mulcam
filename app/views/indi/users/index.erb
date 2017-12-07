@@ -6,7 +6,8 @@
 <%= link_to '수정', edit_user_registration_path %>
 <br><br>
 <h1>나의 스택 확인</h1>
-<% @stacks.stacks.each do |stack| %>
+<% @stacks.each do |stack| %>
+<%= stack.stack_id%>
   <a href="/stacks/<%=stack.id%>" data-toggle="tooltip" title="<%=stack.name%>">
     <%= image_tag "https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/#{stack.field.name}/#{stack.name.capitalize}.png", id: "#{stack.name}", class: "mr-3", width: "50", height: "50" %>
   </a>
