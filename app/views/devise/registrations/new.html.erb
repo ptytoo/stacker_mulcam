@@ -24,15 +24,25 @@
 
 <br>
 <div id="group_user_id" class="form-group">
-  <select>
-  <% @company_fields.each do |field|%>
-    <option class="enter"><%= field.name %></option>
-  <% end %>
-  <%= file_field_tag '사진등록'%>
-  </select>
-  <span>
-    <%= text_field_tag "account_id", nil, :id => "autocomplete_text", :class => "form-control", :placeholder => "Account Id" %>
-  </span>
+  <%= form_for(companies_path, method: :post) do |f|%>
+    회사 명 : <%= f.text_field :name%><br>
+    회사 사이트 주소 : <%= f.text_field :site_url%><br>
+    사업 분야 :
+    <select>
+    <% @company_fields.each do |field|%>
+      <option class="enter"><%= field.name %><% f.hidden_field name: "companies[field_id]", value: "#{field.id}"%></option>
+    <% end %>
+    <%= f.file_field :logo_url%>
+    </select>
+    <span>
+      <%#= f.trix_editor :describe %>
+      <%= f.text_field :describe, size: "500", :placeholder => "회사 소개" %>
+    </span>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <%end%>
 </div>
 
 
