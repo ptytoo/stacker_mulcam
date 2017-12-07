@@ -39,9 +39,9 @@
       <%= f.text_field :describe, size: "500", :placeholder => "회사 소개" %>
     </span>
 
-    <div class="form-actions">
-      <%= f.button :submit %>
-    </div>
+    <!-- <div class="form-actions"> -->
+    <%= f.button :submit %>
+    <!-- </div> -->
   <%end%>
 </div>
 
@@ -58,6 +58,16 @@ $(document).ready(function() {
     }else if (content=="enter"){
       $("#group_user_id").show();
     }
+  });
+
+  $('#group_user_id').on('submit',function(e){
+    e.preventDefault();
+    $.ajax({
+      url: "<%=companies_path%>",
+      method: "POST",
+      data: {name:, site_url:, logo_url: , ....},
+      dataType: "json"
+    });
   });
 });
 </script>
