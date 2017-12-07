@@ -5,12 +5,23 @@
 전화번호 : <%= @user.phone%><br>
 <%= link_to '수정', edit_user_registration_path %>
 <br><br>
+
 <h1>나의 스택 확인</h1>
-<%= link_to '추가'%><br>
-<% @stacks.each do |stack| %>
+<%= link_to '추가', stacks_path%><br>
+<% @mstacks.each do |stack| %>
   <% my_stack = Stack.find(stack.stack_id)%>
   <% field = StackField.find(my_stack.stack_field_id)%>
   <a href="/stacks/<%=my_stack.id%>" data-toggle="tooltip" title="<%=my_stack.name%>">
     <%= image_tag "https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/#{field.name}/#{my_stack.name.capitalize}.png", id: "#{my_stack.name}", class: "mr-3", width: "50", height: "50" %>
+  </a>
+<% end %>
+<br><br>
+<h1>나의 관심 스택 확인</h1>
+<%= link_to '추가', stacks_path%><br>
+<% @stacks.each do |stack| %>
+  <% inter_stack = Stack.find(stack.stack_id)%>
+  <% field = StackField.find(inter_stack.stack_field_id)%>
+  <a href="/stacks/<%=inter_stack.id%>" data-toggle="tooltip" title="<%=inter_stack.name%>">
+    <%= image_tag "https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/#{field.name}/#{inter_stack.name.capitalize}.png", id: "#{inter_stack.name}", class: "mr-3", width: "50", height: "50" %>
   </a>
 <% end %>
