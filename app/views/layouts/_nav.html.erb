@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <%= link_to 'Stacker', root_path, class: "navbar-brand js-scroll-trigger"%>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <!-- <a class="nav-link js-scroll-trigger" href="#about">tech_stack</a> -->
+          <!--폼태그로 바꾸기-->
+          <%= link_to 'tech_stack', company_fields_path, class: "nav-link js-scroll-trigger"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'trend-stack', stacks_path, class: "nav-link js-scroll-trigger" %>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#services">career_stack</a>
+
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#contact">stackers</a>
+        </li>
+        <li class="nav-item">
+          <% if user_signed_in? %>
+            <%= current_user.nickname if current_user%>님 환영합니다.
+            <%#= link_to %>
+            <%if current_user.admin?%>
+              <%= link_to '관리자_홈', admin_users_path, method: :get,class: 'mdl-navigation__link'%>
+            <% elsif current_user.enter?%>
+              <%= link_to '회사관리_홈', enter_companies_path,method: :get,class: 'mdl-navigation__link'%>
+            <% elsif current_user.indi?%>
+              <%= link_to '개인관리_홈', indi_users_path,class: 'mdl-navigation__link'%>
+            <%end%>
+            <%= link_to 'My Stack', indi_users_path, class: "nav-link js-scroll-trigger"%>
+            <%= link_to '로그아웃', destroy_user_session_path, method: :delete, class: "nav-link js-scroll-trigger"%>
+          <% else %>
+            <%= link_to '로그인', new_user_session_path, class: "nav-link js-scroll-trigger"%>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

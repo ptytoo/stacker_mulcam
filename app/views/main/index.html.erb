@@ -1,0 +1,75 @@
+
+<header class="bg-white text-white">
+  <div class="container text-center">
+    <div class="justify-content-center">
+      <!-- <form class="my-2 my-lg-0"> -->
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+          <h3>원하는 스택 검색</h3>
+          <%= form_tag main_search_path, method: :get, class: "justify-content-center" do%>
+            <%= text_field_tag :search%>
+            <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search"> -->
+            <%= submit_tag "검색", class: "btn btn-light my-2 my-sm-0" %>
+          <% end %>
+          </div>
+        <!-- </form> -->
+          <div class="col-sm">
+          <h3>Git 트렌드</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Language</th>
+                <th scope="col">Stars</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @gitdata.each do |git|%>
+              <tr>
+                <td><%= git.id %></td>
+                <td><%= git.name %></td>
+                <td><%= git.count %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2>About Stacker</h2>
+        <p class="lead">Show you all tech stacks</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="services" class="bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2>Services Stacker offer</h2>
+        <p class="lead">Search</p>
+        <p class="lead">Stack</p>
+        <p class="lead">Learn</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2>Contact us</h2>
+        <p class="lead">This is 보노보노 theme </p>
+      </div>
+    </div>
+  </div>
+</section>

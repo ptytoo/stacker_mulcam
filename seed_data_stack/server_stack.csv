@@ -1,0 +1,16 @@
+Rails,http://rubyonrails.org/,Framework,"Ruby on Rails는 루비로 작성된 MVC 패턴을 따르는 오픈 소스 웹 프레임워크로 David Heinemeier Hansson이 개발했다. ActiveRecord는에 기반을 두어 DB의 CRUD 작업을 자동화하고 단순화해 웹 애플리케이션을 개발 시 반복되는 코드를 줄여, 개발 기간을 단축해 준다. 이 외에도 MVC 템플릿 생성 및 테스트 등 자동화하는 툴, 테스트를 위한 웹서버 등을 포함하고 있다.",05.1.4.
+Spring,https://spring.io/,Framework,"Spring은 자바 플랫폼을 위한 관점지향 오픈소스 애플리케이션 프레임워크이다. 동적 웹 사이트를 개발하기 위한 여러 가지 서비스를 제공하며, 확장성이 높다. 특히 Spring은 전자정부 표준프레임워크의 기반으로, 대한민국 공공기관 웹 서비스를 개발할 때 사용을 권장한다.",5.0
+Node.js,https://nodejs.org,Framework,Node.js는 V8(자바스크립트 엔진) 위에서 동작하는 이벤트 처리 I/O 프레임워크이다. 웹 서버와 같이 확장성 있는 네트워크 프로그램 제작을 위해 고안되었다. 내장 HTTP 서버 라이브러리를 포함하고 있어 웹 서버에서 아파치 등의 별도 소프트웨어 없이 동작한다. 또한 자바스크립트를 활용하며 Non-blocking I/O와 단일 스레드 이벤트 루프를 사용해 성능이 뛰어나다.,9.2.0
+Django,https://www.djangoproject.com/,Framework,"Django는 파이썬으로 작성된 오픈 소스 웹 애플리케이션 프레임워크이다. 느슨한 MVC 패턴을 따르며 컴포넌트의 재사용성과 플러그인화 가능성, 빠른 개발 등을 강조한다. Django를 쓰는 대표적인 회사로는 인스타그램, 모질라, 핀터레스트 등이 있다.",01.11.7.
+Flask,http://flask.pocoo.org/,Framework,"Flask는 Python으로 만들어진 Werkzeug toolkit과 Jinja2 템플릿 엔진 기반의 웹프레임워크다. Flask는 특별한 도구나 라이브러리가 않으며 다른 웹프레임워크와 달리 데이터베이스의 추상화 계층, form 유효성 검사와 같은 기능이 없다. 대신 플라스크는 확장 프로그램을 지원해 어플리케이션에 이러한 기능을 추가할 수 있다.",0.12.2
+Grpc,https://grpc.io/,Framework,"gRPC는 구글이 든 오픈 소스의 remote procedure call(RPC)다. HTTP/2 프로토콜을 사용하며 인증, 양방향 스트리밍과 흐름 제어(flow control), 블로킹 바인딩, 논 블로킹 바인딩, 타임아웃과 같은 다양한 기능을 지원한다. 또한 gRPC는 c, c++, go, java, python, ruby와 같은 다양한 언어를 위한 크로스 플랫폼 클라이언트와 서버 바인딩을 생성한다.",
+Sqlalchemy,https://www.sqlalchemy.org/,Framework,"SQLAlchemy는 python 프로그래밍 언어를 위해 만들어진 오픈 소스 SQL 툴킷&ORM(Object-relational mapper)이다. ""SQLAlchemy는 다른 ORM과는 달리 액티브 레코드 패턴이 아니라 Java의 Hibernate와 같은 데이터 맵퍼 패턴을 쓴다. SQLAlchemy는 표준 라이브러리는 아니지만, 가장 인기 있는 크로스 데이터베이스 파이썬 라이브러리이다.",1.2
+Asp.net,https://www.asp.net/,Framework,"ASP.NET은 마이크로소프트사가 개발하여 판매하는 웹 애플리케이션 프레임워크이며 프로그래머들이 동적인 웹 사이트, 웹 애플리케이션, 웹 서비스를 만들 수 있게 돕는다. 마이크로소프트의 ASP(액티브 서버 페이지) 기술의 뒤를 잇는다. ASP.NET은 CLR(공통 언어 런타임)을 기반으로 작성되며 프로그래머들이 닷넷 언어가 사용된 ASP.NET 코드를 기록할 수 있게 도와준다.",2.0
+Sinatra,http://sinatrarb.com/,Framework,Sinatra는 최소한의 노력으로 루비 기반 웹 애플리케이션을 신속하게 만들 수 있게 해 주는 DSL입니다.,2.0.0
+Symphony,https://symfony.com/,Framework,심포니는 PHP5 를 이용한 웹 어플리케이션 프레임워크이다. 심포니는 PHP5 클래스로 이루어져 있어 전반적으로 OOP 방식을 사용한다.,4.0
+Play,https://www.playframework.com/,Framework,"Play 는 비동기적인 http 프로그래밍 모델을 지원한다. 플레이는 Akka 를 지원하는데, 이는 액터 기반(Actor-based)의 모델을 사용하는 성능 좋은 동시성 시스템을 구현하기 위한 라이브러리이다.",02.6.7.
+Spark,http://sparkjava.com/,Framework,Spark framework는 가벼운 웹 프레임워크이고 JVM 기반에서 실행 가능하다.,
+Apache http server,https://www.apache.org/,Server,"아파치 HTTP 서버는 아파치 소프트웨어 재단에서 관리하는 HTTP 웹 서버이다. BSD, 리눅스 등 유닉스 계열 뿐 아니라 마이크로소프트 윈도우나 노벨 넷웨어 같은 기종에서도 운용할 수 있다.",2.4
+Apache tomcat,http://tomcat.apache.org/,Server,아파치 톰캣은 아파치 소프트웨어 재단에서 개발된 서블릿 컨테이너(또는 웹 컨테이너)만 있는 웹 애플리케이션 서버이다.,Tomcat 9
+Nginx,http://nginx.org/,Server,"Nginx(엔진 x라 읽는다)는 웹 서버 소프트웨어로, 가벼움과 높은 성능을 목표로 한다. 웹 서버, 리버스 프록시 및 메일 프록시 기능을 가진다.",1.1.37
+Iis,https://www.iis.net/,Server,"마이크로소프트 인터넷 정보 서비스(Internet Information Services, IIS)는 마이크로소프트 윈도우를 사용하는 서버들을 위한 인터넷 기반 서비스들의 모임이다. 이전 이름은 인터넷 정보 서버(Internet Information Server)였다.",1.2
