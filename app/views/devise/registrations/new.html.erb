@@ -27,7 +27,7 @@
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 <input type="radio" value ="regression" name="radio_btn">regression
   <br>
-   <input type="radio" value="classification" name="radio_btn">classification
+   <input type="radio" value="enter" name="radio_btn">classification
    <br>
 
 <select>
@@ -40,12 +40,12 @@
 $(function(){
   $("input").change(function(e){
     $("select").val('');
-      if(e.target.value == "regression"){
-         $(".regression").show();
+      if(e.target.value == "enter"){
+         $(".enter").show();
          $(".classification").hide()
         }else{
          $(".classification").show()
-         $(".regression").hide();
+         $(".enter").hide();
         }
       });
 })
