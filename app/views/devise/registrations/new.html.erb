@@ -11,7 +11,7 @@
     <%= f.input :phone, required: true, autofocus: true %>
     <%= f.radio_button(:role, "indi") %>
     <%= f.label(:indi, "개인회원") %>
-    <%= f.radio_button(:role, "enter") %>
+    <%= f.radio_button(:role, "enter",data: {behavior: "toggle-products" }) %>
     <%= f.label(:enter, "기업회원") %>
 
   </div>
@@ -22,3 +22,16 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
+<script>
+$(document).ready(function() {
+  $('input[type="radio"][data-behavior="toggle-products"]').click(function(evt) {
+    if($(this).val() == "true") {
+      $('.products').show();
+    } else {
+      $('.products').hide();
+    }
+  });
+});
+</script>
