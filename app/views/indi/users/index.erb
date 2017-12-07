@@ -1,2 +1,13 @@
 <h1>개인 정보 관리 페이지</h1>
-<%= @user.email%>
+이메일 : <%= @user.email%><br>
+이름 : <%= @user.nickname%><br>
+권한 : <%= @user.role%><br>
+전화번호 : <%= @user.phone%><br>
+<%= link_to '수정', edit_user_registration_path %>
+<br><br>
+<h1>나의 스택 확인</h1>
+<% @stacks.stacks.each do |stack| %>
+  <a href="/stacks/<%=stack.id%>" data-toggle="tooltip" title="<%=stack.name%>">
+    <%= image_tag "https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/#{stack.field.name}/#{stack.name.capitalize}.png", id: "#{stack.name}", class: "mr-3", width: "50", height: "50" %>
+  </a>
+<% end %>
