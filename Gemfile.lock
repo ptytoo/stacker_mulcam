@@ -54,6 +54,10 @@ GEM
     builder (3.2.3)
     byebug (9.1.0)
     cancancan (2.1.2)
+    carrierwave (1.2.1)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     codemirror-rails (5.16.0)
       railties (>= 3.0, < 6.0)
     coderay (1.1.2)
@@ -275,6 +279,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   cancancan (~> 2.0)
+  carrierwave (~> 1.0)
   coffee-rails (~> 4.1.0)
   devise
   faker

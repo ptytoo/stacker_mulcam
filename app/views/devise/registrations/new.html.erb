@@ -24,9 +24,15 @@
 
 <br>
 <div id="group_user_id" class="form-group">
-      <span>
-
-      </span>
+  <select>
+  <% @company_fields.each do |field|%>
+    <option class="enter"><%= field.name %> | <%=field.id%></option>
+  <% end %>
+  <%= file_field_tag '사진등록'%>
+  </select>
+  <span>
+    <%= text_field_tag "account_id", nil, :id => "autocomplete_text", :class => "form-control", :placeholder => "Account Id" %>
+  </span>
 </div>
 
 
