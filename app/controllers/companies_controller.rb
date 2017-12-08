@@ -25,14 +25,9 @@ class CompaniesController < ApplicationController
   # POST /companies.json
   def create
     @company = Company.new(company_params)
-    binding.pry
-    session["company_id"] = @company.id
-    if session["company_id"].present?
-      User.company_id = session["company_id"]
-      sesseion["company_id"] = nil
-    end
+    ret = @company.save
     respond_to do |format|
-      if @company.save
+      if ret
         format.html { redirect_to @company, notice: 'Company was successfully created.' }
         format.json { render :show, status: :created, location: @company }
       else
