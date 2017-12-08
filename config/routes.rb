@@ -21,13 +21,23 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users do
-      
+
     end
   end
+  
   namespace :enter do
     resources :companies do
+      member do
+
+      end
+    end
+    resources :services do
+      member do
+
+      end
     end
   end
+
   namespace :indi do
     resources :users do
     end
