@@ -30,11 +30,7 @@
     회사 명 : <%= f.text_field :name, id: "name" %><br>
     회사 사이트 주소 : <%= f.text_field :site_url, id: "site_url"%><br>
     사업 분야 :
-<<<<<<< HEAD
-    <select name="companies[company_field_id]" id="companies[field_id]">
-=======
     <select name="companies[company_field_id]" id="field_id">
->>>>>>> dbd1f2b108a43ff478de226b77bd34ac7f1628d8
     <% @company_fields.each do |field|%>
       <option class="enter" value="<%=field.id%>"><%= field.name %></option>
     <% end %>
@@ -74,18 +70,12 @@ $(function() {
            'logo_url' : $('#logo_url').val(),
            'describe' : $('#describe').val(),
            'company_field_id' : $('#field_id').val()}},
-<<<<<<< HEAD
-          dataType: "json"
-        });
-=======
           dataType: "json",
           success: function(company){
             console.log(company);
               $("#company_id").val(company.id);
             }
           });
->>>>>>> dbd1f2b108a43ff478de226b77bd34ac7f1628d8
-
         //$.session.set("company_name", input);
 
       });
