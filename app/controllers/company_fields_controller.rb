@@ -10,6 +10,7 @@ class CompanyFieldsController < ApplicationController
   # GET /company_fields/1
   # GET /company_fields/1.json
   def show
+    @companies = Company.where(company_field_id: params[:id])
   end
 
   # GET /company_fields/new

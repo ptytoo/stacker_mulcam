@@ -29,15 +29,35 @@ end
 
 require 'csv'
 
+# CSV.foreach(Rails.root.join('seed_data_service/e-commerce.csv')) do |row|
+#     Service.create(
+#     name: row[0].to_s.downcase,
+#     site_url: row[1],
+#     logo_url: row[2],
+#     describe: row[3],
+#     company_field_id: 1
+#   )
+# end
 
-CSV.foreach(Rails.root.join('seed_data_company/fintech_company.csv')) do |row|
+
+CSV.foreach(Rails.root.join('seed_data_company/sm-commu.csv')) do |row|
     Company.create(
     name: row[0].to_s.downcase,
     site_url: row[1],
     logo_url: row[2],
     describe: row[3],
-    # service_id:
-    company_field_id: 4
+    company_field_id: 1
+  )
+end
+text = File.open(Rails.root.join('seed_data_company/IoT.csv')).read
+text.each_line do |line|
+  data = line.split("@@$^")
+    Company.create(
+    name: data[0].to_s.downcase,
+    site_url: data[1],
+    logo_url: data[2],
+    describe: data[3],
+    company_field_id: 11
   )
 end
 
