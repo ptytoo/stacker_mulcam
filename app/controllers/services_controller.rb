@@ -10,6 +10,8 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
+    @service = Service.all
+    @services = Service.where(company_id: params[:id])
   end
 
   # GET /services/new
