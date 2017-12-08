@@ -64,8 +64,11 @@ $(document).ready(function() {
     $.ajax({
       url: "<%=companies_path%>",
       method: "POST",
-      data: {name:, site_url:, logo_url: , ....},
-      dataType: "json"
+      data:JSON.stringify(name,site_url,logo_url),
+      dataType: "json",
+      success: function(data) {
+        alert('success');
+    }
     });
   });
 });
