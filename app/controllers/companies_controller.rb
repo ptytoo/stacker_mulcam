@@ -25,6 +25,7 @@ class CompaniesController < ApplicationController
   # POST /companies.json
   def create
     @company = Company.new(company_params)
+    binding.pry
     session["company_id"] = @company.id
     if session["company_id"].present?
       User.company_id = session["company_id"]
