@@ -5,5 +5,36 @@
   <%= @company_field.name %>
 </p>
 
+<table>
+  <thead>
+    <tr>
+      <th>Logo</th>
+      <th>Compnany Name</th>
+      <th>Site_url</th>
+      <th>Describe</th>
+      <th colspan="3"></th>
+    </tr>
+</thead>
+
+
+
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><img src="<%=company.logo_url%>" data-toggle="tooltip" title="<%=company.name%>" id: "#{company.name}"></td>
+        <td><%= company.name %><%= link_to '<button type="button">상세보기</button>'.html_safe, services_path %></td>
+        <td><%= company.site_url %></td>
+        <td><%= company.describe %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
 <%= link_to 'Edit', edit_company_field_path(@company_field) %> |
 <%= link_to 'Back', company_fields_path %>
