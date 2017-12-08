@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'fog-aws'
 gem 'pry'
 gem 'poltergeist'
 gem 'phantomjs', :require => 'phantomjs/poltergeist'
