@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207025002) do
+ActiveRecord::Schema.define(version: 20171208084333) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -84,6 +84,14 @@ ActiveRecord::Schema.define(version: 20171207025002) do
 
   create_table "stack_fields", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stack_trends", force: :cascade do |t|
+    t.string   "type_id"
+    t.string   "type_name"
+    t.string   "stack_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
