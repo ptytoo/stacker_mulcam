@@ -29,15 +29,126 @@ end
 
 require 'csv'
 
-CSV.foreach(Rails.root.join('seed_data_company/sm-commu.csv')) do |row|
+text = File.open(Rails.root.join('seed_data_company/sm-commu.csv')).read
+text.each_line do |line|
+  data = line.split("@@$^")
     Company.create(
-    name: row[0].to_s.downcase,
-    site_url: row[1],
-    logo_url: row[2],
-    describe: row[3],
+    name: data[0].to_s.downcase,
+    site_url: data[1],
+    logo_url: data[2],
+    describe: data[3],
     company_field_id: 1
   )
 end
+
+text = File.open(Rails.root.join('seed_data_company/edtech.csv')).read
+text.each_line do |line|
+  data = line.split("@@$^")
+    Company.create(
+    name: data[0].to_s.downcase,
+    site_url: data[1],
+    logo_url: data[2],
+    describe: data[3],
+    company_field_id: 2
+  )
+end
+
+text = File.open(Rails.root.join('seed_data_company/utility.csv')).read
+text.each_line do |line|
+  data = line.split("@@$^")
+    Company.create(
+    name: data[0].to_s.downcase,
+    site_url: data[1],
+    logo_url: data[2],
+    describe: data[3],
+    company_field_id: 3
+  )
+end
+
+text = File.open(Rails.root.join('seed_data_company/fintech.csv')).read
+text.each_line do |line|
+  data = line.split("@@$^")
+    Company.create(
+    name: data[0].to_s.downcase,
+    site_url: data[1],
+    logo_url: data[2],
+    describe: data[3],
+    company_field_id: 4
+  )
+end
+
+text = File.open(Rails.root.join('seed_data_company/IoT.csv')).read
+text.each_line do |line|
+  data = line.split("@@$^")
+    Company.create(
+    name: data[0].to_s.downcase,
+    site_url: data[1],
+    logo_url: data[2],
+    describe: data[3],
+    company_field_id: 5
+  )
+end
+
+text = File.open(Rails.root.join('seed_data_company/e-commerce.csv')).read
+text.each_line do |line|
+  data = line.split("@@$^")
+    Company.create(
+    name: data[0].to_s.downcase,
+    site_url: data[1],
+    logo_url: data[2],
+    describe: data[3],
+    company_field_id: 6
+  )
+end
+
+text = File.open(Rails.root.join('seed_data_company/foodtech.csv')).read
+text.each_line do |line|
+  data = line.split("@@$^")
+    Company.create(
+    name: data[0].to_s.downcase,
+    site_url: data[1],
+    logo_url: data[2],
+    describe: data[3],
+    company_field_id: 7
+  )
+end
+
+text = File.open(Rails.root.join('seed_data_company/contents.csv')).read
+text.each_line do |line|
+  data = line.split("@@$^")
+    Company.create(
+    name: data[0].to_s.downcase,
+    site_url: data[1],
+    logo_url: data[2],
+    describe: data[3],
+    company_field_id: 8
+  )
+end
+
+text = File.open(Rails.root.join('seed_data_company/healthcare.csv')).read
+text.each_line do |line|
+  data = line.split("@@$^")
+    Company.create(
+    name: data[0].to_s.downcase,
+    site_url: data[1],
+    logo_url: data[2],
+    describe: data[3],
+    company_field_id: 9
+  )
+end
+
+text = File.open(Rails.root.join('seed_data_company/ad_marketing.csv')).read
+text.each_line do |line|
+  data = line.split("@@$^")
+    Company.create(
+    name: data[0].to_s.downcase,
+    site_url: data[1],
+    logo_url: data[2],
+    describe: data[3],
+    company_field_id: 10
+  )
+end
+
 text = File.open(Rails.root.join('seed_data_company/IoT.csv')).read
 text.each_line do |line|
   data = line.split("@@$^")
@@ -50,6 +161,29 @@ text.each_line do |line|
   )
 end
 
+text = File.open(Rails.root.join('seed_data_company/analytics.csv')).read
+text.each_line do |line|
+  data = line.split("@@$^")
+    Company.create(
+    name: data[0].to_s.downcase,
+    site_url: data[1],
+    logo_url: data[2],
+    describe: data[3],
+    company_field_id: 12
+  )
+end
+
+text = File.open(Rails.root.join('seed_data_company/sharing_economy.csv')).read
+text.each_line do |line|
+  data = line.split("@@$^")
+    Company.create(
+    name: data[0].to_s.downcase,
+    site_url: data[1],
+    logo_url: data[2],
+    describe: data[3],
+    company_field_id: 13
+  )
+end
 
 
 CSV.foreach(Rails.root.join('seed_data_stack/language_stack.csv')) do |row|

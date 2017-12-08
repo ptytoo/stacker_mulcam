@@ -7,17 +7,14 @@
 <%= @services%>
 <br><br>
 <h1>회사 정보</h1>
-NAME: <%= @company.name%><br>
-ID: <%= @company.id%>
-URL: <%= @company.
-<%= link_to '수정'%>
+회사 명: <%= @company.name%><br>
+회사 주소: <%= @company.site_url%><br>
 
+<%= link_to '수정', edit_company_path(@company)%>
+<br><br>
 <h1>서비스 정보</h1>
-
 <% if @services %>
-  <%= @services.each do |service| %>
-    <%=service.name%>
-  <% end%>
-<%= else %>
-
+  <% @services.each do |service|%>
+    <a href="/services/<%=service.id%>" title="<%=service.name%>"><%=service.name%></a>
+  <% end %>
 <% end %>
