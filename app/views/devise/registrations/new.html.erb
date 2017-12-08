@@ -13,6 +13,8 @@
     <%= f.label(:indi, "개인회원") %>
     <%= f.radio_button(:role, "enter", value: "enter", id: "enter", data: {behavior: "clickable" })%>
     <%= f.label(:enter, "기업회원") %>
+    <%=f.hidden_field :company_id, id:"company_id"%>
+
   </div>
 
   <div class="form-actions">
@@ -28,7 +30,7 @@
     회사 명 : <%= f.text_field :name, id: "name" %><br>
     회사 사이트 주소 : <%= f.text_field :site_url, id: "site_url"%><br>
     사업 분야 :
-    <select name="companies[field_id]" id="companies[field_id]">
+    <select name="companies[company_field_id]" id="field_id">
     <% @company_fields.each do |field|%>
       <option class="enter" value="<%=field.id%>"><%= field.name %></option>
     <% end %>
@@ -63,15 +65,19 @@ $(function() {
         $.ajax({
           url: "<%=companies_path%>",
           method: "POST",
-          data: {"company": {'name' : $('#name').val(),
+          data: {"company": {
+           'name' : $('#name').val(),
            'site_url' : $('#site_url').val(),
            'logo_url' : $('#logo_url').val(),
            'describe' : $('#describe').val(),
-           'field_id' : $('#field_id').val()}},
-          dataType: "json"
-        });
+           'company_field_id' : $('#field_id').val()}},
+          dataType: "json",
+          success: function(company){
+            console.log(company);
+              $("#company_id").val(company.id);
+            }
+          });
 
-        var input = $('#name');
         //$.session.set("company_name", input);
 
       });
