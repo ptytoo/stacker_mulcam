@@ -9,9 +9,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    # session["company_id"] = params[:data]
+    # if session["company_id"].present?
+    #   @user = User.find_by(id: current_user.id)
+    #   @user.update(company_id: session["company_id"])
+    #   sesseion["company_id"] = nil
+    # end
+  end
 
   # GET /resource/edit
   # def edit
@@ -52,11 +58,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def sign_up_params
-    params.require(:user).permit(:email,:password,:password_confirmation,:nickname, :phone, :role)
+    params.require(:user).permit(:email,:password,:password_confirmation,:nickname, :phone, :role, :company_id)
   end
 
   def account_update_params
-    params.require(:user).permit(:email,:password,:password_confirmation,:nickname, :phone, :role,:current_password)
+    params.require(:user).permit(:email,:password,:password_confirmation,:nickname, :phone, :role,:current_password,:company_id)
   end
 
   # The path used after sign up. 회원가입 클릭 후 이동하는 패스 설정하는 함수

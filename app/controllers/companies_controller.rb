@@ -26,9 +26,6 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     ret = @company.save
-    session["company_id"] = @company.id
-    puts @company.id
-
     respond_to do |format|
       if ret
         format.html { redirect_to @company, notice: 'Company was successfully created.' }
