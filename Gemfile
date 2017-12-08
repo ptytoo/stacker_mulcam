@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 
+gem 'pry'
 gem 'poltergeist'
 gem 'phantomjs', :require => 'phantomjs/poltergeist'
 gem 'capybara'

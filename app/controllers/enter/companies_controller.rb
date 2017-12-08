@@ -3,5 +3,5 @@ class Enter::CompaniesController < Enter::ApplicationController
     # @services = Service.all
     @user = current_user
   end
-
+  
 end
