@@ -19,9 +19,9 @@
 
 
   <tbody>
+    <% @companies.each do |company| %>
       <tr>
-        <% @companies.each do |company| %>
-        <td><img src="<%=company.logo_url%>"></td>
+        <td><img src="<%=company.logo_url%>" data-toggle="tooltip" title="<%=company.name%>" id: "#{company.name}"></td>
         <td><%= company.name %><%= link_to '<button type="button">상세보기</button>'.html_safe, services_path %></td>
         <td><%= company.site_url %></td>
         <td><%= company.describe %></td>
@@ -30,7 +30,11 @@
   </tbody>
 </table>
 
-
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
 
 <%= link_to 'Edit', edit_company_field_path(@company_field) %> |
 <%= link_to 'Back', company_fields_path %>
