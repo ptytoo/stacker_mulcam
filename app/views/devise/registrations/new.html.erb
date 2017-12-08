@@ -28,7 +28,7 @@
     회사 명 : <%= f.text_field :name, id: "name" %><br>
     회사 사이트 주소 : <%= f.text_field :site_url, id: "site_url"%><br>
     사업 분야 :
-    <select name="companies[company_fields_id]" id="companies[field_id]">
+    <select name="companies[company_field_id]" id="companies[field_id]">
     <% @company_fields.each do |field|%>
       <option class="enter" value="<%=field.id%>"><%= field.name %></option>
     <% end %>
@@ -66,7 +66,7 @@ $(function() {
            'site_url' : $('#site_url').val(),
            'logo_url' : $('#logo_url').val(),
            'describe' : $('#describe').val(),
-           'field_id' : $('#company_fields_id').val()}},
+           'company_field_id' : $('#field_id').val()}},
           dataType: "json"
         });
 
