@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-
 <p>
   <strong>Name:</strong>
   <%= @company_field.name %>
@@ -9,20 +8,22 @@
 <table>
   <thead>
     <tr>
+      <th>Logo</th>
       <th>Compnany Name</th>
       <th>Site_url</th>
-      <th>Logo_url</th>
       <th>Describe</th>
       <th colspan="3"></th>
     </tr>
 </thead>
 
+
+
   <tbody>
-    <% @companies.each do |company| %>
       <tr>
+        <% @companies.each do |company| %>
+        <td><img src="<%=company.logo_url%>"></td>
         <td><%= company.name %><%= link_to '<button type="button">상세보기</button>'.html_safe, services_path %></td>
         <td><%= company.site_url %></td>
-        <td><%= company.logo_url %></td>
         <td><%= company.describe %></td>
       </tr>
     <% end %>

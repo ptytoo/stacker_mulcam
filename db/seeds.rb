@@ -77,7 +77,7 @@ text.each_line do |line|
   )
 end
 
-text = File.open(Rails.root.join('seed_data_company/IoT.csv')).read
+text = File.open(Rails.root.join('seed_data_company/game.csv')).read
 text.each_line do |line|
   data = line.split("@@$^")
     Company.create(
