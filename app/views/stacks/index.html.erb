@@ -1,32 +1,26 @@
-<% require 'cgi' %>
 
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Stacks</h1>
+<h1>Hot Stacks</h1>
 
 <br>
 
 <%= link_to 'New Stack', new_stack_path %>
 
-<% @stack_fields.each do |field|%>
-  <p>
-    <a class="btn btn-link" data-toggle="collapse" href="#<%=field.name %>" aria-expanded="false" aria-controls="collapseExample">
-      <%= field.name%>
-    </a>
-  </p>
-  <div class="collapse" id="<%= field.name%>">
-    <div class="card card-body">
-      <% field.stacks.each do |stack| %>
-        <a href="/stacks/<%=stack.id%>" data-toggle="tooltip" title="<%=stack.name%>">
-          <%= image_tag "https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/#{field.name}/#{stack.name.capitalize}.png", id: "#{stack.name}", class: "mr-3", width: "50", height: "50" %>
-        </a>
-      <% end %>
-    </div>
-  </div>
-<% end %>
+<br>
 
-<script>
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
+
+
+<% @stack_trends.each do |trend|%>
+<div>
+
+  <%for i in 0..8%>
+
+    <% if trend.type_id =="#{i}"%>
+    <%= trend.type_name%>
+    <%= trend.stack_name %>
+    <% end %>
+
+    <% i += 1 %>
+</div>
+  <%end %>
+
+<% end %>
