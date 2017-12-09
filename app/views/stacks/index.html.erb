@@ -8,19 +8,9 @@
 <br>
 
 
-
+<% @field.each do |field| %>
+<%= field.type_name %>
+<% end %>
 <% @stack_trends.each do |trend|%>
-<div>
-
-  <%for i in 0..8%>
-
-    <% if trend.type_id =="#{i}"%>
-    <%= trend.type_name%>
-    <%= trend.stack_name %>
-    <% end %>
-
-    <% i += 1 %>
-</div>
-  <%end %>
-
+        <%= trend.stack_name if trend.type_id == "0" %>
 <% end %>

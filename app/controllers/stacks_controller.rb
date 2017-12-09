@@ -7,6 +7,8 @@ class StacksController < ApplicationController
     @stacks = Stack.all
     @stack_fields = StackField.all
     @stack_trends= StackTrend.all
+    @field = StackTrend.select(:type_name).distinct
+
   end
 
   # GET /stacks/1
