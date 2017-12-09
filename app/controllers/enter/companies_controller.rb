@@ -16,7 +16,7 @@ class Enter::CompaniesController < Enter::ApplicationController
   end
 
   def edit
-  end
+  end 
 
   def update
     respond_to do |format|
