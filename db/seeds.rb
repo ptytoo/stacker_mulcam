@@ -77,17 +77,17 @@ text.each_line do |line|
   )
 end
 
-text = File.open(Rails.root.join('seed_data_company/game.csv')).read
-text.each_line do |line|
-  data = line.split("@@$^")
-    Company.create(
-    name: data[0].to_s.downcase,
-    site_url: data[1],
-    logo_url: data[2],
-    describe: data[3],
-    company_field_id: 5
-  )
-end
+# text = File.open(Rails.root.join('seed_data_company/game.csv')).read
+# text.each_line do |line|
+#   data = line.split("@@$^")
+#     Company.create(
+#     name: data[0].to_s.downcase,
+#     site_url: data[1],
+#     logo_url: data[2],
+#     describe: data[3],
+#     company_field_id: 5
+#   )
+# end
 
 text = File.open(Rails.root.join('seed_data_company/e-commerce.csv')).read
 text.each_line do |line|
