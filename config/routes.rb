@@ -21,19 +21,16 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users do
-
     end
   end
-  
+
   namespace :enter do
     resources :companies do
-      member do
-
-      end
-    end
-    resources :services do
-      member do
-
+      resources :services do
+        member do
+          patch '/add_stack' => 'services#add_stack', as: 'add_stack_to'
+          delete '/delete_stack' => 'services#delte_stack', as: 'delete_stack_to'
+        end
       end
     end
   end

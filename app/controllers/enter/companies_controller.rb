@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Enter::CompaniesController < Enter::ApplicationController
   def index
     # @services = Service.all
@@ -36,3 +37,19 @@ class Enter::CompaniesController < Enter::ApplicationController
   def delete_stack
   end
 end
+=======
+class Enter::CompaniesController < Enter::ApplicationController
+  def index
+    # @services = Service.all
+    @user = current_user
+    @company = Company.find_by(id: @user.company_id)
+    @services = Service.where(company_id: @company.id)
+  end
+
+  def edit
+  end
+
+  def update
+  end
+end
+>>>>>>> df5e3efab81fa3f7aa706cf9c13b8a2ed12eef10

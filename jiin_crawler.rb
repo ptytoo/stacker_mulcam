@@ -9,6 +9,11 @@ Capybara.default_driver = :poltergeist
 Capybara.run_server = false
 
 
+$field_name = ['Programming Languages','Client Libraries','HTTP Server Technologies',
+  'Server Libraries','Databases and NoSQL Data','Server Software','Oprerationg Systems',
+  'Cloud/Hardware Infrastructure','3rd Party APIs/Services']
+
+
 File.open('trendstack.csv', 'w') do |file|
   file.write("")
 end
@@ -30,13 +35,13 @@ module GetPrice
             end
           end
       end
-      # binding.pry
-      # puts result
-      result = {'1' => result[0..4], '2' => result[5..9],
-                      '3' => result[10..14], '4' => result[15..19],
-                      '5' => result[20..24], '6' => result[25..29],
-                    '7' => result[30..34], '8' => result[35..39], '9'=> result[40..44]}
-        return result
+      result_hash = Hash.new
+      9.times do |i|
+        name = $field_name[i]
+        result_hash[name] = result[i*5..i*5+4]
+      end
+
+      return result_hash
     end
   end
 end
@@ -44,18 +49,9 @@ end
 scraper = GetPrice::WebScraper.new
 result = scraper.get_page_data('http://techstacks.io/')
 
-
-
 File.open("trendstack.csv", "a") do |file|
-
- for i in 1..9
-    file.write(result["#{i}"].join(','))
+  9.times do |i|
+    file.write(result[$field_name[i]].join(','))
     file.write("\n")
- end
+  end
 end
-
-
-# reuslt <<
-#
-
-# map(&:text).inspect

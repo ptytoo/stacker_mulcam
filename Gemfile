@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'fog-aws'
 gem 'pry'
+gem 'pry-rails'
 gem 'poltergeist'
 gem 'phantomjs', :require => 'phantomjs/poltergeist'
 gem 'capybara'

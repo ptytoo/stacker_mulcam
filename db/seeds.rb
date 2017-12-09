@@ -21,17 +21,9 @@ s_field_list.each do |field|
   s = StackField.create(
       name: field
   )
+
 end
 
-
-t_field_list = ["Programming Language", "Client Libraries", "HTTP Server Technologies", "Server Libraries", "Databases and NoSQL Datastores", "Server Software", "Operating Systems", "Cloud/Hardware Infrastructure", "3rd Party APIs/Services"]
-t_field_list.each do |field|
-   StackTrend.create(
-     type_id: 
-     type_name: field
-     stack_name:
-  )
-end
 
 
 require 'csv'
@@ -83,6 +75,18 @@ text.each_line do |line|
     company_field_id: 4
   )
 end
+
+# text = File.open(Rails.root.join('seed_data_company/game.csv')).read
+# text.each_line do |line|
+#   data = line.split("@@$^")
+#     Company.create(
+#     name: data[0].to_s.downcase,
+#     site_url: data[1],
+#     logo_url: data[2],
+#     describe: data[3],
+#     company_field_id: 5
+#   )
+# end
 
 text = File.open(Rails.root.join('seed_data_company/e-commerce.csv')).read
 text.each_line do |line|
@@ -264,4 +268,20 @@ arr[0..10].each do |a|
     quarter: a["quarter"],
     count: a["count"]
   )
+end
+
+
+field_name = ['Programming Languages','Client Libraries','HTTP Server Technologies',
+  'Server Libraries','Databases and NoSQL Data','Server Software','Oprerationg Systems',
+  'Cloud/Hardware Infrastructure','3rd Party APIs/Services']
+
+
+CSV.foreach(Rails.root.join('trendstack.csv')) do |row|
+  5.times do |i|
+      StackTrend.create(
+        type_id: $.-1,
+        type_name: field_name[$.-1],
+        stack_name: row[i]
+      )
+  end
 end
