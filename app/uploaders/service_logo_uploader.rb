@@ -48,4 +48,3 @@ class ServiceLogoUploader < CarrierWave::Uploader::Base
   # end
 
 end
->>>>>>> df5e3efab81fa3f7aa706cf9c13b8a2ed12eef10
