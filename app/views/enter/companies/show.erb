@@ -1,28 +1,24 @@
-<p id="notice"><%= notice %></p>
-<p>
-  <strong>Name:</strong>
-  <%= @company.name %>
-</p>
+<h1>회사 관리 페이지</h1>
+이메일 : <%= current_user.email%><br>
+이름 : <%= current_user.nickname%><br>
+권한 : <%= current_user.role%><br>
+전화번호 : <%= current_user.phone%><br>
+<%= link_to '수정', edit_user_registration_path %>
 
-<p>
-  <strong>Site url:</strong>
-  <%= @company.site_url %>
-</p>
+<br><br>
 
-<p>
-  <strong>Logo url:</strong>
-  <%= @company.logo_url %>
-</p>
+<h1>회사 정보</h1>
+회사 명: <%= @company.name%><br>
+회사 주소: <%= @company.site_url%><br>
+회사 내용: <%= @company.describe%><br>
+<%= link_to '수정', edit_enter_company_path(@company)%>
 
-<p>
-  <strong>Describe:</strong>
-  <%= @company.describe %>
-</p>
+<br><br>
 
-<p>
-  <strong>Company field:</strong>
-  <%= @company.company_field %>
-</p>
-
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+<h1>서비스 정보</h1>
+<%= link_to 'new', "/enter/companies/#{@company.id}/services/new"%>
+<% if @services %>
+  <% @services.each do |service|%>
+    <a href="/enter/companies/<%=@company.id%>/services/<%=service.id%>" title="<%=service.name%>"><%=service.name%></a>
+  <% end %>
+<% end %>
