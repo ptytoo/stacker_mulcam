@@ -27,10 +27,7 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     ret = @company.save
-    @blah = @company.logo_url
-    puts "*********************************************"
-    puts @blah
-    puts "*********************************************"
+
     respond_to do |format|
       if ret
         format.html { redirect_to @company, notice: 'Company was successfully created.' }
