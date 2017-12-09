@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 class CompanyFieldsController < ApplicationController
   before_action :set_company_field, only: [:show, :edit, :update, :destroy]
 

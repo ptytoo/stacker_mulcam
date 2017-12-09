@@ -73,4 +73,3 @@ class ServicesController < ApplicationController
       params.require(:service).permit(:name, :site_url, :logo_url, :describe, :company_id)
     end
 end
->>>>>>> df5e3efab81fa3f7aa706cf9c13b8a2ed12eef10
