@@ -10,6 +10,7 @@
 <h1>회사 정보</h1>
 회사 명: <%= @company.name%><br>
 회사 주소: <%= @company.site_url%><br>
+
 <%= link_to '수정', edit_enter_company_path(@company)%>
 
 <br><br>
@@ -20,3 +21,4 @@
     <a href="/services/<%=service.id%>" title="<%=service.name%>"><%=service.name%></a>
   <% end %>
 <% end %>
+<%= link_to '추가', new_enter_company_service_path(@company)%>

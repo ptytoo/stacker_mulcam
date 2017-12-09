@@ -7,19 +7,29 @@ class Enter::ServicesController < Enter::ApplicationController
   end
 
   def show
+
   end
+
   def update
   end
+
   def edit
+
   end
+
   def new
+    @servcie = Service.all
   end
+
   def create
   end
+
   def delete
   end
+
   def add_stack
   end
+
   def delete_stack
   end
 end
