@@ -5,6 +5,8 @@ class MainController < ApplicationController
 
   def search
     @check = params[:search]
-    @result = Stack.where("name Like ?", "%#{params[:search].capitalize}%")
+    @result_stacks = Stack.where("name Like ?", "%#{params[:search].capitalize}%")
+    @result_companies = Company.where("name Like ?", "%#{params[:search]}%")
+    @result_services = Service.where("name Like ?", "%#{params[:search]}%")
   end
 end
