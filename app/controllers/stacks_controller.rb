@@ -6,6 +6,7 @@ class StacksController < ApplicationController
   def index
     @stacks = Stack.all
     @stack_fields = StackField.all
+    @stack_trends= StackTrend.all
   end
 
   # GET /stacks/1

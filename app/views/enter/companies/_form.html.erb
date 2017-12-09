@@ -1,4 +1,4 @@
-<%= form_for(@company) do |f| %>
+<%= form_for(@company, url: enter_company_path(@company), method: :patch) do |f| %>
   <% if @company.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :logo_url %><br>
-    <%= f.text_field :logo_url%>
+    <%= f.text_field :logo_url %>
   </div>
   <div class="field">
     <%= f.label :describe %><br>
