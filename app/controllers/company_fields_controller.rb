@@ -1,9 +1,11 @@
+<<<<<<< HEAD
 class CompanyFieldsController < ApplicationController
   before_action :set_company_field, only: [:show, :edit, :update, :destroy]
 
   # GET /company_fields
   # GET /company_fields.json
   def index
+    @companys = Company.all
     @company_fields = CompanyField.all
   end
 
@@ -11,6 +13,11 @@ class CompanyFieldsController < ApplicationController
   # GET /company_fields/1.json
   def show
     @companies = Company.where(company_field_id: params[:id])
+  end
+
+  def detail
+    @company = Company.find(params[:id])
+    @services = Service.where(company_id: @company.id)
   end
 
   # GET /company_fields/new
