@@ -21,7 +21,6 @@ s_field_list.each do |field|
   s = StackField.create(
       name: field
   )
-
 end
 
 
@@ -144,7 +143,7 @@ text.each_line do |line|
     site_url: data[1],
     logo_url: data[2],
     describe: data[3],
-    company_id:
+    # company_id:
   )
 end
 #

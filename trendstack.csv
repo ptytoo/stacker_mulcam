@@ -1,7 +1,5 @@
 Python,Java,node.js,JavaScript,C#
-<<<<<<< HEAD
 React,Backbone.js,Bootstrap,AngularJS,jQuery
-=======
 React,Backbone.js,Bootstrap,AngularJS,jQuery
 Nginx,HAProxy,Apache,IIS,Jetty
 Ruby on Rails,ServiceStack,Django,OrmLite,Protocol Buffers
@@ -10,4 +8,3 @@ RabbitMQ,ZooKeeper,Docker,Apache Kafka,Varnish Cache
 Linux,Ubuntu,Windows Server 2012,CentOS,Red Hat Linux
 Amazon EC2,Amazon S3,Amazon CloudFront,Amazon Route 53,Amazon Redshift
 Stripe Payments,Pingdom,Akamai,Papertrail,Mandrill
->>>>>>> 9c2e4c4277a910b0a39e6b26304de23af4f9d368
