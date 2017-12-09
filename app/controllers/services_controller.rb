@@ -27,9 +27,6 @@ class ServicesController < ApplicationController
   # POST /services.json
   def create
     @service = Service.new(service_params)
-    puts "*********************************************"
-    puts params[:logo_url]["logo_s3_url"]
-    puts "*********************************************"
     respond_to do |format|
       if @service.save
         format.html { redirect_to @service, notice: 'Service was successfully created.' }
@@ -39,7 +36,6 @@ class ServicesController < ApplicationController
         format.json { render json: @service.errors, status: :unprocessable_entity }
       end
     end
-    @service.update(logo_url: params[:logo_url]["logo_s3_url"])
   end
 
   # PATCH/PUT /services/1
