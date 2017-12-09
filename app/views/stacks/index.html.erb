@@ -25,6 +25,17 @@
   </div>
 <% end %>
 
+<%j=0%>
+<%@types.each do |type|%>
+  <strong><%= type%></strong><br>
+  <%for i in 0..4%>
+      <%= @stack_trends[i+j]["stack_name"]%><br>
+  <%end%>
+  <%j+=5%>
+<%end%>
+
+
+
 <script>
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
