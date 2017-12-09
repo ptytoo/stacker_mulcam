@@ -1,35 +1,5 @@
-<h1>회사 서비스 추가 페이지</h1>
+<h1>새 서비스 form</h1>
 
-<%= form_for(@service, url: enter_company_service_path(@servive), method: :put) do |f| %>
-  <% if @service.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
+<%= render 'form_create' %>
 
-      <ul>
-      <% @service.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :site_url %><br>
-    <%= f.text_field :site_url %>
-  </div>
-  <div class="field">
-    <%= f.label :logo_url %><br>
-    <%= f.file_field :logo_url %>
-  </div>
-  <div class="field">
-    <%= f.label :describe %><br>
-    <%= f.text_area :describe %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%= link_to 'Back', url: "/enter/companies/<#{@company.id}/services/#{@service.id}" %>

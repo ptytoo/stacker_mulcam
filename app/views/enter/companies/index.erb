@@ -19,7 +19,7 @@
 <%= link_to 'new', "/enter/companies/#{@company.id}/services/new"%>
 <% if @services %>
   <% @services.each do |service|%>
-    <a href="/enter/companies/<%=@company.id%>/services/<%=service.id%>" title="<%=service.name%>"><%=service.name%></a>
+    <%= service.name%>
   <% end %>
 <% end %>
 <%= link_to '추가', new_enter_company_service_path(@company)%>

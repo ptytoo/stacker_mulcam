@@ -15,26 +15,6 @@ class Enter::CompaniesController < Enter::ApplicationController
   end
 
   def edit
-    @user = current_user
-    @company = Company.find_by(id: @user.company_id)
-  end
-
-  def create
-    @company = Company.new(company_params)
-    ret = @company.save
-    @blah = @company.logo_url
-    puts "*********************************************"
-    puts @blah
-    puts "*********************************************"
-    respond_to do |format|
-      if ret
-        format.html { redirect_to @company, notice: 'Company was successfully created.' }
-        format.json { render :show, status: :created, location: @company }
-      else
-        format.html { render :new }
-        format.json { render json: @company.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   def update

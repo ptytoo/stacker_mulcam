@@ -6,6 +6,14 @@ class StacksController < ApplicationController
   def index
     @stacks = Stack.all
     @stack_fields = StackField.all
+<<<<<<< HEAD
+    @stack_trends = StackTrend.all.to_a
+    @types = ['Programming Languages','Client Libraries','HTTP Server Technologies',
+      'Server Libraries','Databases and NoSQL Data','Server Software','Oprerationg Systems',
+      'Cloud/Hardware Infrastructure','3rd Party APIs/Services']
+=======
+    @stack_trends= StackTrend.all
+>>>>>>> c32f49fefe4a9ada3f41a5966721288c1b9af498
   end
 
   # GET /stacks/1

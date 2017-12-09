@@ -10,13 +10,14 @@ class Enter::ServicesController < Enter::ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
-    @service = Service.all
-    @services = Service.where(company_id: params[:id])
+    # @service = Service.all
+    # @service = Service.find_by(company_id: params[:id])
   end
 
   # GET /services/new
   def new
     @service = Service.new
+    @company = Company.find_by(params[:id])
   end
 
   # GET /services/1/edit
@@ -29,14 +30,13 @@ class Enter::ServicesController < Enter::ApplicationController
     @service = Service.new(service_params)
     respond_to do |format|
       if @service.save
-        format.html { redirect_to "/enter/companies/#{@company.id}/services", notice: 'Service was successfully created.' }
+        format.html { redirect_to "/enter/companies/#{@service.company_id}/services/#{@service.id}", notice: 'Service was successfully created.' }
         format.json { render :show, status: :created, location: @service }
       else
         format.html { render :new }
         format.json { render json: @service.errors, status: :unprocessable_entity }
       end
     end
-    @service.update(logo_url: params[:logo_url]["logo_s3_url"])
   end
 
   # PATCH/PUT /services/1
@@ -44,7 +44,7 @@ class Enter::ServicesController < Enter::ApplicationController
   def update
     respond_to do |format|
       if @service.update(service_params)
-        format.html { redirect_to @service, notice: 'Service was successfully updated.' }
+        format.html { redirect_to "/enter/companies/#{@service.company_id}/services/#{@service.id}", notice: 'Service was successfully updated.' }
         format.json { render :show, status: :ok, location: @service }
       else
         format.html { render :edit }
@@ -65,7 +65,6 @@ class Enter::ServicesController < Enter::ApplicationController
 
   def add_stack
   end
-
   def delete_stack
   end
 

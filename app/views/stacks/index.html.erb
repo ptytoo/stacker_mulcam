@@ -1,13 +1,11 @@
-<% require 'cgi' %>
 
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Stacks</h1>
+<h1>Hot Stacks</h1>
 
 <br>
 
 <%= link_to 'New Stack', new_stack_path %>
 
+<<<<<<< HEAD
 <% @stack_fields.each do |field|%>
   <p>
     <a class="btn btn-link" data-toggle="collapse" href="#<%=field.name %>" aria-expanded="false" aria-controls="collapseExample">
@@ -24,6 +22,22 @@
     </div>
   </div>
 <% end %>
+=======
+<br>
+
+
+
+<%j=0%>
+<%@types.each do |type|%>
+  <strong><%= type%></strong><br>
+  <%for i in 0..4%>
+      <%= @stack_trends[i+j]["stack_name"]%><br>
+  <%end%>
+  <%j+=5%>
+<%end%>
+
+
+>>>>>>> 2c4043b7ce8734976dd3514bd9ab1c1de647e506
 
 <script>
   $(function () {

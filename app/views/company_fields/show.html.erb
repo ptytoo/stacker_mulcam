@@ -10,8 +10,6 @@
     <tr>
       <th>Logo</th>
       <th>Compnany Name</th>
-      <th>Site_url</th>
-      <th>Describe</th>
       <th colspan="3"></th>
     </tr>
 </thead>
@@ -22,9 +20,7 @@
     <% @companies.each do |company| %>
       <tr>
         <td><img src="<%=company.logo_url%>" data-toggle="tooltip" title="<%=company.name%>" id: "#{company.name}"></td>
-        <td><%= company.name %><%= link_to '<button type="button">상세보기</button>'.html_safe, services_path %></td>
-        <td><%= company.site_url %></td>
-        <td><%= company.describe %></td>
+        <td><%= company.name %><%= link_to '<button type="button">상세보기</button>'.html_safe, "/company_fields/detail/#{company.id}" %></td>
       </tr>
     <% end %>
   </tbody>
