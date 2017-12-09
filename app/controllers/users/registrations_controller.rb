@@ -11,12 +11,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    # session["company_id"] = params[:data]
-    # if session["company_id"].present?
-    #   @user = User.find_by(id: current_user.id)
-    #   @user.update(company_id: session["company_id"])
-    #   sesseion["company_id"] = nil
-    # end
   end
 
   # GET /resource/edit
