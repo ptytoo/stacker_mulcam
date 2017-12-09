@@ -1,4 +1,4 @@
-class Enter::CompaniesController < Enter::ApplicationController
+class Enter::ServicesController < Enter::ApplicationController
   def index
     # @services = Service.all
     @user = current_user
@@ -6,9 +6,20 @@ class Enter::CompaniesController < Enter::ApplicationController
     @services = Service.where(company_id: @company.id)
   end
 
+  def show
+  end
+  def update
+  end
   def edit
   end
-
-  def update
+  def new
+  end
+  def create
+  end
+  def delete
+  end
+  def add_stack
+  end
+  def delete_stack
   end
 end
