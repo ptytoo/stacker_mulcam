@@ -8,12 +8,11 @@ require 'pry'
 Capybara.default_driver = :poltergeist
 Capybara.run_server = false
 
-<<<<<<< HEAD
+
 $field_name = ['Programming Languages','Client Libraries','HTTP Server Technologies',
   'Server Libraries','Databases and NoSQL Data','Server Software','Oprerationg Systems',
   'Cloud/Hardware Infrastructure','3rd Party APIs/Services']
-=======
->>>>>>> c7f866bc30ae6e89560a5c47dfbd30e714dacf8a
+
 
 File.open('trendstack.csv', 'w') do |file|
   file.write("")
