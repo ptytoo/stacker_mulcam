@@ -22,7 +22,6 @@ s_field_list.each do |field|
       name: field
   )
 
-#
 end
 
 
@@ -269,4 +268,20 @@ arr[0..10].each do |a|
     quarter: a["quarter"],
     count: a["count"]
   )
+end
+
+
+field_name = ['Programming Languages','Client Libraries','HTTP Server Technologies',
+  'Server Libraries','Databases and NoSQL Data','Server Software','Oprerationg Systems',
+  'Cloud/Hardware Infrastructure','3rd Party APIs/Services']
+
+
+CSV.foreach(Rails.root.join('trendstack.csv')) do |row|
+  5.times do |i|
+      StackTrend.create(
+        type_id: $.-1,
+        type_name: field_name[$.-1],
+        stack_name: row[i]
+      )
+  end
 end
