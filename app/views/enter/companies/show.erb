@@ -1,8 +1,8 @@
 <h1>회사 관리 페이지</h1>
-이메일 : <%= @user.email%><br>
-이름 : <%= @user.nickname%><br>
-권한 : <%= @user.role%><br>
-전화번호 : <%= @user.phone%><br>
+이메일 : <%= current_user.email%><br>
+이름 : <%= current_user.nickname%><br>
+권한 : <%= current_user.role%><br>
+전화번호 : <%= current_user.phone%><br>
 <%= link_to '수정', edit_user_registration_path %>
 
 <br><br>
@@ -10,6 +10,7 @@
 <h1>회사 정보</h1>
 회사 명: <%= @company.name%><br>
 회사 주소: <%= @company.site_url%><br>
+회사 내용: <%= @company.describe%><br>
 <%= link_to '수정', edit_enter_company_path(@company)%>
 
 <br><br>
