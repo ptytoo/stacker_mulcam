@@ -21,10 +21,17 @@ s_field_list.each do |field|
   s = StackField.create(
       name: field
   )
-
-#
 end
 
+
+t_field_list = ["Programming Language", "Client Libraries", "HTTP Server Technologies", "Server Libraries", "Databases and NoSQL Datastores", "Server Software", "Operating Systems", "Cloud/Hardware Infrastructure", "3rd Party APIs/Services"]
+t_field_list.each do |field|
+   StackTrend.create(
+     type_id: 
+     type_name: field
+     stack_name:
+  )
+end
 
 
 require 'csv'
@@ -74,18 +81,6 @@ text.each_line do |line|
     logo_url: data[2],
     describe: data[3],
     company_field_id: 4
-  )
-end
-
-text = File.open(Rails.root.join('seed_data_company/game.csv')).read
-text.each_line do |line|
-  data = line.split("@@$^")
-    Company.create(
-    name: data[0].to_s.downcase,
-    site_url: data[1],
-    logo_url: data[2],
-    describe: data[3],
-    company_field_id: 5
   )
 end
 

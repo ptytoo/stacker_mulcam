@@ -32,7 +32,11 @@ module GetPrice
       end
       # binding.pry
       # puts result
-      return result
+      result = {'1' => result[0..4], '2' => result[5..9],
+                      '3' => result[10..14], '4' => result[15..19],
+                      '5' => result[20..24], '6' => result[25..29],
+                    '7' => result[30..34], '8' => result[35..39], '9'=> result[40..44]}
+        return result
     end
   end
 end
@@ -43,8 +47,11 @@ result = scraper.get_page_data('http://techstacks.io/')
 
 
 File.open("trendstack.csv", "a") do |file|
-  file.write(result.join(","))
-  file.write("\n")
+
+ for i in 1..9
+    file.write(result["#{i}"].join(','))
+    file.write("\n")
+ end
 end
 
 
