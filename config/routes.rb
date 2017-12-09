@@ -24,16 +24,13 @@ Rails.application.routes.draw do
 
     end
   end
-  
+
   namespace :enter do
     resources :companies do
-      member do
+      resources :services do
+        member do
 
-      end
-    end
-    resources :services do
-      member do
-
+        end
       end
     end
   end

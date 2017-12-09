@@ -18,7 +18,7 @@
     <div class="card card-body">
       <% field.stacks.each do |stack| %>
         <a href="/stacks/<%=stack.id%>" data-toggle="tooltip" title="<%=stack.name%>">
-          <%= image_tag "https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/#{field.name}/#{stack.name.capitalize}.png", id: "#{stack.name}", class: "mr-3", width: "50", height: "50" %>
+          <%= image_tag "https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/#{field.name}/#{stack.name.capitalize}.png", id: "#{stack.name}", class: "mr-3", width: "50", height: "50" %>
         </a>
       <% end %>
     </div>
