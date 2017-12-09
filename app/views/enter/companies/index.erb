@@ -37,9 +37,10 @@
 <br><br>
 
 <h1>서비스 정보</h1>
+<%= link_to 'new', "/enter/companies/#{@company.id}/services/new"%>
 <% if @services %>
   <% @services.each do |service|%>
-    <a href="/services/<%=service.id%>" title="<%=service.name%>"><%=service.name%></a>
+    <a href="/enter/companies/<%=@company.id%>/services/<%=service.id%>" title="<%=service.name%>"><%=service.name%></a>
   <% end %>
 <% end %>
 >>>>>>> df5e3efab81fa3f7aa706cf9c13b8a2ed12eef10

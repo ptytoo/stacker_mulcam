@@ -29,7 +29,7 @@ Rails.application.routes.draw do
       resources :services do
         member do
           patch '/add_stack' => 'services#add_stack', as: 'add_stack_to'
-          delete '/delete_stack' => 'services#delte_stack', as: 'delete_stack_to'
+          delete '/delete_stack' => 'services#delete_stack', as: 'delete_stack_to'
         end
       end
     end
