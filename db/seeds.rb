@@ -344,6 +344,15 @@ text.each_line do |line|
   )
 end
 
+text = File.open(Rails.root.join('seed_data_service_stack/admarkets.csv')).read
+text.each_line do |line|
+  data = line.split("@@$^")
+    ServiceStack.create(
+    service_id: data[0],
+    stack_id: data[1]
+  )
+end
+
 CSV.foreach(Rails.root.join('seed_data_stack/language_stack.csv')) do |row|
   Stack.create(
     name: row[0].to_s.downcase,
