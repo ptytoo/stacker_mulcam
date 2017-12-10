@@ -6,9 +6,10 @@ require 'rest-client'
 require 'httparty'
 require 'csv'
 
-File.open("com1.csv", "w") do |file|
-  file.write("")
-end
+# File.open("com1.csv", "w") do |file|
+#   file.write("")
+# end
+
 DATA.each do |name|
   url = URI.encode "https://www.rocketpunch.com/companies/#{name}"
   res = HTTParty.get(url)
