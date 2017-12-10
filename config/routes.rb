@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'trend/index'
+
+  get 'trend/show'
+
   root 'main#index'
   get 'main/index'
   get 'main/search'

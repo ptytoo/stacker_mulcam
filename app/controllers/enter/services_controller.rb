@@ -12,6 +12,7 @@ class Enter::ServicesController < Enter::ApplicationController
   def show
     # @service = Service.all
     # @service = Service.find_by(company_id: params[:id])
+    @stacks = ServiceStack.where(service_id: @service.id)
   end
 
   # GET /services/new
