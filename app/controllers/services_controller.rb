@@ -10,6 +10,7 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
+    @stacks = ServiceStack.where(service_id: @service.id)
   end
 
   # GET /services/new
@@ -25,7 +26,6 @@ class ServicesController < ApplicationController
   # POST /services.json
   def create
     @service = Service.new(service_params)
-
     respond_to do |format|
       if @service.save
         format.html { redirect_to @service, notice: 'Service was successfully created.' }

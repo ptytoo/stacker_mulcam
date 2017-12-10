@@ -21,15 +21,11 @@
   </div>
   <div class="field">
     <%= f.label :logo_url %><br>
-    <%= f.text_field :logo_url %>
+    <%= f.file_field :logo_url, "logo_s3_url" %>
   </div>
   <div class="field">
     <%= f.label :describe %><br>
     <%= f.text_area :describe %>
-  </div>
-  <div class="field">
-    <%= f.label :company_id %><br>
-    <%= f.text_field :company_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,0 +1,2 @@
+module TrendHelper
+end

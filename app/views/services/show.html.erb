@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+
 <p>
   <strong>Name:</strong>
   <%= @service.name %>
@@ -22,8 +23,18 @@
 
 <p>
   <strong>Company:</strong>
-  <%= @service.company %>
+  <%= @service.company.name %>
 </p>
+
+<p>
+  <strong>Stack:</strong><br>
+  <%@stacks.each do |st|%>
+    <a href="/stacks/<%=st.stack_id%>" data-toggle="tooltip" title="<%=st.stack.name%>">
+      <%= image_tag "https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/#{st.stack.stack_field.name}/#{st.stack.name.capitalize}.png", id: "#{st.stack.name}", class: "mr-3", width: "50", height: "50" %>
+    </a>
+  <%end%>
+</p>
+<br>
 
 <%= link_to 'Edit', edit_service_path(@service) %> |
 <%= link_to 'Back', services_path %>

@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+
+  get 'trend/index'
+
+  get 'trend/show'
+
+  root 'main#index'
+  get 'main/index'
+  get 'main/search'
+  # get 'services/:id' => 'services#show'
+
+  get '/company_fields/detail/:id' => 'company_fields#detail'
+
   resources :services
   resources :companies
   resources :company_fields
@@ -9,9 +21,6 @@ Rails.application.routes.draw do
     end
   end
   resources :stack_fields
-  root 'main#index'
-  get 'main/index'
-  get 'main/search'
 
   #devise controller 생성했더니 이거 추가하라 했음 ㅠㅠㅠ....
   devise_for :users, controllers: {
@@ -21,13 +30,20 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users do
-      
     end
   end
+
   namespace :enter do
     resources :companies do
+      resources :services do
+        member do
+          patch '/add_stack' => 'services#add_stack', as: 'add_stack_to'
+          delete '/delete_stack' => 'services#delete_stack', as: 'delete_stack_to'
+        end
+      end
     end
   end
+
   namespace :indi do
     resources :users do
     end
