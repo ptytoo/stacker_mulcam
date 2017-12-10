@@ -28,6 +28,17 @@ end
 
 require 'csv'
 
+text = File.open(Rails.root.join('seed_data_service/sm-commus.csv')).read
+text.each_line do |line|
+  data = line.split("@@$^")
+    Service.create(
+    name: data[0].to_s.downcase,
+    site_url: data[1],
+    logo_url: data[2],
+    describe: data[3],
+    company_id: 1
+  )
+end
 
 
 text = File.open(Rails.root.join('seed_data_company/sm-commu.csv')).read
