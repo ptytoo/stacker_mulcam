@@ -1,5 +1,18 @@
 <h1>검색 결과 창</h1>
-<%@result.each do |r| %>
+<h3>검색 결과(스택)</h3>
+<%@result_stacks.each do |r| %>
+  <%= r.name%>
+  <%= r.site_url%><br>
+<%end%>
+<br>
+<h3>검색 결과(회사)</h3>
+<%@result_companies.each do |r| %>
+  <%= r.name%>
+  <%= r.site_url%><br>
+<%end%>
+<br>
+<h3>검색 결과(서비스)</h3>
+<%@result_services.each do |r| %>
   <%= r.name%>
   <%= r.site_url%><br>
 <%end%>

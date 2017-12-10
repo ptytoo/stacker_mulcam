@@ -32,7 +32,7 @@
             <% elsif current_user.indi?%>
               <%= link_to '개인관리_홈', indi_users_path,class: 'mdl-navigation__link'%>
             <%end%>
-            <%= link_to 'My Stack', indi_users_path, class: "nav-link js-scroll-trigger"%>
+            <%#= link_to 'My Stack', indi_users_path, class: "nav-link js-scroll-trigger"%>
             <%= link_to '로그아웃', destroy_user_session_path, method: :delete, class: "nav-link js-scroll-trigger"%>
           <% else %>
             <%= link_to '로그인', new_user_session_path, class: "nav-link js-scroll-trigger"%>

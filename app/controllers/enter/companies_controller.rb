@@ -1,43 +1,3 @@
-<<<<<<< HEAD
-class Enter::CompaniesController < Enter::ApplicationController
-  def index
-    # @services = Service.all
-    @user = current_user
-    @company = Company.find_by(id: @user.company_id)
-    @services = Service.where(company_id: @company.id)
-  end
-
-  def edit_company
-  end
-
-  def update_company
-  end
-
-  def show_service
-  end
-
-  def update_service
-  end
-
-  def edit_service
-  end
-
-  def new_service
-  end
-
-  def create_service
-  end
-
-  def delete_service
-  end
-
-  def add_stack
-  end
-
-  def delete_stack
-  end
-end
-=======
 class Enter::CompaniesController < Enter::ApplicationController
   before_action :set_company, only: [:index, :show, :edit, :update, :destroy]
 
@@ -56,7 +16,7 @@ class Enter::CompaniesController < Enter::ApplicationController
   end
 
   def edit
-  end
+  end 
 
   def update
     respond_to do |format|
@@ -81,4 +41,3 @@ class Enter::CompaniesController < Enter::ApplicationController
     params.require(:company).permit(:name, :site_url, :logo_url, :describe, :company_field_id)
   end
 end
->>>>>>> df5e3efab81fa3f7aa706cf9c13b8a2ed12eef10

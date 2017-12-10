@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+
+  root 'main#index'
+  get 'main/index'
+  get 'main/search'
+  # get 'services/:id' => 'services#show'
+
+  get '/company_fields/detail/:id' => 'company_fields#detail'
+
   resources :services
   resources :companies
   resources :company_fields
@@ -9,9 +17,6 @@ Rails.application.routes.draw do
     end
   end
   resources :stack_fields
-  root 'main#index'
-  get 'main/index'
-  get 'main/search'
 
   #devise controller 생성했더니 이거 추가하라 했음 ㅠㅠㅠ....
   devise_for :users, controllers: {
