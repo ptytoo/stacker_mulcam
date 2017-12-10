@@ -28,7 +28,6 @@ end
 require 'csv'
 
 
-<<<<<<< HEAD
 text = File.open(Rails.root.join('seed_data_service/e-commerces.csv')).read
 text.each_line do |line|
   data = line.split("@@$^")
@@ -85,9 +84,6 @@ text.each_line do |line|
     site_url: data[1],
     logo_url: data[2],
     describe: data[3],
-<<<<<<< HEAD
-    # company_id:
-=======
     company_id: 47
   )
 end
@@ -125,11 +121,9 @@ text.each_line do |line|
     logo_url: data[2],
     describe: data[3],
     company_id: [83..89]
->>>>>>> 03c14bbca51a22ff81842c795c536cd0b950466b
   )
 end
-=======
->>>>>>> 148316f39abce6181f4bffa55d40442a32ba176b
+
 
 text = File.open(Rails.root.join('seed_data_company/sm-commu.csv')).read
 text.each_line do |line|
