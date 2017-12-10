@@ -27,66 +27,8 @@ end
 
 require 'csv'
 
-text = File.open(Rails.root.join('seed_data_service/sm-commus.csv')).read
-text.each_line do |line|
-  data = line.split("@@$^")
-    Service.create(
-    name: data[0].to_s.downcase,
-    site_url: data[1],
-    logo_url: data[2],
-    describe: data[3],
-    company_id: 1
-  )
-end
 
-text = File.open(Rails.root.join('seed_data_service/edtechs.csv')).read
-text.each_line do |line|
-  data = line.split("@@$^")
-    Service.create(
-    name: data[0].to_s.downcase,
-    site_url: data[1],
-    logo_url: data[2],
-    describe: data[3],
-    company_id: [6..14]
-  )
-end
-
-text = File.open(Rails.root.join('seed_data_service/utilitys.csv')).read
-text.each_line do |line|
-  data = line.split("@@$^")
-    Service.create(
-    name: data[0].to_s.downcase,
-    site_url: data[1],
-    logo_url: data[2],
-    describe: data[3],
-    company_id: [15..25]
-  )
-end
-
-text = File.open(Rails.root.join('seed_data_service/fintechs.csv')).read
-text.each_line do |line|
-  data = line.split("@@$^")
-    Service.create(
-    name: data[0].to_s.downcase,
-    site_url: data[1],
-    logo_url: data[2],
-    describe: data[3],
-    company_id: [26..45]
-  )
-end
-
-text = File.open(Rails.root.join('seed_data_service/games.csv')).read
-text.each_line do |line|
-  data = line.split("@@$^")
-    Service.create(
-    name: data[0].to_s.downcase,
-    site_url: data[1],
-    logo_url: data[2],
-    describe: data[3],
-    company_id: 46
-  )
-end
-
+<<<<<<< HEAD
 text = File.open(Rails.root.join('seed_data_service/e-commerces.csv')).read
 text.each_line do |line|
   data = line.split("@@$^")
@@ -186,6 +128,8 @@ text.each_line do |line|
 >>>>>>> 03c14bbca51a22ff81842c795c536cd0b950466b
   )
 end
+=======
+>>>>>>> 148316f39abce6181f4bffa55d40442a32ba176b
 
 text = File.open(Rails.root.join('seed_data_company/sm-commu.csv')).read
 text.each_line do |line|

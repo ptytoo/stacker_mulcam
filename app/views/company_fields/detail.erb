@@ -6,7 +6,7 @@
 
 <%= @company.name %><br>
 <%= @company.site_url %><br>
-<%= @company.logo_url %><br>
+<img src="<%=@company.logo_url%>" data-toggle="tooltip" title="<%=@company.name%>" id: "#{@company.name}"><br>
 <%= @company.describe %><br><br><br>
 
 
