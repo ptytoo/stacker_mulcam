@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'ranking/index'
+
+  get 'ranking/show'
+
   get 'trend/index'
 
   get 'trend/show'
