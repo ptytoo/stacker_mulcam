@@ -19,7 +19,8 @@
 
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#contact">stackers</a>
+          <!-- ranking_index_path -->
+          <%= link_to 'stackers', ranking_index_path, class: "nav-link js-scroll-trigger" %>
         </li>
         <li class="nav-item">
           <% if user_signed_in? %>
