@@ -30,6 +30,8 @@ require 'csv'
 
 
 
+
+
 text = File.open(Rails.root.join('seed_data_company/sm-commu.csv')).read
 text.each_line do |line|
   data = line.split("@@$^")
