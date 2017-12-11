@@ -9,6 +9,9 @@ class Enter::CompaniesController < Enter::ApplicationController
     @services = Service.where(company_id: @company.id)
   end
 
+  def show
+    @services = Service.where(company_id: @company.id)
+  end
   def new
     @company = Company.new
   end
