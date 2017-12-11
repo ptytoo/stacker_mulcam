@@ -12,6 +12,21 @@ class RankingController < ApplicationController
                 .group("service_stacks.service_id")
                 .order("stack_cnt DESC limit 10")
 
+    @users = MyStack.select("my_stacks.user_id, COUNT(b.stack_id) as cnt")
+            .joins("INNER JOIN my_stacks b ON my_stacks.stack_id = b.stack_id")
+            .where("my_stacks.user_id is not b.user_id AND my_stacks.user_id = #{current_user.id}")
+            .group("b.user_id")
+            .order("cnt DESC limit 1")
+
+    # select b.user_id as B, count(a.stack_id) as cnt
+    # from my_stacks a
+    # inner join my_stacks b
+    # on a.stack_id = b.stack_id
+    # where a.user_id is not b.user_id and a.user_id = 1
+    # group by b.user_id
+    # order by cnt DESC
+    # limit 1;
+
     # @users = MyStack.select()
     # select u.nickname, count(m.stack_id) cnt
     # from users as u join my_stacks as m
