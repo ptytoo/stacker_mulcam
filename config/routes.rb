@@ -1,19 +1,21 @@
 Rails.application.routes.draw do
-
-  get 'trend/index'
-
-  get 'trend/show'
-
   root 'main#index'
   get 'main/index'
   get 'main/search'
-  # get 'services/:id' => 'services#show'
 
-  get '/company_fields/detail/:id' => 'company_fields#detail'
+  get 'ranking/index'
+  get 'ranking/show'
+
+  get 'trend/index'
+  get 'trend/show'
 
   resources :services
   resources :companies
-  resources :company_fields
+  resources :company_fields do
+    member do
+      get '/detail' => 'company_fields#detail'
+    end
+  end
   resources :stacks do
     member do
       post '/register_interesting' => 'stacks#register_interesting', as: 'register_inter'

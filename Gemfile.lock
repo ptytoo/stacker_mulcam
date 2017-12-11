@@ -43,6 +43,18 @@ GEM
     autoprefixer-rails (7.2.1)
       execjs
     awesome_print (1.8.0)
+    aws-partitions (1.45.0)
+    aws-sdk-core (3.11.0)
+      aws-partitions (~> 1.0)
+      aws-sigv4 (~> 1.0)
+      jmespath (~> 1.0)
+    aws-sdk-rails (2.0.1)
+      aws-sdk-ses (~> 1)
+      railties (>= 3)
+    aws-sdk-ses (1.5.0)
+      aws-sdk-core (~> 3)
+      aws-sigv4 (~> 1.0)
+    aws-sigv4 (1.0.2)
     bcrypt (3.1.11)
     better_errors (2.4.0)
       coderay (>= 1.0.0)
@@ -116,6 +128,8 @@ GEM
     fog-xml (0.1.3)
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
+    font-awesome-rails (4.7.0.2)
+      railties (>= 3.2, < 5.2)
     formatador (0.2.5)
     git-trend (1.1.8)
       addressable (~> 2.5.1)
@@ -137,6 +151,7 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    jmespath (1.3.1)
     jquery-rails (4.3.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -200,6 +215,7 @@ GEM
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+    open_uri_redirections (0.2.1)
     orm_adapter (0.5.0)
     phantomjs (2.1.1.0)
     poltergeist (1.16.0)
@@ -326,6 +342,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  aws-sdk-rails
   better_errors
   binding_of_caller
   bootstrap-sass
@@ -338,6 +355,7 @@ DEPENDENCIES
   devise
   faker
   fog-aws
+  font-awesome-rails
   git-trend
   httparty
   jbuilder (~> 2.0)
@@ -345,6 +363,7 @@ DEPENDENCIES
   kaminari
   nokogiri
   omniauth-facebook
+  open_uri_redirections
   phantomjs
   poltergeist
   pry
