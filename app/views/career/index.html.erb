@@ -1,3 +1,11 @@
-<h1>Career Road-Map</h1>
+<h1>Roadmap</h1>
 
-<br>
+
+<%j=0%>
+<%@types.each do |type|%>
+  <strong><%= type%></strong><br>
+  <%for i in 0..3%>
+      <%= @stack[i+j]["name"]%><br>
+  <%end%>
+  <%j+=4%>
+<%end%>
