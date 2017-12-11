@@ -9,9 +9,6 @@ Rails.application.routes.draw do
   get 'trend/index'
   get 'trend/show'
 
-  # get 'services/:id' => 'services#show'
-
-
   resources :services
   resources :companies
   resources :company_fields do
