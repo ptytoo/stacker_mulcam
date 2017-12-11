@@ -12,6 +12,7 @@ class RankingController < ApplicationController
                 .group("service_stacks.service_id")
                 .order("stack_cnt DESC limit 10")
 
+    # @users = MyStack.select()
     # select u.nickname, count(m.stack_id) cnt
     # from users as u join my_stacks as m
     # on u.id = m.user_id
