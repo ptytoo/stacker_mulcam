@@ -46,6 +46,8 @@ module GetPrice
   end
 end
 
+
+
 scraper = GetPrice::WebScraper.new
 result = scraper.get_page_data('http://techstacks.io/')
 

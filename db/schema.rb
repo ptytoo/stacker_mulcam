@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171211055431) do
+=======
+ActiveRecord::Schema.define(version: 20171211103619) do
+>>>>>>> 061ed509b05d045e3ede8b091a05cac126c95502
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -30,6 +34,15 @@ ActiveRecord::Schema.define(version: 20171211055431) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "edu_paths", force: :cascade do |t|
+    t.integer  "stack_id"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "edu_paths", ["stack_id"], name: "index_edu_paths_on_stack_id"
 
   create_table "gittrends", force: :cascade do |t|
     t.string   "name"
@@ -86,6 +99,15 @@ ActiveRecord::Schema.define(version: 20171211055431) do
 
   add_index "my_stacks", ["stack_id"], name: "index_my_stacks_on_stack_id"
   add_index "my_stacks", ["user_id"], name: "index_my_stacks_on_user_id"
+
+  create_table "octo_trends", force: :cascade do |t|
+    t.string   "table_id"
+    t.string   "table_title"
+    t.string   "content_name"
+    t.string   "content_figure"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "service_stacks", force: :cascade do |t|
     t.integer  "service_id"
