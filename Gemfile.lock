@@ -200,6 +200,7 @@ GEM
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+    open_uri_redirections (0.2.1)
     orm_adapter (0.5.0)
     phantomjs (2.1.1.0)
     poltergeist (1.16.0)
@@ -345,6 +346,7 @@ DEPENDENCIES
   kaminari
   nokogiri
   omniauth-facebook
+  open_uri_redirections
   phantomjs
   poltergeist
   pry
