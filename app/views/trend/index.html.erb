@@ -1,3 +1,16 @@
+<!-- test -->
+<!-- Load D3.js -->
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<!-- Load billboard.js with style -->
+<script src="billboard.js"></script>
+<link rel="stylesheet" href="billboard.css">
+<!--  -->
+
+<!-- test -->
+<div id="chart"></div>
+<!--  -->
+
 <h1>Hot Stacks</h1>
 
 <br>
@@ -11,9 +24,37 @@
   <%j+=5%>
 <%end%>
 
+<br>
+<br>
+
+<% f=0 %>
+<%@surveys.each do |survey| %>
+  <strong><%= survey%></strong> <br>
+  <% for i in 0..10 %>
+    <%=@octo_trends[f+i]["content_name"] %>
+    <%=@octo_trends[f+i]["content_figure"] %> <br>
+    <% end %>
+    <% f+=5%>
+<% end %>
+
 
 <script>
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
 </script>
+
+<!-- test -->
+<!-- <script>
+  var chart = bb.generate({
+      bindto: "#chart",
+      data: {
+          type: "bar",
+          columns: [
+              ["data1", 30, 200, 100, 170, 150, 250],
+              ["data2", 130, 100, 140, 35, 110, 50]
+          ]
+      }
+  });
+</script> -->
+<!--  -->

@@ -233,3 +233,13 @@ CSV.foreach(Rails.root.join('trendstack.csv')) do |row|
       )
   end
 end
+
+
+CSV.foreach(Rails.root.join('octo_trends.csv')) do |row|
+  OctoTrend.create(
+    table_id: row[0],
+    table_title: row[1],
+    content_name: row[2],
+    content_figure: row[3]
+  )
+end
