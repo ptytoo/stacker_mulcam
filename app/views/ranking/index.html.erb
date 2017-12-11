@@ -1,0 +1,13 @@
+<h1>개인 회원 순위 (스택 갯수 기준)</h1>
+<% @indi_users.each do |t|%>
+  <%= t.nickname%>
+  <%= t.stack_cnt%>
+  <br>
+<% end %>
+
+<h1>기업 회원 순위 (스택 갯수 기준)</h1>
+<% @services_cnt.each do |t|%>
+  <%= t.name%>
+  <%= t.stack_cnt%>
+  <br>
+<% end %>
