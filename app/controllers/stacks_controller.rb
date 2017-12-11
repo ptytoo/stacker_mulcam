@@ -1,5 +1,12 @@
 class StacksController < ApplicationController
   before_action :set_stack, only: [:show, :edit, :update, :destroy, :register_interesting, :register_my_stack]
+  before_action :log_impression, :only=> [:show]
+
+ def log_impression
+    @hit_post = Stack.find(params[:id])
+    # this assumes you have a current_user method in your authentication system
+    @hit_post.impressions.create(ip_address: request.remote_ip)
+ end
 
   # GET /stacks
   # GET /stacks.json

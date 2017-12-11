@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'impressionist'
 gem 'aws-sdk-rails'
 gem "font-awesome-rails"
 gem 'fog-aws'
