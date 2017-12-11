@@ -470,7 +470,7 @@ require 'pry'
       stack = Stack.where('lower(name) = ?', stack_name.downcase.strip).first
 
       if stack.present?
-        puts "#{data} #{stack.name}"
+        # puts "#{data} #{stack.name}"
 
         ServiceStack.create(
           service_id: data[0],
