@@ -353,6 +353,114 @@ text.each_line do |line|
   )
 end
 
+text = File.open(Rails.root.join('seed_data_service_stack/anal.csv')).read
+text.each_line do |line|
+  data = line.split("@@$^")
+    ServiceStack.create(
+    service_id: data[0],
+    stack_id: data[1]
+  )
+end
+
+text = File.open(Rails.root.join('seed_data_service_stack/conte.csv')).read
+text.each_line do |line|
+  data = line.split("@@$^")
+    ServiceStack.create(
+    service_id: data[0],
+    stack_id: data[1]
+  )
+end
+
+text = File.open(Rails.root.join('seed_data_service_stack/e-comme.csv')).read
+text.each_line do |line|
+  data = line.split("@@$^")
+    ServiceStack.create(
+    service_id: data[0],
+    stack_id: data[1]
+  )
+end
+
+text = File.open(Rails.root.join('seed_data_service_stack/edu.csv')).read
+text.each_line do |line|
+  data = line.split("@@$^")
+    ServiceStack.create(
+    service_id: data[0],
+    stack_id: data[1]
+  )
+end
+
+# text = File.open(Rails.root.join('seed_data_service_stack/fin.csv')).read
+# text.each_line do |line|
+#   data = line.split("@@$^")
+#     ServiceStack.create(
+#     service_id: data[0],
+#     stack_id: data[1]
+#   )
+# end
+#
+# text = File.open(Rails.root.join('seed_data_service_stack/food.csv')).read
+# text.each_line do |line|
+#   data = line.split("@@$^")
+#     ServiceStack.create(
+#     service_id: data[0],
+#     stack_id: data[1]
+#   )
+# end
+#
+# text = File.open(Rails.root.join('seed_data_service_stack/gam.csv')).read
+# text.each_line do |line|
+#   data = line.split("@@$^")
+#     ServiceStack.create(
+#     service_id: data[0],
+#     stack_id: data[1]
+#   )
+# end
+#
+# text = File.open(Rails.root.join('seed_data_service_stack/health.csv')).read
+# text.each_line do |line|
+#   data = line.split("@@$^")
+#     ServiceStack.create(
+#     service_id: data[0],
+#     stack_id: data[1]
+#   )
+# end
+#
+# text = File.open(Rails.root.join('seed_data_service_stack/Io.csv')).read
+# text.each_line do |line|
+#   data = line.split("@@$^")
+#     ServiceStack.create(
+#     service_id: data[0],
+#     stack_id: data[1]
+#   )
+# end
+#
+# text = File.open(Rails.root.join('seed_data_service_stack/shaeco.csv')).read
+# text.each_line do |line|
+#   data = line.split("@@$^")
+#     ServiceStack.create(
+#     service_id: data[0],
+#     stack_id: data[1]
+#   )
+# end
+#
+# text = File.open(Rails.root.join('seed_data_service_stack/sm-com.csv')).read
+# text.each_line do |line|
+#   data = line.split("@@$^")
+#     ServiceStack.create(
+#     service_id: data[0],
+#     stack_id: data[1]
+#   )
+# end
+#
+# text = File.open(Rails.root.join('seed_data_service_stack/util.csv')).read
+# text.each_line do |line|
+#   data = line.split("@@$^")
+#     ServiceStack.create(
+#     service_id: data[0],
+#     stack_id: data[1]
+#   )
+# end
+
 CSV.foreach(Rails.root.join('seed_data_stack/language_stack.csv')) do |row|
   Stack.create(
     name: row[0].to_s.downcase,
