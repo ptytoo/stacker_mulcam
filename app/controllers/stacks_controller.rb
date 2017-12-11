@@ -11,6 +11,9 @@ class StacksController < ApplicationController
   # GET /stacks/1
   # GET /stacks/1.json
   def show
+    # 해당 스택을 사용하는 서비스 리스트 보여주기
+    # @result_companies = Company.where("name Like ?", "%#{params[:search]}%")
+    @services = ServiceStack.where(stack_id: @stack.id)
   end
 
   # GET /stacks/new
