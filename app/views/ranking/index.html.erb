@@ -5,9 +5,10 @@
   <br>
 <% end %>
 
-<h1>기업 회원 순위 (스택 갯수 기준)</h1>
+<h1>기업 회원 순위 (스택 갯수 기준 / 상위 10개)</h1>
 <% @services_cnt.each do |t|%>
-  <%= t.name%>
+  <%cpy = Service.find_by(name: t.name)%>
+  <img src="<%=cpy.logo_url%>" height = "50">
   <%= t.stack_cnt%>
   <br>
 <% end %>
