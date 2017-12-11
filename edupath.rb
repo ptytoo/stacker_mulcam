@@ -7,7 +7,7 @@ require 'httparty'
 require 'csv'
 require 'pry'
 
-$stack_name = ["Languages", "Database"]
+# $stack_name = ["Languages", "Database"]
 
 File.open("edu_path.csv", "w") do |file|
   file.write("")
