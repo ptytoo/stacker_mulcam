@@ -1,5 +1,12 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
+  before_action :log_impression, :only=> [:show]
+
+   def log_impression
+      @hit_service = Service.find(params[:id])
+      # this assumes you have a current_user method in your authentication system
+      @hit_service.impressions.create(ip_address: request.remote_ip)
+   end
 
   # GET /services
   # GET /services.json
