@@ -4,12 +4,14 @@ class Enter::CompaniesController < Enter::ApplicationController
 
   def index
     # @services = Service.all
-    @companies = Company.all
-    @user = current_user
-    @company = Company.find_by(id: @user.company_id)
+    # @user = current_user
+    # @company = Company.find_by(id: current_user.company_id)
     @services = Service.where(company_id: @company.id)
   end
 
+  def show
+    @services = Service.where(company_id: @company.id)
+  end
   def new
     @company = Company.new
   end
