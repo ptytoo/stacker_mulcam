@@ -24,27 +24,33 @@ DATA.each do |stack|
     link = content['href']
     result << link
   end
-  puts result
 
-  result2 = []
+  edu_links = []
     result.each do |url|
       res = HTTParty.get(url)
       text = Nokogiri::HTML(res.body)
       contents = text.css('a.btn-visit-tut')
       contents.each do |content|
         link = content['href']
-        result2 << link
+        edu_links << link
       end
-      puts result2
+      puts edu_links
     end
 
     File.open("edu_path.csv", "a") do |file|
-      9.times do |i|
-        file.write(result[$stack_name[i]].join(','))
-        file.write("\n")
+      file.write(result2.join("@@$^").gsub(/,\s+\"/,',\"'))
+      file.write("\n")
       end
 
 end
 
 __END__
 android-development
+angular
+apache-spark
+asp-net
+backbone-js
+bootstrap
+c
+c-sharp
+c-plus-plus
