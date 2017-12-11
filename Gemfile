@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'aws-sdk-rails'
+gem "font-awesome-rails"
 gem 'fog-aws'
 gem 'pry'
 gem 'pry-rails'
