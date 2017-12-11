@@ -23,13 +23,13 @@ module GetPrice
       doc = Nokogiri::HTML(page.html)
 
       result = Array.new
-      for i in 2..10 do
+      for i in 2..6 do
       contents = doc.css('body > div.page-wrapper > div > div.page--section-body.tutorial--tut-list > div > div > div > div.flex-container > div.main--content.col-xs-12.col-sm-12.col-md-9.no-padding > div.js-tutorial-listing-content > div.main-content.border > div.tutorial-listing-wrapper > div.tutorial-listing > div:nth-child('+"#{i}"+') > div.tut-list-primary > div.tut-title > div.title > div > a')
           contents.each do |content|
             link = content['href']
-            # unless link == '0'
-            #   result << link
-            # end
+              # unless link == '0'
+              #   result << link
+              # end
             result << link
             puts result
           end
