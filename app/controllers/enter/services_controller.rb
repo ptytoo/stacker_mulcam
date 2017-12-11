@@ -4,7 +4,8 @@ class Enter::ServicesController < Enter::ApplicationController
   # GET /services
   # GET /services.json
   def index
-    @services = Service.all
+    @company = Company.find_by(params[:id])
+    @services = Service.where(company_id: params[:id])
   end
 
   # GET /services/1
