@@ -10,7 +10,7 @@ class RankingController < ApplicationController
     @services_cnt = Service.select("services.name, COUNT(service_stacks.stack_id) stack_cnt")
                 .joins("LEFT OUTER JOIN service_stacks ON services.id = service_stacks.service_id")
                 .group("service_stacks.service_id")
-                .order("stack_cnt DESC")
+                .order("stack_cnt DESC limit 10")
 
     # select u.nickname, count(m.stack_id) cnt
     # from users as u join my_stacks as m

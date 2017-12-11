@@ -1,3 +1,3 @@
-어웨어@@$^Tech Stacks@@$^Utilities : 서비스 개발 효율을 높이기 위해 사용하는 유틸리티@@$^Google Drive@@$^Google Analytics@@$^DevOps : 빌드, 테스트, 배포, 모니터링@@$^GitHub@@$^Business Tools : 사내 협업, 고객 및 외부 채널 관리 툴@@$^Trello@@$^JIRA@@$^Confluence@@$^Zendesk@@$^Slack@@$^G Suite@@$^evernote@@$^Application and Data : 개발 언어, 프레임웍, 라이브러리@@$^google-cloud-platform@@$^Amazon AWS@@$^Python
-Draco@@$^Tech Stacks@@$^Utilities : 서비스 개발 효율을 높이기 위해 사용하는 유틸리티@@$^Quip@@$^JIRA@@$^Confluence@@$^DevOps : 빌드, 테스트, 배포, 모니터링@@$^Vim@@$^GitHub@@$^Business Tools : 사내 협업, 고객 및 외부 채널 관리 툴@@$^Slack@@$^Application and Data : 개발 언어, 프레임웍, 라이브러리@@$^embedded-linux@@$^embedded@@$^Java@@$^Objective-C@@$^C/C++
-윔팩토리@@$^Tech Stacks@@$^Utilities : 서비스 개발 효율을 높이기 위해 사용하는 유틸리티@@$^Dropbox@@$^Google Drive@@$^DevOps : 빌드, 테스트, 배포, 모니터링@@$^Business Tools : 사내 협업, 고객 및 외부 채널 관리 툴@@$^WordPress@@$^Skype@@$^Application and Data : 개발 언어, 프레임웍, 라이브러리@@$^jQuery@@$^Java
+어웨어@@$^Google Drive,Google Analytics,GitHub,Trello,JIRA,Confluence,Zendesk,Slack,G Suite,evernote,google-cloud-platform,Amazon AWS,Python
+Draco@@$^Quip,JIRA,Confluence,Vim,GitHub,Slack,embedded-linux,embedded,Java,Objective-C,C/C++
+윔팩토리@@$^Dropbox,Google Drive, WordPress,Skype,jQuery,Java

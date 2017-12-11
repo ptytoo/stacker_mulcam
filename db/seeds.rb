@@ -173,17 +173,24 @@ require 'pry'
   text = File.open(Rails.root.join(file_name)).read
   text.each_line do |line|
     data = line.split("@@$^")
-    data[1].split(",").each do |stack_name|
-      # puts stack_name
-      stack = Stack.where('lower(name) = ?', stack_name.downcase.strip).first
+    service = Service.find_by(name: data[0])
+    # puts data[0]
+    # puts service.inspect
+    #binding.pry
+    if service.present?
+      data[1].split(",").each do |stack_name|
+        # puts stack_name
 
-      if stack.present?
-        # puts "#{data} #{stack.name}"
+        stack = Stack.where('lower(name) = ?', stack_name.downcase.strip).first
 
-        ServiceStack.create(
-          service_id: data[0],
-          stack_id: stack.id
-        )
+        if stack.present?
+          # puts "#{data} #{stack.name}"
+
+          ServiceStack.create(
+            service_id: service.id,
+            stack_id: stack.id
+          )
+        end
       end
     end
   end
