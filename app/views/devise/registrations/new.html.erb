@@ -13,8 +13,7 @@
     <%= f.label(:indi, "개인회원") %>
     <%= f.radio_button(:role, "enter", value: "enter", id: "enter", data: {behavior: "clickable" })%>
     <%= f.label(:enter, "기업회원") %>
-    <%=f.hidden_field :company_id, id:"company_id"%>
-
+    <%= f.hidden_field :company_id, id:"company_id" %>
   </div>
 
   <div class="form-actions">
@@ -25,6 +24,7 @@
 <%= render "devise/shared/links" %>
 
 <br>
+
 <div id="group_user_id" class="form-group">
   <%= form_for(companies_path, method: :post) do |f|%>
     회사 명 : <%= f.text_field :name, id: "name" %><br>
@@ -73,7 +73,7 @@ $(function() {
            'company_field_id' : $('#field_id').val()}},
           dataType: "json",
           success: function(company){
-            console.log(company);
+              console.log(company);
               $("#company_id").val(company.id);
             }
           });

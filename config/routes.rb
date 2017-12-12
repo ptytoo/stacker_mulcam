@@ -53,8 +53,9 @@ Rails.application.routes.draw do
   namespace :enter do
     resources :companies do
       resources :services do
-        member do
-          post '/add_stack' => 'services#add_stack', as: 'add_stack_to'
+        collection do
+          post '/regist_stack' => 'services#regist_stack', as: 'register_stack'
+          get '/add_stack' => 'services#add_stack', as: 'add_my'
           delete '/delete_stack' => 'services#delete_stack', as: 'delete_stack_to'
         end
       end
