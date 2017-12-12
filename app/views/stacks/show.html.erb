@@ -29,6 +29,11 @@
 </p>
 
 <p>
+  <strong>Version:</strong>s
+  <%= @stack.version %>
+</p>
+
+<p>
   <strong>Site url:</strong>
   <%= @stack.site_url %>
 </p>
@@ -41,11 +46,6 @@
 <p>
   <strong>Describe:</strong>
   <%= @stack.describe %>
-</p>
-
-<p>
-  <strong>Version:</strong>s
-  <%= @stack.version %>
 </p>
 
 <p>
@@ -68,21 +68,19 @@
   $(function(){
     $('#inter_button').on('click',function(e){
       e.preventDefault();
-      var stack = "<%=@stack%>"
       $.ajax({
         url: "<%= register_inter_stack_path%>",
         method: "POST",
-        data: stack
+        data: "<%=@stack%>"
       })
     });
 
     $('#my_button').on('click', function(e){
       e.preventDefault();
-      var stack = "<%=@stack%>"
       $.ajax({
         url: "<%=register_my_stack_path%>",
         method: "POST",
-        data: stack
+        data: "<%=@stack%>"
       });
     });
   })
