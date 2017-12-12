@@ -16,6 +16,7 @@ class Ability
       can [:edit,:update], Service, id: user.company_id
     elsif user.indi?
       can :read, :all
+      can [:index, :show, :detail], Company
       can [:index, :show], CompanyField
       can [:new, :edit, :add_stack, :register_interesting, :register_my_stack], Stack
     end
