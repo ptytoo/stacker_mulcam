@@ -1,20 +1,7 @@
-<!-- test -->
-<!-- Load D3.js -->
-<script src="https://d3js.org/d3.v4.min.js"></script>
-
-<!-- Load billboard.js with style -->
-<script src="billboard.js"></script>
-<link rel="stylesheet" href="billboard.css">
-<!--  -->
-
-<!-- test -->
-<div id="chart"></div>
-<!--  -->
-
 <h1>Hot Stacks</h1>
 
 <br>
-
+<h2>스택 트렌드</h2>
 <%j=0%>
 <%@types.each do |type|%>
   <strong><%= type%></strong><br>
@@ -27,6 +14,7 @@
 <br>
 <br>
 
+<h2>2017 깃 트렌드</h2>
 <% f=0 %>
 <%@surveys.each do |survey| %>
   <strong><%= survey%></strong> <br>
@@ -37,24 +25,21 @@
     <% f+=5%>
 <% end %>
 
+<div id="chart"></div>
 
 <script>
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
 
-<!-- test -->
-<!-- <script>
-  var chart = bb.generate({
-      bindto: "#chart",
-      data: {
-          type: "bar",
-          columns: [
-              ["data1", 30, 200, 100, 170, 150, 250],
-              ["data2", 130, 100, 140, 35, 110, 50]
-          ]
-      }
+    var chart = bb.generate({
+        bindto: "#chart",
+        data: {
+            type: "bar",
+            columns: [
+                ["data1", 30, 200, 100, 170, 150, 250],
+                ["data2", 130, 100, 140, 35, 110, 50]
+            ]
+        }
+    });
   });
-</script> -->
-<!--  -->
+</script>
