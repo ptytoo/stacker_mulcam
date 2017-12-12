@@ -21,11 +21,11 @@
 <% f=0 %>
 <%@surveys.each do |survey| %>
   <strong><%= survey%></strong> <br>
-  <% for i in 0..10 %>
+  <% for i in 0..9 %>
     <%=@octo_trends[f+i]["content_name"] %>
     <%=@octo_trends[f+i]["content_figure"] %> <br>
     <% end %>
-    <% f+=5%>
+    <% f+=10%>
 <% end %>
 
 
@@ -40,8 +40,16 @@
 var chart = bb.generate({
   "data": {
     "columns": [
-	["data1", 30],
-	["data2", 120]
+	["software&internet", 22],
+	["financial services", 13],
+  ["business services", 10],
+  ["manufacturing", 7],
+  ["education", 7],
+  ["telecom", 5],
+  ["healthcare", 5],
+  ["entertainment", 4.5],
+  ["retail", 4.4],
+  ["electronics", 3.9]
     ],
     "type": "donut",
     "onclick": function (d, i) { console.log("onclick", d, i); },
@@ -49,28 +57,10 @@ var chart = bb.generate({
     "onout": function (d, i) { console.log("onout", d, i); }
   },
   "donut": {
-    "title": "Iris Petal Width"
+    "title": "not just software"
   },
   "bindto": "#DonutChart"
 });
 
-setTimeout(function () {
-	chart.load({
-		columns: [
-			["setosa", 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4, 0.1, 0.2, 0.2, 0.2, 0.2, 0.1, 0.2, 0.2, 0.3, 0.3, 0.2, 0.6, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2],
-			["versicolor", 1.4, 1.5, 1.5, 1.3, 1.5, 1.3, 1.6, 1.0, 1.3, 1.4, 1.0, 1.5, 1.0, 1.4, 1.3, 1.4, 1.5, 1.0, 1.5, 1.1, 1.8, 1.3, 1.5, 1.2, 1.3, 1.4, 1.4, 1.7, 1.5, 1.0, 1.1, 1.0, 1.2, 1.6, 1.5, 1.6, 1.5, 1.3, 1.3, 1.3, 1.2, 1.4, 1.2, 1.0, 1.3, 1.2, 1.3, 1.3, 1.1, 1.3],
-			["virginica", 2.5, 1.9, 2.1, 1.8, 2.2, 2.1, 1.7, 1.8, 1.8, 2.5, 2.0, 1.9, 2.1, 2.0, 2.4, 2.3, 1.8, 2.2, 2.3, 1.5, 2.3, 2.0, 2.0, 1.8, 2.1, 1.8, 1.8, 1.8, 2.1, 1.6, 1.9, 2.0, 2.2, 1.5, 1.4, 2.3, 2.4, 1.8, 1.8, 2.1, 2.4, 2.3, 1.9, 2.3, 2.5, 2.3, 1.9, 2.0, 2.3, 1.8],
-		]
-	});
-}, 1500);
-
-setTimeout(function () {
-	chart.unload({
-		ids: 'data1'
-	});
-	chart.unload({
-		ids: 'data2'
-	});
-}, 2500);
 <!--  -->
 </script>
