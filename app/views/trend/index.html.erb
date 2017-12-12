@@ -43,7 +43,7 @@
 
 // Script
 
-var chart1 = bb.generate({
+bb.generate({
 
   "data": {
     "x": "x",
@@ -77,18 +77,22 @@ var chart1 = bb.generate({
     "rotated": true,
     "x": {
       "type": "category",
+      "width": 1,
       "tick": {
         "rotate": 75,
-        "multiline": false
+        "multiline": false,
+        "outer": false
       },
       "height": 130,
-      "stroke-width" : 1
+    },
+    "y": {
+      "show": false
     }
   },
   "bindto": "#RotateXAxisTickText1"
 });
 
-var chart2 = bb.generate({
+bb.generate({
   "data": {
     "x": "x",
     "columns": [
@@ -123,15 +127,19 @@ var chart2 = bb.generate({
       "type": "category",
       "tick": {
         "rotate": 75,
-        "multiline": false
+        "multiline": false,
+        "outer": false
       },
       "height": 130
+    },
+    "y": {
+      "show": false
     }
   },
   "bindto": "#RotateXAxisTickText2"
 });
 
-var chart3 = bb.generate({
+bb.generate({
 
   "data": {
     "x": "x",
@@ -167,15 +175,19 @@ var chart3 = bb.generate({
       "type": "category",
       "tick": {
         "rotate": 75,
-        "multiline": false
+        "multiline": false,
+        "outer": false
       },
       "height": 130
+    },
+    "y": {
+      "show": false
     }
   },
   "bindto": "#RotateXAxisTickText3"
 });
 
-var chart4 = bb.generate({
+bb.generate({
   "data": {
     "x": "x",
     "columns": [
@@ -184,6 +196,7 @@ var chart4 = bb.generate({
     ["values", 388.1, 91.1, 80.1, 78.7, 75.6, 75.2, 74.8, 66.3, 54.9, 53.9]
     ],
     "type": "bar",
+
     color: function(color, d) {
       if (typeof d === "object") {
         // for data point
@@ -210,9 +223,14 @@ var chart4 = bb.generate({
       "type": "category",
       "tick": {
         "rotate": 75,
-        "multiline": false
+        "multiline": false,
+        "outer": false
       },
-      "height": 130
+      "height": 130,
+      "label": false,
+    },
+    "y": {
+      "show": false
     }
   },
 
@@ -262,15 +280,16 @@ var chart = bb.generate({
       }
     }
   },
-
   "donut": {
-
+    "threshold": 0.1,
     "title": "not just software"
-
   },
 
   "bindto": "#DonutChart"
 
 });
+
+
+
 
 </script>
