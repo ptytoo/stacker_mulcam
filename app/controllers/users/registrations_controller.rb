@@ -63,7 +63,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up. 회원가입 클릭 후 이동하는 패스 설정하는 함수
   def after_sign_up_path_for(resource)
     #개인 회원일 경우와 기업회원일 경우를 나눠서 path설정
-    add_my_stacks_path
+    if current_user.indi?
+      add_my_stacks_path
+    else
+      indi_users_path
+    end
   end
 
   # The path used after sign up for inactive accounts.
