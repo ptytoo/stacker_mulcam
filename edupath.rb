@@ -7,13 +7,11 @@ require 'httparty'
 require 'csv'
 require 'pry'
 
-# $stack_name = ["android-development","angular","apache-spark","asp-net","backbone-js","bootstrap","c","c-sharp","c-plus-plus","cassandra","chef","clojure","css","d3-js","django","docker","elasticsearch","elixir","flask","git","go","graphql","gulp","hadoop","haskell","html5","swift","java","spring","javascript","jenkins","jquery","julia","kotlin","kubernetes","laravel","mongodb","mysql","nginx","node-js","php","polymer","python","r","react","redis","rust","sap-abap","sass","scala","sql","sql-server","typescript","unity","visual-basic-vb","vue-js","cobol","codeIgniter","coffeeScript","couchdb","dart","elm","ember-js","erlang","grunt","less","lua","objective-c","postgres","meteor","opencv","opengl","perl","sinatra"]
+$stack_name = ["android-development","angular","apache-spark","asp-net","backbone-js","bootstrap","c","c-sharp","c-plus-plus","cassandra","django","elasticsearch","elixir","flask","git","go","haskell","html-5","ios-swift","java","java-spring-framework","javascript","jquery","kotlin","mongodb","mysql","nginx","node-js","php","polymer","python","react","redis","rust","sap-abap","sass","scala","sql-server","typescript","visual-basic-vb","vue-js","couchdb","elm","ember-js","erlang","less","lua","objective-c","postgres","meteor"]
 
-$stack_name = ["android-development"]
-
-
-DATA.each do |stack|
-  url = URI.encode "https://hackr.io/tutorials/learn-#{stack.strip}"
+$stack_name.each_with_index do |stack_name, index|
+# DATA.each do |stack|
+  url = URI.encode "https://hackr.io/tutorials/learn-#{stack_name.to_s.strip.gsub(/,\s+\"/,',\"')}"
   res = HTTParty.get(url)
   text = Nokogiri::HTML(res.body)
 
@@ -37,89 +35,33 @@ DATA.each do |stack|
     end
 
 
-File.open("edu_path.csv", "a") do |file|
-      $stack_name.each_with_index do |file2, index|
-          file.write(file2)
-          file.write("@@$^")
-          file.write(edu_links.join(",").gsub(/,\s+\"/,',\"'))
-          file.write("\n")
-      end
-  end
-
+    File.open("edu_path.csv", "a") do |file|
+    # $stack_name.each_with_index do |stack_name, index|
+        file.write(stack_name)
+        file.write("@@$^")
+        file.write(edu_links.join(",").gsub(/,\s+\"/,',\"'))
+        file.write("\n")
+    # end
+    end
 end
 
-__END__
-android-development
-# angular
-# apache-spark
-# asp-net
-# backbone-js
-# bootstrap
-# c
-# c-sharp
-# c-plus-plus
-# cassandra
-# chef
+
+# __END__
+# 목요일에 시간 되면 여기 아래 스택들 추가하면 좋을듯 해요 (교육사이트 자료가 있어서)
 # clojure
-# css
 # d3-js
-# django
 # docker
-# elasticsearch
-# elixir
-# flask
-# git
-# go
 # graphql
 # gulp
-# hadoop
-# haskell
-# html5
-# swift
-# java
-# spring
-# javascript
-# jenkins
-# jquery
+# hadoop-big-data
+# codeigniter
 # julia
-# kotlin
+# chef
+# grunt
+# unity
+# jenkins
 # kubernetes
 # laravel
-# mongodb
-# mysql
-# nginx
-# node-js
-# php
-# polymer
-# python
-# r
-# react
-# redis
-# rust
-# sap-abap
-# sass
-# scala
-# sql
-# sql-server
-# typescript
-# unity
-# visual-basic-vb
-# vue-js
-# cobol
-# codeIgniter
-# coffeeScript
-# couchdb
+# coffeescript
 # dart
-# elm
-# ember-js
-# erlang
-# grunt
-# less
-# lua
-# objective-c
-# postgres
-# meteor
-# opencv
-# opengl
-# perl
 # sinatra
