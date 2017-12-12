@@ -60,6 +60,13 @@
   <% end %>
 </p>
 
+<p>
+  <strong>이 스택을 교육 사이트:</strong><br>
+  <% @edu_paths.each do |s| %>
+    <a href="<%=s.url%>" target="_blank"><%= s.url %></a><br>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_stack_path(@stack) %> |
 <%= link_to 'Back', url_for(:back) %>
 

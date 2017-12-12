@@ -1,14 +1,14 @@
 class CompanyFieldsController < ApplicationController
   before_action :set_company_field, only: [:show, :edit, :update, :destroy]
-  before_action :role_restrict, only:[:update, :edit, :destroy]
-  def role_restrict
-    if user_signed_in?
-      if !current_user.admin?
-        # redirect_to :root
-        raise ActionController::RoutingError.new('Not Found')
-      end
-    end
-  end
+  # before_action :role_restrict, only:[:update, :edit, :destroy]
+  # def role_restrict
+  #   if user_signed_in?
+  #     if !current_user.admin?
+  #       # redirect_to :root
+  #       raise ActionController::RoutingError.new('Not Found')
+  #     end
+  #   end
+  # end
 
   # GET /company_fields
   # GET /company_fields.json
