@@ -1,6 +1,9 @@
 <!-- test -->
 <div id="DonutChart"></div>
-<!--  -->
+<div id="RotatedAxis"></div>
+<div id="RotateXAxisTickText"></div>
+<div id="RotatedAxis"></div>
+<
 
 <h1>Hot Stacks</h1>
 
@@ -49,7 +52,8 @@ var chart = bb.generate({
   ["healthcare", 5],
   ["entertainment", 4.5],
   ["retail", 4.4],
-  ["electronics", 3.9]
+  ["electronics", 3.9],
+  ["etc", 18.2]
     ],
     "type": "donut",
     "onclick": function (d, i) { console.log("onclick", d, i); },
@@ -61,6 +65,55 @@ var chart = bb.generate({
   },
   "bindto": "#DonutChart"
 });
+
+
+// Script
+var chart2 = bb.generate({
+  "data": {
+    "x": "x",
+    "columns": [
+	["x", "kubernetes/kubernetes", "openshift/origin", "cwm-sw/cmsww", "microsoft/vscode",
+  "rust-lang/rust", "dotnet/corex", "tggstation/tgstation", "nodejs/node", "servo/servo", "ansible/ansible"],
+	["k", 24, 15, 10.8, 10.7, 8.3, 8.1, 8, 7.4, 7.4, 6.1]
+    ],
+    "type": "bar"
+  },
+  "axis": {
+      "rotated": true
+    "x": {
+      "type": "category",
+      "tick": {
+        "rotate": 75,
+        "multiline": false
+      },
+      "height": 130
+    }
+  },
+  "bindto": "#RotateXAxisTickText"
+});
+
+
+
+
+// Script
+
+
+
+
+  //
+  // "data": {
+  //   "columns": [
+	// ["kubernetes/kubernetes", 388.1],
+  // ["openshift/origin",91.9],
+  // ["cwm-sw/cmsww", 80.1],
+  // ["microsoft/vscode", 78.7],
+  // ["rust-lang/rust", 75.6],
+  // ["dotnet/corex", 75.2],
+  // ["tggstation/tgstation", 74.8],
+  // ["nodejs/node", 66.3],
+  // ["servo/servo ", 54.9],
+  // ["ansible/ansible", 53.9]
+
 
 <!--  -->
 </script>
