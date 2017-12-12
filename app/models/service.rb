@@ -4,6 +4,7 @@ class Service < ActiveRecord::Base
   has_and_belongs_to_many :stacks
   #mount_uploader :logo_url, ServiceLogoUploader
   has_many :impressions, :as=>:impressionable
+  resourcify
 
    def impression_count
        impressions.size
