@@ -1,5 +1,4 @@
 class ServicesController < ApplicationController
-  load_and_authorize_resource
   before_action :set_service, only: [:show, :edit, :update, :destroy]
   before_action :log_impression, :only=> [:show]
 
@@ -27,6 +26,7 @@ class ServicesController < ApplicationController
 
   # GET /services/1/edit
   def edit
+    authorize! :edit, @service.id
   end
 
   # POST /services

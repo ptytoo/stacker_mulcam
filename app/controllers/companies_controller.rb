@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :set_company, only: [:show, :edit, :update, :destroy, :detail]
 
   # GET /companies
   # GET /companies.json
@@ -20,6 +20,7 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1/edit
   def edit
+    authorize! :edit, @company.id
   end
 
   # POST /companies
