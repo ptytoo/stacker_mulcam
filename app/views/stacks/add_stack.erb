@@ -9,7 +9,7 @@
   <div id="<%= field.name%>">
     <div class="card card-body">
       <% field.stacks.each do |stack| %>
-    <div style="width:50px; height:50; border:1px solid red; float:left; margin-right:10px;">
+    <div style="width:50px; height:50; float:left; margin-right:10px;">
       <img class="img" src="https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/<%=stack.stack_field.name%>/<%= stack.name.capitalize %>.png", id= "<%= stack.id%>", width="50">
       <%=hidden_field_tag "", current_user.my?(stack), class: "cb", stack_id: stack.id%>
       </div>

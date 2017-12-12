@@ -11,9 +11,9 @@ class Ability
       can :read, :all
       can [:index, :create, :show, :new, :detail], Company
       can [:index, :show], CompanyField
-      can [:new, :edit, :add_stack], Stack
+      can [:new, :add_stack], Stack #edit이 있어야 하나?
       #해당 기업회원의 회사와 서비스만 추가/수정/삭제가능해아함
-      can [:edit,:update], Company, id: user.company_id
+      can [:create,:edit,:update], Company, id: user.company_id
       can [:create, :edit,:update], Service, id: user.company_id
     elsif user.indi?
       can :read, :all
