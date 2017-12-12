@@ -21,7 +21,7 @@ class StacksController < ApplicationController
   def show
     # 해당 스택을 사용하는 서비스 리스트 보여주기
     # @result_companies = Company.where("name Like ?", "%#{params[:search]}%")
-    if current_user
+    if user_signed_in?
       @like_my = MyStack.where(user_id: current_user.id).where(stack_id: @stack.id).exists?
       @like_inter = InterStack.where(user_id: current_user.id).where(stack_id: @stack.id).exists?
     end
