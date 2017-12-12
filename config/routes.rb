@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'trend/index'
   get 'trend/show'
 
+  get 'stacks/add_stack'
+
   resources :services
   resources :companies
   resources :company_fields do

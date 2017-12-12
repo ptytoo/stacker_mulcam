@@ -36,6 +36,10 @@ class StacksController < ApplicationController
   def edit
   end
 
+  def add_stack
+    @stack = Stack.new
+  end
+
   # POST /stacks
   # POST /stacks.json
   def create
