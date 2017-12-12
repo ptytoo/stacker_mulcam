@@ -23,7 +23,7 @@
         <td><%= service.describe %></td>
         <td><%= service.company %></td>
         <td><%= link_to 'Show', service %></td>
-        <% if current_user.enter? && current_user(service_id: @service.id) %>
+        <% if user_signed_in? &&  current_user.admin? %>
         <td><%= link_to 'Edit', edit_service_path(service) %></td>
         <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>

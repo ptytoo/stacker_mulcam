@@ -3,18 +3,21 @@ class Ability
 
   def initialize(user)
     # Define abilities for the passed in user here. For example:
-    #
+
     user ||= User.new # guest user (not logged in)
     if user.admin?
       can :manage, :all
     elsif user.enter?
       can :read, :all
-      can :manage, :all, Company, company_id: company.id #해당 기업회원의 회사와 서비스만 추가/수정/삭제가능해아함
-      can :manage, :all, Service, service_id: service.id
+      can [:index, :show, :new], Company
+      can [:index, :show], CompanyField
+      #해당 기업회원의 회사와 서비스만 추가/수정/삭제가능해아함
+      can [:edit,:update], Company, id: user.company_id
+      can [:edit,:update], Service, id: user.company_id
     elsif user.indi?
       can :read, :all
-      can :detail, CompanyField
-      can [:register_interesting, :register_my_stack], Stack, user_id: user.id
+      can [:index, :show], CompanyField
+      # can [:register_interesting, :register_my_stack], Stack, id: user.stack_id
       # can [:edit, :update, :destroy], MyStack, InterStack, user_id: user.id
       # can :destroy, MyStack, InterStack, user_id: user.id
     end

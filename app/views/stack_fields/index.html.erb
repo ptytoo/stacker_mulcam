@@ -15,7 +15,7 @@
       <tr>
         <td><%= stack_field.name %></td>
         <td><%= link_to 'Show', stack_field %></td>
-        <% if current_user.admin? %>
+        <% if user_signed_in? &&  current_user.admin? %>
         <td><%= link_to 'Edit', edit_stack_field_path(stack_field) %></td>
         <td><%= link_to 'Destroy', stack_field, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
