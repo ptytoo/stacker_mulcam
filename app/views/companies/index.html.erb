@@ -23,8 +23,10 @@
         <td><%= company.describe %></td>
         <td><%= company.company_field %></td>
         <td><%= link_to 'Show', company %></td>
+        <% if current_user.enter && current_user(company_id: @company_id)%>  <!-- 기업회원의 회사인 경우에만 표시되어야함 -->
         <td><%= link_to 'Edit', edit_company_path(company) %></td>
         <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

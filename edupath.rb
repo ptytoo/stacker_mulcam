@@ -7,7 +7,7 @@ require 'httparty'
 require 'csv'
 require 'pry'
 
-$stack_name = ["android-development","angular","apache-spark","asp-net","backbone-js","bootstrap","c","c-sharp","c-plus-plus","cassandra","django","elasticsearch","elixir","flask","git","go","haskell","html-5","ios-swift","java","java-spring-framework","javascript","jquery","kotlin","mongodb","mysql","nginx","node-js","php","polymer","python","react","redis","rust","sap-abap","sass","scala","sql-server","typescript","visual-basic-vb","vue-js","couchdb","elm","ember-js","erlang","less","lua","objective-c","postgres","meteor"]
+$stack_name = ["android-development","angular","apache-spark","asp-net","backbone-js","bootstrap","c","c-sharp","c-plus-plus","cassandra","django","elasticsearch","elixir","flask","git","go","haskell","html-5","ios-swift","java","java-spring-framework","javascript","jquery","kotlin","mongodb","mysql","nginx","node-js","php","polymer","python","react","redis","rust","sass","scala","sql-server","typescript","visual-basic-vb","vue-js","couchdb","elm","ember-js","erlang","less","lua","objective-c","postgres","meteor"]
 
 $stack_name.each_with_index do |stack_name, index|
 # DATA.each do |stack|
