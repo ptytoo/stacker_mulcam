@@ -55,11 +55,17 @@
 
 <p>
   <strong>이 스택을 사용하는 서비스들:</strong><br>
-  <% @services.each do |s|%>
+  <% @services.each do |s| %>
     <%= s.service.name %><br>
   <% end %>
 </p>
 
+<p>
+  <strong>Education Info</strong><br>
+  <% @edu_links.each do |l| %>
+    <a href="<%= l.url %>"></a>"<br>
+  <% end %>
+</p>
 
 <%= link_to 'Edit', edit_stack_path(@stack) %> |
 <%= link_to 'Back', url_for(:back) %>
