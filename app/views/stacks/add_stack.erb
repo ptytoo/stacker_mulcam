@@ -1,4 +1,3 @@
-
 <input type="button" value = "AA" id="aa">
 
 <%@stacks.each do |stack|%>
@@ -30,13 +29,13 @@ $(function(){
     var ret = []
     $(".cb[value=true]").each(function(){
       ret.push($(this).attr("stack_id"))
-    })
-    console.log(ret)
+    });
+    console.log(ret);
     $.ajax({
       url: "<%= indi_register_stack_path %>",
       method: "POST",
-      data: ret
+      data: {return_val : ret}
     });
-  })
+  });
 })
 </script>
