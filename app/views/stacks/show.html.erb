@@ -8,13 +8,13 @@
   <!-- 관심스택 등록 버튼 -->
   <%if current_user%>
     <% if current_user.indi? %>
-      <% if @like %>
+      <% if @like_inter %>
         <%= link_to "관심스택", '', class: "btn btn-info", id: "inter_button" %>
       <% else %>
         <%= link_to "관심스택", '', class: "btn btn-danger", id: "inter_button" %>
       <% end %>
       <!-- 마이스택 등록 버튼 -->
-      <% if @like %>
+      <% if @like_my %>
         <%= link_to "마이스택", '', class: "btn btn-info", id: "my_button" %>
       <% else %>
         <%= link_to "마이스택", '', class: "btn btn-danger", id: "my_button" %>
@@ -26,6 +26,11 @@
 <p>
   <strong>Name:</strong>
   <%= @stack.name.capitalize %>
+</p>
+
+<p>
+  <strong>Version:</strong>s
+  <%= @stack.version %>
 </p>
 
 <p>
@@ -41,11 +46,6 @@
 <p>
   <strong>Describe:</strong>
   <%= @stack.describe %>
-</p>
-
-<p>
-  <strong>Version:</strong>s
-  <%= @stack.version %>
 </p>
 
 <p>
@@ -74,21 +74,19 @@
   $(function(){
     $('#inter_button').on('click',function(e){
       e.preventDefault();
-      var stack = "<%=@stack%>"
       $.ajax({
         url: "<%= register_inter_stack_path%>",
         method: "POST",
-        data: stack
+        data: "<%=@stack%>"
       })
     });
 
     $('#my_button').on('click', function(e){
       e.preventDefault();
-      var stack = "<%=@stack%>"
       $.ajax({
         url: "<%=register_my_stack_path%>",
         method: "POST",
-        data: stack
+        data: "<%=@stack%>"
       });
     });
   })

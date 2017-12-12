@@ -20,6 +20,9 @@ class RankingController < ApplicationController
               .order("cnt DESC limit 1")
     end
 
+    #모델파일에서 validates_uniqueness_of
+    #migrate파일에서 :unique => true
+
     # select b.user_id as B, count(a.stack_id) as cnt
     # from my_stacks a
     # inner join my_stacks b

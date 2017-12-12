@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_and_belongs_to_many :stacks
+  validates_uniqueness_of :email
+  validates_uniqueness_of :nickname
 
   def admin?
      if role == "admin"
