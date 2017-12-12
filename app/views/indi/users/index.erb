@@ -22,3 +22,9 @@
     <%= image_tag "https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/#{inter_stack.stack_field.name}/#{inter_stack.name.capitalize}.png", id: "#{inter_stack.name}", class: "mr-3", width: "50", height: "50" %>
   </a>
 <% end %>
+
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
