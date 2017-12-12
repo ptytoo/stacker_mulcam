@@ -20,11 +20,11 @@
 <% f=0 %>
 <%@surveys.each do |survey| %>
   <strong><%= survey%></strong> <br>
-  <% for i in 0..10 %>
+  <% for i in 0..9 %>
     <%=@octo_trends[f+i]["content_name"] %>
     <%=@octo_trends[f+i]["content_figure"] %> <br>
     <% end %>
-    <% f+=5%>
+    <% f+=10%>
 <% end %>
 
 <div id="chart"></div>
