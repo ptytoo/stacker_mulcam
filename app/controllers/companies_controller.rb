@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
   # GET /companies
@@ -61,6 +62,10 @@ class CompaniesController < ApplicationController
       format.html { redirect_to companies_url, notice: 'Company was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def detail
+    @services = Service.where(company_id: @company.id)
   end
 
   private

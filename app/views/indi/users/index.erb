@@ -16,7 +16,6 @@
 <% end %>
 <br><br>
 <h1>나의 관심 스택 확인</h1>
-<%= link_to '추가', stacks_path%><br>
 <% @stacks.each do |stack| %>
   <% inter_stack = Stack.find(stack.stack_id)%>
   <a href="/stacks/<%=inter_stack.id%>" data-toggle="tooltip" title="<%=inter_stack.name%>">

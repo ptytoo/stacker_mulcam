@@ -1,9 +1,3 @@
-<div id="RotateXAxisTickText1"></div>
-<div id="RotateXAxisTickText2"></div>
-<div id="RotateXAxisTickText3"></div>
-<div id="RotateXAxisTickText4"></div>
-<div id="DonutChart"></div>
-
 <h1>Hot Stacks</h1>
 
 <br>
@@ -16,9 +10,14 @@
   <%end%>
   <%j+=5%>
 <%end%>
+<br>
+<br>
 
-<br>
-<br>
+<div id="RotateXAxisTickText1"></div>
+<div id="RotateXAxisTickText2"></div>
+<div id="RotateXAxisTickText3"></div>
+<div id="RotateXAxisTickText4"></div>
+<div id="DonutChart"></div>
 
 <% f=0 %>
 <%@surveys.each do |survey| %>
@@ -30,30 +29,50 @@
     <% f+=10%>
 <% end %>
 
-
 <script>
+
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
+
 </script>
 
 <!-- test -->
+
 <script>
 
 // Script
+
 var chart1 = bb.generate({
+
   "data": {
     "x": "x",
     "columns": [
-	["x", "tensorflow/tensorflow", "twbs/bootstrap", "github/gitgnore", "barryclark/jekyll-now",
+    ["x", "tensorflow/tensorflow", "twbs/bootstrap", "github/gitgnore", "barryclark/jekyll-now",
   "tensorflow/modelst", "vuejs/vue", "facebook/react", "jloro/patchwork", "spring-projects/spring-boo", "torvalds"],
-	["values", 24, 15, 10.8, 10.7, 8.3, 8.1, 8, 7.4, 7.4, 6.1]
+    ["values", 24, 15, 10.8, 10.7, 8.3, 8.1, 8, 7.4, 7.4, 6.1]
     ],
-    "type": "bar"
+    "type": "bar",
+    color: function(color, d) {
+      if (typeof d === "object") {
+        // for data point
+        console.log(d)
+        if (d.index %2 == 1) {
+          return "#ffcccc";
+          // for data type (ex. line, bar)
+        } else {
+          return "#cce6ff";
+        }
+      } else {
+        return 'white';
+      }
+    }
   },
+
   "title": {
          "text": "Ten most-forked projects "
     },
+
   "axis": {
     "rotated": true,
     "x": {
@@ -62,7 +81,8 @@ var chart1 = bb.generate({
         "rotate": 75,
         "multiline": false
       },
-      "height": 130
+      "height": 130,
+      "stroke-width" : 1
     }
   },
   "bindto": "#RotateXAxisTickText1"
@@ -72,15 +92,31 @@ var chart2 = bb.generate({
   "data": {
     "x": "x",
     "columns": [
-	["x", "microsoft/vscode", "facebook/react-native", "npm/npm", "angular/angular-cli",
+    ["x", "microsoft/vscode", "facebook/react-native", "npm/npm", "angular/angular-cli",
   "tensorflow/tensorflow", "fortawesome/font-awesome", "angular/angular", "docker/docke", "sjloro/patchwork", "ansible/ansible"],
-	["values", 15, 8.8, 7.6, 7.4, 7.3, 6.8, 6, 6, 5.9, 5.9]
+    ["values", 15, 8.8, 7.6, 7.4, 7.3, 6.8, 6, 6, 5.9, 5.9]
     ],
-    "type": "bar"
+    "type": "bar",
+    color: function(color, d) {
+      if (typeof d === "object") {
+        // for data point
+        console.log(d)
+        if (d.index %2 == 1) {
+          return "#ffcccc";
+          // for data type (ex. line, bar)
+        } else {
+          return "#cce6ff";
+        }
+      } else {
+        return 'white';
+      }
+    }
   },
+
   "title": {
          "text": "projects with the most contributors "
   },
+
   "axis": {
     "rotated": true,
     "x": {
@@ -96,18 +132,35 @@ var chart2 = bb.generate({
 });
 
 var chart3 = bb.generate({
+
   "data": {
     "x": "x",
     "columns": [
-	["x", "definitelyped/devinitelytyped", "kubernetes/kubernete", "homebrew/homebrew-core", "ansible/ansible",
+    ["x", "definitelyped/devinitelytyped", "kubernetes/kubernete", "homebrew/homebrew-core", "ansible/ansible",
   "nodejs/node", "nixos/nixpkgs", "apache/spark", "rust-lang/rust", "symfony/symfony ", "tensorflow/tensorflow"],
-	["values", 800, 680, 580, 550, 480, 480, 450, 390, 340, 340]
+    ["values", 800, 680, 580, 550, 480, 480, 450, 390, 340, 340]
     ],
-    "type": "bar"
+    "type": "bar",
+    color: function(color, d) {
+      if (typeof d === "object") {
+        // for data point
+        console.log(d)
+        if (d.index %2 == 1) {
+          return "#ffcccc";
+          // for data type (ex. line, bar)
+        } else {
+          return "#cce6ff";
+        }
+      } else {
+        return 'white';
+      }
+    }
   },
+
   "title": {
          "text": "projects with the most reviews "
   },
+
   "axis": {
     "rotated": true,
     "x": {
@@ -126,15 +179,31 @@ var chart4 = bb.generate({
   "data": {
     "x": "x",
     "columns": [
-	["x", "kubernetes/kubernetes", "openshift/origin", "cwm-sw/cmsww", "microsoft/vscode",
+    ["x", "kubernetes/kubernetes", "openshift/origin", "cwm-sw/cmsww", "microsoft/vscode",
   "rust-lang/rust", "dotnet/corex", "tggstation/tgstation", "nodejs/node", "servo/servo", "ansible/ansible"],
-	["values", 388.1, 91.1, 80.1, 78.7, 75.6, 75.2, 74.8, 66.3, 54.9, 53.9]
+    ["values", 388.1, 91.1, 80.1, 78.7, 75.6, 75.2, 74.8, 66.3, 54.9, 53.9]
     ],
-    "type": "bar"
+    "type": "bar",
+    color: function(color, d) {
+      if (typeof d === "object") {
+        // for data point
+        console.log(d)
+        if (d.index %2 == 1) {
+          return "#ffcccc";
+          // for data type (ex. line, bar)
+        } else {
+          return "#cce6ff";
+        }
+      } else {
+        return 'white';
+      }
+    }
   },
+
   "title": {
          "text": "ten most-discussed repositories"
   },
+
   "axis": {
     "rotated": true,
     "x": {
@@ -146,15 +215,18 @@ var chart4 = bb.generate({
       "height": 130
     }
   },
+
   "bindto": "#RotateXAxisTickText4"
+
 });
-
-
+var donut_count = 0
+var donut_color = ["#ffccff", "#ff99ff","ff80ff", "#ff66ff","#ff1aff","#b300b3", "#660066"]
 var chart = bb.generate({
+
   "data": {
     "columns": [
-	["software&internet", 22],
-	["financial services", 13],
+    ["software&internet", 22],
+    ["financial services", 13],
   ["business services", 10],
   ["manufacturing", 7],
   ["education", 7],
@@ -168,32 +240,37 @@ var chart = bb.generate({
     "type": "donut",
     "onclick": function (d, i) { console.log("onclick", d, i); },
     "onover": function (d, i) { console.log("onover", d, i); },
-    "onout": function (d, i) { console.log("onout", d, i); }
+    "onout": function (d, i) { console.log("onout", d, i); },
+    color: function(color, d) {
+      console.log(d)
+
+
+      if (typeof d === "string") {
+        // for data point
+        //if (d.index % 2 == 1) {
+        donut_count++;
+          return donut_color[donut_count % donut_color.length];
+          // for data type (ex. line, bar)
+        //} else {
+      //    return "#cce6ff";
+        //}
+      } else {
+        console.log(typeof d)
+        console.log("!!!")
+
+        return 'blue';
+      }
+    }
   },
+
   "donut": {
+
     "title": "not just software"
+
   },
+
   "bindto": "#DonutChart"
+
 });
-// Script
 
-
-
-
-  //
-  // "data": {
-  //   "columns": [
-	// ["kubernetes/kubernetes", 388.1],
-  // ["openshift/origin",91.9],
-  // ["cwm-sw/cmsww", 80.1],
-  // ["microsoft/vscode", 78.7],
-  // ["rust-lang/rust", 75.6],
-  // ["dotnet/corex", 75.2],
-  // ["tggstation/tgstation", 74.8],
-  // ["nodejs/node", 66.3],
-  // ["servo/servo ", 54.9],
-  // ["ansible/ansible", 53.9]
-
-
-<!--  -->
 </script>

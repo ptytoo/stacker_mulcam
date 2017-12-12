@@ -1,4 +1,5 @@
 class CompanyFieldsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_company_field, only: [:show, :edit, :update, :destroy]
   # before_action :role_restrict, only:[:update, :edit, :destroy]
   # def role_restrict
@@ -23,10 +24,6 @@ class CompanyFieldsController < ApplicationController
     @companies = Company.where(company_field_id: params[:id])
   end
 
-  def detail
-    @company = Company.find(params[:id])
-    @services = Service.where(company_id: @company.id)
-  end
 
   # GET /company_fields/new
   def new

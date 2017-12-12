@@ -18,7 +18,7 @@
 </p>
 
 <p>
-  <strong>Describe:</strong>
+  <strong>Describe:</strong> 
   <%= @service.describe %>
 </p>
 
@@ -38,4 +38,4 @@
 <br>
 
 <%= link_to 'Edit', edit_service_path(@service) %> |
-<%= link_to 'Back', detail_company_field_path(@service.company_id) %>
+<%= link_to 'Back', detail_company_path(@service.company_id) %>
