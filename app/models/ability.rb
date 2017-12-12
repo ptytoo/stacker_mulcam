@@ -17,9 +17,7 @@ class Ability
     elsif user.indi?
       can :read, :all
       can [:index, :show], CompanyField
-      # can [:register_interesting, :register_my_stack], Stack, id: user.stack_id
-      # can [:edit, :update, :destroy], MyStack, InterStack, user_id: user.id
-      # can :destroy, MyStack, InterStack, user_id: user.id
+      can [:new, :edit, :add_stack, :register_interesting, :register_my_stack], Stack
     end
     #
     # The first argument to `can` is the action you are giving the user
