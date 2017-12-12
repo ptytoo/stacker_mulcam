@@ -5,4 +5,8 @@ class Indi::UsersController < Indi::ApplicationController
     @mstacks = MyStack.where(user_id: @user.id)
   end
 
+  def regist_stack
+    stack_list = params[:ret]
+    puts stack_list
+  end
 end

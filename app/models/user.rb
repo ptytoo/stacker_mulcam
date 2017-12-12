@@ -10,9 +10,11 @@ class User < ActiveRecord::Base
   def interest?(stack)
     InterStack.where(user_id: self.id).where(stack_id: stack.id).exists?
   end
+
   def my?(stack)
     MyStack.where(user_id: self.id).where(stack_id: stack.id).exists?
   end
+  
   def admin?
      if role == "admin"
        true

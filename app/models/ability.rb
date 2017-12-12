@@ -10,7 +10,7 @@ class Ability
     elsif user.enter?
       can :read, :all
     elsif user.inter?
-
+      
     end
     #
     # The first argument to `can` is the action you are giving the user

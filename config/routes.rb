@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   get 'career/index'
-
   get 'career/show'
 
   root 'main#index'
@@ -14,7 +13,6 @@ Rails.application.routes.draw do
   get 'trend/index'
   get 'trend/show'
 
-  get 'stacks/add_stack'
 
   resources :services
   resources :companies
@@ -27,6 +25,9 @@ Rails.application.routes.draw do
     member do
       post '/register_interesting' => 'stacks#register_interesting', as: 'register_inter'
       post '/register_my_stack' => 'stacks#register_my_stack', as: 'register_my'
+    end
+    collection do
+      get '/add_stack' => 'stacks#add_stack', as: 'add_my'
     end
   end
   resources :stack_fields
@@ -54,6 +55,7 @@ Rails.application.routes.draw do
   end
 
   namespace :indi do
+    post 'users/regist_stack' => 'users#regist_stack', as: 'register_stack'
     resources :users do
     end
   end
