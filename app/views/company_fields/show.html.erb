@@ -20,7 +20,7 @@
     <% @companies.each do |company| %>
       <tr>
         <td><img src="<%=company.logo_url%>" data-toggle="tooltip" title="<%=company.name%>" id: "#{company.name}"></td>
-        <td><%= company.name %><%= link_to '<button type="button">상세보기</button>'.html_safe, detail_company_field_path(company) %></td>
+        <td><%= company.name %><%= link_to '<button type="button">상세보기</button>'.html_safe, company_path(company) %></td>
       </tr>
     <% end %>
   </tbody>

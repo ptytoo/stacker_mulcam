@@ -15,8 +15,10 @@
       <tr>
         <td><%= company_field.name %></td>
         <td><%= link_to 'Show', company_field %></td>
+        <% if user_signed_in? &&  current_user.admin? %>
         <td><%= link_to 'Edit', edit_company_field_path(company_field) %></td>
         <td><%= link_to 'Destroy', company_field, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

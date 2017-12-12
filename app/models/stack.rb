@@ -3,6 +3,7 @@ class Stack < ActiveRecord::Base
 
   has_and_belongs_to_many :users
   has_and_belongs_to_many :services
+  resourcify
 
   has_many :impressions, :as=>:impressionable
 
@@ -15,5 +16,5 @@ class Stack < ActiveRecord::Base
       # so getting keys from the hash and calculating the number of keys
       impressions.group(:ip_address).size.keys.length #TESTED
   end
-  
+
 end

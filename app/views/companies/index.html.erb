@@ -23,8 +23,10 @@
         <td><%= company.describe %></td>
         <td><%= company.company_field %></td>
         <td><%= link_to 'Show', company %></td>
+        <% if user_signed_in? &&  current_user.admin? %>
         <td><%= link_to 'Edit', edit_company_path(company) %></td>
         <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
