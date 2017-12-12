@@ -41,6 +41,8 @@ class StacksController < ApplicationController
 
   def add_stack
     @stacks = Stack.all
+    @stack = Stack.all.to_a
+    @stack_fields = StackField.all
   end
 
   # POST /stacks

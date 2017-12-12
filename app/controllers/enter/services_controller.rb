@@ -1,5 +1,5 @@
 class Enter::ServicesController < Enter::ApplicationController
-  before_action :set_service, only: [:show, :edit, :update, :destroy, :regist_stack]
+  before_action :set_service, only: [:show, :edit, :update, :destroy, :add_stack]
 
   # GET /services
   # GET /services.json
@@ -67,11 +67,7 @@ class Enter::ServicesController < Enter::ApplicationController
   end
 
   def add_stack
-  end
-  def delete_stack
-  end
-
-  def regist_stack
+    @st = Service.find_by(name: @service.name)
     stack_list = params[:return_val]
     stack_list.each do |st|
         check = ServiceStack.where(service_id: @service.id).where(stack_id: st).exists?
@@ -83,6 +79,9 @@ class Enter::ServicesController < Enter::ApplicationController
         end
     end
   end
+  def delete_stack
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
