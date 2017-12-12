@@ -60,13 +60,6 @@
   <% end %>
 </p>
 
-<p>
-  <strong>Education Info</strong><br>
-  <% @edu_links.each do |l| %>
-    <a href="<%= l.url %>"></a>"<br>
-  <% end %>
-</p>
-
 <%= link_to 'Edit', edit_stack_path(@stack) %> |
 <%= link_to 'Back', url_for(:back) %>
 

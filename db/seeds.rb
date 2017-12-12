@@ -204,10 +204,29 @@ end
 
 ##############################   edu path 데이터   ################################
 
-stack_name =
-["android-developmen","angular","apache-spark","asp-net","backbone-js","bootstrap",
-  "c","c-sharp","c-plus-plus","cassandra","django","elasticsearch","elixir","flask",
-  "git","go","haskell","html-5","ios-swift","java","java-spring-framework","javascript",
-  "jquery","kotlin","mongodb","mysql","nginx","node-js","php","polymer","python","react",
-  "redis","rust","sap-abap","sass","scala","sql-server","typescript","visual-basic-vb",
-  "vue-js","couchdb","elm","ember-js","erlang","less","lua","objective-c","postgres","meteor"]
+# stack_name =
+# ["android-developmen","angular","apache-spark","asp-net","backbone-js","bootstrap",
+#   "c","c-sharp","c-plus-plus","cassandra","django","elasticsearch","elixir","flask",
+#   "git","go","haskell","html-5","ios-swift","java","java-spring-framework","javascript",
+#   "jquery","kotlin","mongodb","mysql","nginx","node-js","php","polymer","python","react",
+#   "redis","rust","sap-abap","sass","scala","sql-server","typescript","visual-basic-vb",
+#   "vue-js","couchdb","elm","ember-js","erlang","less","lua","objective-c","postgres","meteor"]
+
+# stack_name.each do |stack_name|
+    text = File.open(Rails.root.join('edu_path.csv')).read
+    text.each_line do |line|
+      data = line.split("@@$^")
+      stack = Stack.where('lower(name) = ? ', data[0].downcase.strip).first
+      # puts data[0]
+      # puts stack.inspect
+      if stack.present?
+        data[1].split(",").each do |link|
+          # if stack.present?
+            EduPath.create(
+              stack_id: stack.id,
+              url: link
+            )
+        end
+      end
+    end
+# end
