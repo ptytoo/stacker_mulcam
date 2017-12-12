@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   end
 
   namespace :enter do
+    post '/regist_stack' => 'services#regist_stack', as: 'register_stack'
     resources :companies do
       resources :services do
         member do

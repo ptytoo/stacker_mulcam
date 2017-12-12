@@ -6,7 +6,7 @@
 <%= link_to '수정', edit_user_registration_path %>
 <br><br>
 <h1>나의 스택 확인</h1>
-<%= link_to '추가', stacks_path%><br>
+<%= link_to '추가',  add_my_stacks_path %><br>
 <% @mstacks.each do |s| %>
   <% st = Stack.find(s.stack_id)%>
   <% field = StackField.find(st.stack_field_id)%>
@@ -16,10 +16,15 @@
 <% end %>
 <br><br>
 <h1>나의 관심 스택 확인</h1>
-<%= link_to '추가', stacks_path%><br>
 <% @stacks.each do |stack| %>
   <% inter_stack = Stack.find(stack.stack_id)%>
   <a href="/stacks/<%=inter_stack.id%>" data-toggle="tooltip" title="<%=inter_stack.name%>">
     <%= image_tag "https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/#{inter_stack.stack_field.name}/#{inter_stack.name.capitalize}.png", id: "#{inter_stack.name}", class: "mr-3", width: "50", height: "50" %>
   </a>
 <% end %>
+
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>

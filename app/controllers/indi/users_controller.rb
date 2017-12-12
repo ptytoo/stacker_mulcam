@@ -6,7 +6,15 @@ class Indi::UsersController < Indi::ApplicationController
   end
 
   def regist_stack
-    stack_list = params[:ret]
-    puts stack_list
+    stack_list = params[:return_val]
+    stack_list.each do |st|
+        check = MyStack.where(user_id: current_user).where(stack_id: st).exists?
+        unless check
+          MyStack.create(
+            user_id: current_user.id,
+            stack_id: st
+          )
+        end
+    end
   end
 end

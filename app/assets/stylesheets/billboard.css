@@ -1,20 +1,21 @@
 /*!
  * Copyright (c) 2017 NAVER Corp.
  * billboard.js project is licensed under the MIT license
- * 
+ *
  * billboard.js, JavaScript chart library
  * http://naver.github.io/billboard.js/
- * 
+ *
  * @version 1.1.1
  */
 /*-- Chart --*/
+
 .bb svg {
   font: 10px sans-serif;
   -webkit-tap-highlight-color: transparent; }
 
 .bb path, .bb line {
   fill: none;
-  stroke: #000; }
+  stroke: 0.1px #000; }
 
 .bb text {
   -webkit-user-select: none;
@@ -24,12 +25,20 @@
 .bb-legend-item-tile,
 .bb-xgrid-focus,
 .bb-ygrid,
-.bb-event-rect,
+.bb-event-rect path {
+  color: red;
+  },
 .bb-bars path {
   shape-rendering: crispEdges; }
 
 .bb-chart-arc path {
-  stroke: #fff; }
+  stroke: red; }
+
+.bb-axis.bb-axis-y path {
+  	stroke-width: 3px;
+}
+
+
 
 .bb-chart-arc text {
   fill: #fff;
@@ -69,6 +78,7 @@
   stroke-width: 0; }
   .bb-bar._expanded_ {
     fill-opacity: 0.75; }
+
 
 /*-- Focus --*/
 .bb-target.bb-focused {

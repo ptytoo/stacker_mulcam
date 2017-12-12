@@ -1,10 +1,10 @@
 /*!
  * Copyright (c) 2017 NAVER Corp.
  * billboard.js project is licensed under the MIT license
- * 
+ *
  * billboard.js, JavaScript chart library
  * http://naver.github.io/billboard.js/
- * 
+ *
  * @version 1.1.1
  */
 (function webpackUniversalModuleDefinition(root, factory) {
