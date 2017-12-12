@@ -28,8 +28,6 @@
     <%= f.text_area :describe %>
   </div>
   <%= f.hidden_field :company_id, id:"company_id"%>
-  <% service = Service.find_by(company_id: current_user.company_id)%>
-  <%= f.hidden_field :service_id, id:"service_id"%>
   <div class="actions">
     <%= f.submit %>
   </div>
