@@ -11,11 +11,13 @@ class Ability
       can :read, :all
       can [:index, :create, :show, :new, :detail], Company
       can [:index, :show], CompanyField
+      can [:new, :edit, :add_stack], Stack
       #해당 기업회원의 회사와 서비스만 추가/수정/삭제가능해아함
       can [:edit,:update], Company, id: user.company_id
-      can [:create,:edit,:update], Service, id: user.company_id
+      can [:create, :edit,:update], Service, id: user.company_id
     elsif user.indi?
       can :read, :all
+      can [:index, :show, :detail], Company
       can [:index, :show], CompanyField
       can [:new, :edit, :add_stack, :register_interesting, :register_my_stack], Stack
     end
