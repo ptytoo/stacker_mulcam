@@ -1,5 +1,5 @@
 class Enter::CompaniesController < Enter::ApplicationController
-  before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :set_company, only: [:index,:show, :edit, :update, :destroy]
 
 
   def index
