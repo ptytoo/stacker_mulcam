@@ -1,6 +1,5 @@
 class Enter::ServicesController < Enter::ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy, :add_stack]
-
   # GET /services
   # GET /services.json
   def index
@@ -65,8 +64,13 @@ class Enter::ServicesController < Enter::ApplicationController
       format.json { head :no_content }
     end
   end
-
   def add_stack
+    # @stacks = Stack.all
+    # @stack = Stack.all.to_a
+    @stack_fields = StackField.all
+  end
+
+  def regist_stack
     @st = Service.find_by(name: @service.name)
     stack_list = params[:return_val]
     stack_list.each do |st|
