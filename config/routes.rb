@@ -15,10 +15,13 @@ Rails.application.routes.draw do
 
 
   resources :services
-  resources :companies
+  resources :companies do
+    member do
+      get '/detail' => 'companies#detail'
+    end
+  end
   resources :company_fields do
     member do
-      get '/detail' => 'company_fields#detail'
     end
   end
   resources :stacks do
@@ -44,7 +47,6 @@ Rails.application.routes.draw do
   end
 
   namespace :enter do
-    post '/regist_stack' => 'services#regist_stack', as: 'register_stack'
     resources :companies do
       resources :services do
         member do

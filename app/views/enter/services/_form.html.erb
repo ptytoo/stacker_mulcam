@@ -31,3 +31,50 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<input type="button" value = "스택 등록" id="aa">
+
+<%@stacks.each do |stack|%>
+  <div>
+    <%#= stack.name %>
+    <img class="img" src="https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/<%=stack.stack_field.name%>/<%= stack.name.capitalize %>.png" width="100">
+    <%=hidden_field_tag "", current_user.my?(stack), class: "cb", stack_id: stack.id%>
+  </div>
+<%end%>
+
+
+<script>
+  $(function(){
+    console.log(<%=@company.id%>)
+    $('#company_id').val(<%=current_user.company_id%>);
+
+    $(".cb").each(function(){
+      if($(this).val() == "true"){
+          $(this).parent("div").css("border","1px solid red");
+      }
+    })
+    $(".img").on("click",function(){
+      console.log()
+      var value = $(this).siblings(".cb").val()
+      if(value == "true"){
+        $(this).siblings(".cb").val("false")
+        $(this).parent("div").css("border","0px");
+      }else{
+        $(this).siblings(".cb").val("true")
+        $(this).parent("div").css("border","1px solid red");
+      }
+    })
+    $("#aa").on("click", function(){
+      var ret = []
+      $(".cb[value=true]").each(function(){
+        ret.push($(this).attr("stack_id"))
+      });
+      console.log(ret);
+      $.ajax({
+        url: "<%= enter_register_stack_path %>",
+        method: "POST",
+        data: {return_val : ret}
+      });
+    });
+  })
+</script>

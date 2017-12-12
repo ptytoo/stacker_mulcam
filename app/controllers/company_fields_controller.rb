@@ -24,10 +24,6 @@ class CompanyFieldsController < ApplicationController
     @companies = Company.where(company_field_id: params[:id])
   end
 
-  def detail
-    @company = Company.find(params[:id])
-    @services = Service.where(company_id: @company.id)
-  end
 
   # GET /company_fields/new
   def new

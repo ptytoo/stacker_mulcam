@@ -67,11 +67,6 @@ class Enter::ServicesController < Enter::ApplicationController
   end
 
   def add_stack
-  end
-  def delete_stack
-  end
-
-  def regist_stack
     stack_list = params[:return_val]
     stack_list.each do |st|
         check = ServiceStack.where(service_id: @service.id).where(stack_id: st).exists?
@@ -83,6 +78,9 @@ class Enter::ServicesController < Enter::ApplicationController
         end
     end
   end
+  def delete_stack
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
