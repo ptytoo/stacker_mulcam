@@ -1,5 +1,5 @@
 class CompanyFieldsController < ApplicationController
-  load_and_authorize_resource
+  # load_and_authorize_resource
   before_action :set_company_field, only: [:show, :edit, :update, :destroy]
   # before_action :role_restrict, only:[:update, :edit, :destroy]
   # def role_restrict
