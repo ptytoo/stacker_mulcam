@@ -27,7 +27,7 @@ end
 
 require 'csv'
 
-#######################################################################################
+##################################   회사 데이터   #################################
 
 company_data =
 ['seed_data_company/sm-commu.csv',
@@ -59,7 +59,7 @@ company_data.each_with_index do |file_name, index|
   end
 end
 
-#######################################################################################
+#################################   서비스 데이터   ################################
 
 service_data =
 [
@@ -92,7 +92,7 @@ service_data.each do |file_name|
   end
 end
 
-#######################################################################################
+#################################  스택 데이터   ################################
 
 stack_data =
 [
@@ -117,44 +117,8 @@ stack_data.each_with_index do |file_name, index|
   end
 end
 
-#######################################################################################
+##############################   서비스 스택 데이터   ################################
 
-#
-# text = File.open(Rails.root.join('seed_data_service_stack/admarkets.csv')).read
-# text.each_line do |line|
-#   data = line.split("@@$^")
-#     ServiceStack.create(
-#     service_id: data[0],
-#     stack_id: data[1]
-#   )
-# end
-#
-# text = File.open(Rails.root.join('seed_data_service_stack/anal.csv')).read
-# text.each_line do |line|
-#   data = line.split("@@$^")
-#     ServiceStack.create(
-#     service_id: data[0],
-#     stack_id: data[1]
-#   )
-# end
-#
-# text = File.open(Rails.root.join('seed_data_service_stack/conte.csv')).read
-# text.each_line do |line|
-#   data = line.split("@@$^")
-#     ServiceStack.create(
-#     service_id: data[0],
-#     stack_id: data[1]
-#   )
-# end
-#
-# text = File.open(Rails.root.join('seed_data_service_stack/e-comme.csv')).read
-# text.each_line do |line|
-#   data = line.split("@@$^")
-#     ServiceStack.create(
-#     service_id: data[0],
-#     stack_id: data[1]
-#   )
-# end
 require 'pry'
 [ "seed_data_service_stack/admarkets.csv",
   "seed_data_service_stack/anal.csv",
@@ -190,7 +154,7 @@ require 'pry'
   end
 end
 
-#######################################################################################
+#############################   git trend 데이터   ################################
 
 require 'nokogiri'
 require 'json'
@@ -210,7 +174,7 @@ arr[0..10].each do |a|
   )
 end
 
-#######################################################################################
+##########################   trend_stacks 데이터   ################################
 
 field_name = ['Programming Languages','Client Libraries','HTTP Server Technologies',
   'Server Libraries','Databases and NoSQL Data','Server Software','Oprerationg Systems',
@@ -227,6 +191,7 @@ CSV.foreach(Rails.root.join('trendstack.csv')) do |row|
   end
 end
 
+#########################   git octo trend 데이터   ################################
 
 CSV.foreach(Rails.root.join('octo_trends.csv')) do |row|
   OctoTrend.create(
@@ -236,3 +201,13 @@ CSV.foreach(Rails.root.join('octo_trends.csv')) do |row|
     content_figure: row[3]
   )
 end
+
+##############################   edu path 데이터   ################################
+
+stack_name =
+["android-developmen","angular","apache-spark","asp-net","backbone-js","bootstrap",
+  "c","c-sharp","c-plus-plus","cassandra","django","elasticsearch","elixir","flask",
+  "git","go","haskell","html-5","ios-swift","java","java-spring-framework","javascript",
+  "jquery","kotlin","mongodb","mysql","nginx","node-js","php","polymer","python","react",
+  "redis","rust","sap-abap","sass","scala","sql-server","typescript","visual-basic-vb",
+  "vue-js","couchdb","elm","ember-js","erlang","less","lua","objective-c","postgres","meteor"]
