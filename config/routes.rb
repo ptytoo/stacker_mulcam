@@ -65,9 +65,9 @@ Rails.application.routes.draw do
   end
 
   namespace :indi do
-    post 'users/regist_stack' => 'users#regist_stack', as: 'register_stack'
     resources :users do
       collection do
+        post '/regist_stack' => 'users#regist_stack', as: 'register_stack'
         get '/add_stack' => 'users#add_stack', as: 'add_my'
       end
     end
