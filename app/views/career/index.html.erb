@@ -1,11 +1,2 @@
 <h1>Roadmap</h1>
-
-
-<%j=0%>
-<%@types.each do |type|%>
-  <strong><%= type%></strong><br>
-  <%for i in 0..3%>
-      <%= @stack[i+j]["name"]%><br>
-  <%end%>
-  <%j+=4%>
-<%end%>
+<%= link_to '<button type="button">Web Developer</button>'.html_safe, career_show_path %></td>
