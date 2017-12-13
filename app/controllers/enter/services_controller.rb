@@ -81,7 +81,7 @@ class Enter::ServicesController < Enter::ApplicationController
         end
     end
   end
-  
+
   def delete_stack
   end
 

@@ -33,7 +33,7 @@ Rails.application.routes.draw do
       post '/register_my_stack' => 'stacks#register_my_stack', as: 'register_my'
     end
     collection do
-      get '/add_stack' => 'stacks#add_stack', as: 'add_my'
+
     end
   end
 

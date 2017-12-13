@@ -4,13 +4,20 @@
 권한 : <%= @user.role%><br>
 전화번호 : <%= @user.phone%><br>
 <%= link_to '수정', edit_user_registration_path %>
-
+<%= @services%>
 <br><br>
-
 <h1>회사 정보</h1>
 회사 명: <%= @company.name%><br>
 회사 주소: <%= @company.site_url%><br>
 
+<%= link_to '수정', edit_company_path(@company)%>
+<br><br>
+<h1>서비스 정보</h1>
+<% if @services %>
+  <% @services.each do |service|%>
+    <a href="/services/<%=service.id%>" title="<%=service.name%>"><%=service.name%></a>
+  <% end %>
+<% end %>
 <%= link_to '수정', edit_enter_company_path(@company)%>
 
 <br><br>
