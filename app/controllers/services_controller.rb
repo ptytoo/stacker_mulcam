@@ -26,6 +26,7 @@ class ServicesController < ApplicationController
 
   # GET /services/1/edit
   def edit
+    authorize! :edit, @service.id
   end
 
   # POST /services

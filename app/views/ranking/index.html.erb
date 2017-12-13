@@ -1,7 +1,8 @@
-<% if current_user && current_user.indi? %>
+<% if user_signed_in? && current_user.indi? %>
   <h1>나와 비슷한 스택을 가진 유저</h1>
   <% @users.each do |u| %>
-    <%= u.user.nickname %> |
+    <%us = User.find_by(id: u.id)%>
+    <%= us.nickname %> |
     <%= u.cnt %>개<br>
   <% end %>
   <br>

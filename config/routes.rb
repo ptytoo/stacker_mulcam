@@ -15,15 +15,18 @@ Rails.application.routes.draw do
 
 
   resources :services
+
   resources :companies do
     member do
       get '/detail' => 'companies#detail'
     end
   end
+
   resources :company_fields do
     member do
     end
   end
+
   resources :stacks do
     member do
       post '/register_interesting' => 'stacks#register_interesting', as: 'register_inter'
@@ -33,6 +36,7 @@ Rails.application.routes.draw do
       get '/add_stack' => 'stacks#add_stack', as: 'add_my'
     end
   end
+
   resources :stack_fields
 
   #devise controller 생성했더니 이거 추가하라 했음 ㅠㅠㅠ....
@@ -50,7 +54,10 @@ Rails.application.routes.draw do
     resources :companies do
       resources :services do
         member do
-          post '/add_stack' => 'services#add_stack', as: 'add_stack_to'
+          get '/add_stack' => 'services#add_stack', as: 'add_stack_to'
+        end
+        collection do
+          post '/regist_stack' => 'services#regist_stack', as: 'register_stack'
           delete '/delete_stack' => 'services#delete_stack', as: 'delete_stack_to'
         end
       end
@@ -60,6 +67,9 @@ Rails.application.routes.draw do
   namespace :indi do
     post 'users/regist_stack' => 'users#regist_stack', as: 'register_stack'
     resources :users do
+      collection do
+        get '/add_stack' => 'users#add_stack', as: 'add_my'
+      end
     end
   end
 

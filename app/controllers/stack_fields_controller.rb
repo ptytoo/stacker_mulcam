@@ -19,6 +19,7 @@ class StackFieldsController < ApplicationController
 
   # GET /stack_fields/1/edit
   def edit
+    authorize! :edit, @stack_field.id
   end
 
   # POST /stack_fields
