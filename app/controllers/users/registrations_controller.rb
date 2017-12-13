@@ -66,7 +66,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if current_user.indi?
       add_my_indi_users_path
     else
-      add_stack_to_enter_company_service_path(current_user.company_id)
+      enter_company_path(current_user.company_id)
     end
   end
 
