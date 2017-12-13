@@ -44,7 +44,7 @@ $(function(){
     });
     console.log(ret);
     $.ajax({
-      url: "<%= register_stack_indi_users_path %>",
+      url: "<%= indi_register_stack_path %>",
       method: "POST",
       data: {return_val : ret}
     });
