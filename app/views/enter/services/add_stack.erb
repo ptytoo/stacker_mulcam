@@ -1,4 +1,5 @@
-<input type="button" value = "등록" id="aa"><br>
+<!-- <input type="button" value = "등록" id="aa"><br> -->
+<%= link_to 'submit', enter_company_service_path(current_user.company_id, @service.id), method: :get, :onclick => "$('#aa').submit()"  %>
 
 <% @stack_fields.each do |field|%>
 
@@ -37,11 +38,11 @@ $(function(){
     $(".cb[value=true]").each(function(){
       ret.push($(this).attr("stack_id"))
     });
-    console.log(ret);
+    // console.log(ret);
     $.ajax({
-      url: "<%= indi_register_stack_path %>",
+      url: "<%= register_stack_enter_company_services_path %>",
       method: "POST",
-      data: {return_val : ret}
+      data: {return_val : ret, service_id : <%=@service.id%>}
     });
   });
 })

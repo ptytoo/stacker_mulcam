@@ -67,18 +67,21 @@ class Enter::ServicesController < Enter::ApplicationController
   end
 
   def regist_stack
-    @st = Service.find_by(name: @service.name)
+    # @st = Service.find_by(name: @service.name)
     stack_list = params[:return_val]
+    service_id = params[:service_id]
+    puts stack_list
     stack_list.each do |st|
-        check = ServiceStack.where(service_id: @service.id).where(stack_id: st).exists?
+        check = ServiceStack.where(service_id: service_id).where(stack_id: st).exists?
         unless check
           ServiceStack.create(
-            service_id: @service.id,
+            service_id: service_id,
             stack_id: st
           )
         end
     end
   end
+  
   def delete_stack
   end
 
