@@ -10,7 +10,7 @@ class Ability
     elsif user.enter?
       can :read, :all
       can [:create, :edit, :update], Company, id: user.company_id
-      can [:create, :edit, :update], Service, id: user.company_id
+      can [:create, :edit, :update, :destroy], Service, id: user.company_id
       can [:index, :show, :detail], Company
       can [:index, :show], CompanyField
       can [:new, :add_stack], Stack
