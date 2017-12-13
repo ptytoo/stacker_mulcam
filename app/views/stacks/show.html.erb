@@ -68,8 +68,11 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_stack_path(@stack) %> |
-<%= link_to 'Back', url_for(:back) %>
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to 'Edit', edit_stack_path(@stack) %> |
+<% end %>
+  <%= link_to 'Back', url_for(:back) %>
+
 
 <script>
   $(function(){
