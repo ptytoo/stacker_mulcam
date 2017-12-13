@@ -64,9 +64,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
     #개인 회원일 경우와 기업회원일 경우를 나눠서 path설정
     if current_user.indi?
-      add_my_stacks_path
+      add_my_indi_users_path
     else
-      enter_company_path(current_user.company_id)
+      add_stack_to_enter_company_service_path(current_user.company_id)
     end
   end
 

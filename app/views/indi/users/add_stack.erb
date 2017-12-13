@@ -1,5 +1,5 @@
-<!-- <input type="button" value = "등록" id="aa"><br> -->
-<%= link_to 'submit', indi_users_path, method: :get, :onclick => "$('#aa').submit()"  %>
+<input type="button" value = "등록" id="aa"><br>
+<%#= link_to 'click', indi_register_stack_path, method: :post, :onclick => "$('#aa').click()"  %>
 
 <% @stack_fields.each do |field|%>
 
@@ -40,7 +40,7 @@ $(function(){
     });
     console.log(ret);
     $.ajax({
-      url: "<%= register_stack_indi_users_path %>",
+      url: "<%= indi_register_stack_path %>",
       method: "POST",
       data: {return_val : ret}
     });
