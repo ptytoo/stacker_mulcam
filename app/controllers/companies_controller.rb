@@ -1,5 +1,4 @@
 class CompaniesController < ApplicationController
-  # load_and_authorize_resource
   before_action :set_company, only: [:show, :edit, :update, :destroy, :detail]
 
   # GET /companies
@@ -11,7 +10,7 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
-
+    @services = Service.where(company_id: @company.id)
   end
 
   # GET /companies/new
@@ -21,6 +20,7 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1/edit
   def edit
+    authorize! :edit, @company.id
   end
 
   # POST /companies

@@ -1,5 +1,4 @@
 class StacksController < ApplicationController
-  load_and_authorize_resource
   before_action :set_stack, only: [:show, :edit, :update, :destroy, :register_interesting, :register_my_stack]
   before_action :log_impression, :only=> [:show]
 
@@ -37,6 +36,7 @@ class StacksController < ApplicationController
 
   # GET /stacks/1/edit
   def edit
+    authorize! :edit, @stack.id
   end
 
   def add_stack
