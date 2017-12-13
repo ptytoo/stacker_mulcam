@@ -33,5 +33,6 @@
 </table>
 
 <br>
-
+<% if user_signed_in? &&  current_user.admin? %>
 <%= link_to 'New Service', new_service_path %>
+<% end %>
