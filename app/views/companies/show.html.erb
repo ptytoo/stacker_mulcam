@@ -1,28 +1,29 @@
 <p id="notice"><%= notice %></p>
-<p>
-  <strong>Name:</strong>
-  <%= @company.name %>
-</p>
 
-<p>
-  <strong>Site url:</strong>
-  <%= @company.site_url %>
-</p>
+<h1>Listing Company Details</h1>
 
-<p>
-  <strong>Logo url:</strong>
-  <%= @company.logo_url %>
-</p>
+<br>
 
-<p>
-  <strong>Describe:</strong>
-  <%= @company.describe %>
-</p>
+<%= @company.name %><br>
+<%= @company.site_url %><br>
+<img src="<%=@company.logo_url%>" data-toggle="tooltip" title="<%=@company.name%>" id: "#{@company.name}"><br>
+<%= @company.describe %><br><br><br>
 
-<p>
-  <strong>Company field:</strong>
-  <%= @company.company_field %>
-</p>
 
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <!-- <th colspan="3"></th> -->
+    </tr>
+  </thead>
+    <tbody>
+      <% @services.each do |service| %>
+        <tr>
+          <td><%= service.name %><%= link_to '<button type="button">상세보기</button>'.html_safe, "/services/#{service.id}" %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Back', company_field_path(@company.company_field_id) %>
