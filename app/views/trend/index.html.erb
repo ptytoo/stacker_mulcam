@@ -2,6 +2,14 @@
 
 <br>
 
+<div id="RotateXAxisTickText1"></div>
+<div id="RotateXAxisTickText2"></div>
+<div id="RotateXAxisTickText3"></div>
+<div id="RotateXAxisTickText4"></div>
+<div id="DonutChart"></div>
+
+<br>
+
 <%j=0%>
 <%@types.each do |type|%>
   <strong><%= type%></strong><br>
@@ -12,22 +20,6 @@
 <%end%>
 <br>
 <br>
-
-<div id="RotateXAxisTickText1"></div>
-<div id="RotateXAxisTickText2"></div>
-<div id="RotateXAxisTickText3"></div>
-<div id="RotateXAxisTickText4"></div>
-<div id="DonutChart"></div>
-
-<% f=0 %>
-<%@surveys.each do |survey| %>
-  <strong><%= survey%></strong> <br>
-  <% for i in 0..9 %>
-    <%=@octo_trends[f+i]["content_name"] %>
-    <%=@octo_trends[f+i]["content_figure"] %> <br>
-    <% end %>
-    <% f+=10%>
-<% end %>
 
 <script>
 
