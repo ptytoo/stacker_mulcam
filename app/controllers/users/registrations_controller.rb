@@ -66,7 +66,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if current_user.indi?
       add_my_indi_users_path
     else
-      enter_companies_path(current_user.company_id)
+      enter_company_path(current_user.company_id)
     end
   end
 
