@@ -35,4 +35,5 @@
 </p>
 
 <%= link_to 'Edit', "/enter/companies/#{@service.company_id}/services/#{@service.id}/edit" %> |
+<%= link_to 'Delete', "/enter/companies/#{@service.company_id}/services/#{@service.id}", method: :delete %> |
 <%= link_to 'Back', enter_company_path(@service.company_id) %>

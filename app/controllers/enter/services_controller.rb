@@ -56,6 +56,7 @@ class Enter::ServicesController < Enter::ApplicationController
   # DELETE /services/1
   # DELETE /services/1.json
   def destroy
+    authorize! :destroy, @service.id
     @service.destroy
     respond_to do |format|
       format.html { redirect_to services_url, notice: 'Service was successfully destroyed.' }
