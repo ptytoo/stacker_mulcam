@@ -212,6 +212,7 @@ end
 #   "redis","rust","sap-abap","sass","scala","sql-server","typescript","visual-basic-vb",
 #   "vue-js","couchdb","elm","ember-js","erlang","less","lua","objective-c","postgres","meteor","ruby","ruby-on-rails"]
 
+
 # stack_name.each do |stack_name|
     text = File.open(Rails.root.join('edu_path.csv')).read
     text.each_line do |line|

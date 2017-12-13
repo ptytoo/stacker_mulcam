@@ -10,15 +10,13 @@ class Enter::ServicesController < Enter::ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
-    # @services = Service.all
-    # @service = Service.find_by(company_id: params[:id])
     @stacks = ServiceStack.where(service_id: @service.id)
   end
 
   # GET /services/new
   def new
     @service = Service.new
-    @stacks = Stack.all
+    # @stacks = Stack.all
     @company = Company.find_by(params[:id])
   end
 
@@ -31,9 +29,9 @@ class Enter::ServicesController < Enter::ApplicationController
   def create
     @service = Service.new(service_params)
     respond_to do |format|
-      if @service.save
-        format.html { redirect_to "/enter/companies/#{@service.company_id}/services/#{@service.id}", notice: 'Service was successfully created.' }
-        format.json { render :show, status: :created, location: @service }
+      if @service.save   #/enter/companies/:company_id/services/:id/add_stack
+        format.html { redirect_to "/enter/companies/#{@service.company_id}/services/#{@service.id}/add_stack", notice: 'Service was successfully created.' }
+        format.json { render :add_stack, status: :created, location: @service }
       else
         format.html { render :new }
         format.json { render json: @service.errors, status: :unprocessable_entity }
@@ -64,25 +62,27 @@ class Enter::ServicesController < Enter::ApplicationController
       format.json { head :no_content }
     end
   end
+
   def add_stack
-    # @stacks = Stack.all
-    # @stack = Stack.all.to_a
     @stack_fields = StackField.all
   end
 
   def regist_stack
-    @st = Service.find_by(name: @service.name)
+    # @st = Service.find_by(name: @service.name)
     stack_list = params[:return_val]
+    service_id = params[:service_id]
     stack_list.each do |st|
-        check = ServiceStack.where(service_id: @service.id).where(stack_id: st).exists?
+        check = ServiceStack.where(service_id: service_id).where(stack_id: st).exists?
         unless check
           ServiceStack.create(
-            service_id: @service.id,
+            service_id: service_id,
             stack_id: st
           )
         end
     end
+    redirect_to enter_company_service_path(current_user.company_id, service_id)
   end
+
   def delete_stack
   end
 

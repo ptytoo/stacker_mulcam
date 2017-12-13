@@ -22,6 +22,7 @@ gem 'cancancan', '~> 2.0'
 gem 'faker'
 gem 'kaminari'
 gem 'open_uri_redirections'
+gem 'figaro'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.9'
