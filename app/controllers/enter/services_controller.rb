@@ -62,6 +62,7 @@ class Enter::ServicesController < Enter::ApplicationController
       format.json { head :no_content }
     end
   end
+
   def add_stack
     @stack_fields = StackField.all
   end
@@ -70,7 +71,6 @@ class Enter::ServicesController < Enter::ApplicationController
     # @st = Service.find_by(name: @service.name)
     stack_list = params[:return_val]
     service_id = params[:service_id]
-    puts stack_list
     stack_list.each do |st|
         check = ServiceStack.where(service_id: service_id).where(stack_id: st).exists?
         unless check
@@ -80,6 +80,7 @@ class Enter::ServicesController < Enter::ApplicationController
           )
         end
     end
+    redirect_to enter_company_service_path(current_user.company_id, service_id)
   end
 
   def delete_stack
