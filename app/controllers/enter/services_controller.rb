@@ -44,7 +44,7 @@ class Enter::ServicesController < Enter::ApplicationController
   def update
     respond_to do |format|
       if @service.update(service_params)
-        format.html { redirect_to "/enter/companies/#{@service.company_id}/services/#{@service.id}", notice: 'Service was successfully updated.' }
+        format.html { redirect_to "/enter/companies/#{@service.company_id}/services/#{@service.id}",method: :get, notice: 'Service was successfully updated.' }
         format.json { render :show, status: :ok, location: @service }
       else
         format.html { render :edit }
