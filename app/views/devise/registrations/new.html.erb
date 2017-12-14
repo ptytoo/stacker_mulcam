@@ -59,18 +59,17 @@
 
 <div id="group_user_id" class="form-group">
   <%= form_for(companies_path, method: :post) do |f|%>
-
   <div class="form-group col-xs-12" align="left">
     <%= f.label :회사명 %>
   </div>
     <div class="form-group col-xs-12">
-    <%= f.text_field :name, class: 'form-control', placeholder: '회사명을 입력해주세요' %>
+    <%= f.text_field :name, class: 'form-control', placeholder: '회사명을 입력해주세요', id: 'name' %>
   </div>
   <div class="form-group col-xs-12" align="left">
     <%= f.label :회사사이트주소 %>
   </div>
     <div class="form-group col-xs-12">
-    <%= f.text_field :site_url, class: 'form-control', placeholder: '회사 URL을 입력해주세요' %>
+    <%= f.text_field :site_url, class: 'form-control', placeholder: '회사 URL을 입력해주세요', id: 'site_url' %>
   </div>
   <div class="form-group col-xs-12" align="left">
     사업 분야 :
@@ -81,13 +80,10 @@
     <% end %>
     <%= f.file_field :logo_url, id: "logo_url"%>
     </select>
+    <span>
       <%#= f.trix_editor :describe %>
-      <div class="form-group col-xs-12" align="left">
-      <%= f.label :회사소개 %>
-    </div>
-    <div class="form-group col-xs-12">
-      <%= f.text_field :describe, class: 'form-control', placeholder: '회사 소개를 입력해주세요' %>
-    </div>
+      <%= f.text_field :describe, size: "500", placeholder: "회사 소개", id: "describe" %>
+    </span>
 
     <!-- <div class="form-actions"> -->
     <%= f.button :submit %>
