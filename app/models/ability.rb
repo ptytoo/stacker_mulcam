@@ -1,28 +1,53 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(user, namespace)
     # Define abilities for the passed in user here. For example:
-
     user ||= User.new # guest user (not logged in)
-    if user.admin?
-      can :manage, :all
-    elsif user.enter?
-      can :read, :all
-      can [:create, :edit, :update], Company, id: user.company_id
-      can [:create, :edit, :update, :destroy], Service, id: user.company_id
-      can [:index, :show, :detail], Company
-      can [:index, :show], CompanyField
-      can [:new, :add_stack], Stack
-      cannot [:edit], Stack
-    elsif user.indi?
+
+    if namespace == 'Indi'
       can :read, :all
       can [:index, :show, :detail], Company
       can [:index, :show], CompanyField
       can [:add_stack, :register_interesting, :register_my_stack], Stack
       cannot [:edit], Stack
       cannot [:edit, :new, :destroy], Service
+    elsif namespace == 'Enter'
+      can :read, :all
+      can [:create, :edit, :update], Company, id: user.company_id
+      can :destroy, Service do |service|
+        service.company_id == user.company_id
+      end
+      can [:create, :edit, :update, :destroy], Service, id: user.company_id
+      can [:index, :show, :detail], Company
+      can [:index, :show], CompanyField
+      can [:new, :add_stack], Stack
+      cannot [:edit], Stack
+    # elsif namespace == 'user'
+    elsif namespace == 'Admin'
+        can :manage, :all
+    else
+
     end
+
+    # if user.admin?
+    #   can :manage, :all
+    # elsif user.enter?
+    #   can :read, :all
+    #   can [:create, :edit, :update], Company, id: user.company_id
+    #   can [:create, :edit, :update, :destroy], Service, id: user.company_id
+    #   can [:index, :show, :detail], Company
+    #   can [:index, :show], CompanyField
+    #   can [:new, :add_stack], Stack
+    #   cannot [:edit], Stack
+    # elsif user.indi?
+    #   can :read, :all
+    #   can [:index, :show, :detail], Company
+    #   can [:index, :show], CompanyField
+    #   can [:add_stack, :register_interesting, :register_my_stack], Stack
+    #   cannot [:edit], Stack
+    #   cannot [:edit, :new, :destroy], Service
+    # end
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
