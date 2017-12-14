@@ -1,25 +1,37 @@
 <h1>Hot Stacks</h1>
 
 <br>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-6"><center>Ten most forked projects</center><div id="RotateXAxisTickText1"></div></div>
+  <div class="col-sm-6">  <center>Projects with the most contributors</center><div id="RotateXAxisTickText2"></div></div>
+</div>
 
-<div id="RotateXAxisTickText1"></div>
-<div id="RotateXAxisTickText2"></div>
-<div id="RotateXAxisTickText3"></div>
-<div id="RotateXAxisTickText4"></div>
-<div id="DonutChart"></div>
+<div class="row">
+    <div class="col-sm-6"><center>Projects with the most reviews</center><div id="RotateXAxisTickText3"></div></div>
+    <div class="col-sm-6"><center>ten most-discussed repositories</center><div id="RotateXAxisTickText4"></div></div>
+</div>
+<br>
 
-<br> 
+  <center>Not just software</center>
+  <div class = "row">
+    <div id="DonutChart"></div>
+  </div>
+</div>
 
-<%j=0%>
-<%@types.each do |type|%>
-  <strong><%= type%></strong><br>
-  <%for i in 0..4%>
-      <%= @stack_trends[i+j]["stack_name"]%><br>
+<br>
+</div>
+<div class="container">
+  <%j=0%>
+  <%@types.each do |type|%>
+    <strong><%= type%></strong><br>
+    <%for i in 0..4%>
+        <%= @stack_trends[i+j]["stack_name"]%><br>
+    <%end%>
+    <%j+=5%>
   <%end%>
-  <%j+=5%>
-<%end%>
-<br>
-<br>
+  <br>
+</div>
 
 <script>
 
@@ -60,10 +72,10 @@ bb.generate({
       }
     }
   },
-
-  "title": {
-         "text": "Ten most-forked projects "
-    },
+  //
+  // "title": {
+  //        "text": "Ten most-forked projects "
+  //   },
 
   "axis": {
     "rotated": true,
@@ -109,9 +121,9 @@ bb.generate({
     }
   },
 
-  "title": {
-         "text": "projects with the most contributors "
-  },
+  // "title": {
+  //        "text": "projects with the most contributors "
+  // },
 
   "axis": {
     "rotated": true,
@@ -156,10 +168,10 @@ bb.generate({
       }
     }
   },
-
-  "title": {
-         "text": "projects with the most reviews "
-  },
+  //
+  // "title": {
+  //        "text": "projects with the most reviews "
+  // },
 
   "axis": {
     "rotated": true,
@@ -204,10 +216,10 @@ bb.generate({
       }
     }
   },
-
-  "title": {
-         "text": "ten most-discussed repositories"
-  },
+  //
+  // "title": {
+  //        "text": "ten most-discussed repositories"
+  // },
 
   "axis": {
     "rotated": true,
@@ -248,6 +260,11 @@ var chart = bb.generate({
   ["etc", 18.2]
     ],
     "type": "donut",
+
+    "title": {
+           "text": "not just software"
+    },
+
     "onclick": function (d, i) { console.log("onclick", d, i); },
     "onover": function (d, i) { console.log("onover", d, i); },
     "onout": function (d, i) { console.log("onout", d, i); },
@@ -273,7 +290,6 @@ var chart = bb.generate({
     }
   },
   "donut": {
-    "threshold": 0.1,
     "title": "not just software"
   },
 

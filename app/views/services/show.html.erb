@@ -1,43 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-조회수 : <%= "#{@hit_post.unique_impression_count}" %>
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/company_fields"><%= @service.company.company_field.name%></a></li>
+    <li class="breadcrumb-item"><a href="/companies/<%=@service.company_id%>/detail"><%= @service.company.name%></a></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @service.name %>  (조회수 : <%= "#{@hit_post.unique_impression_count}" %>)</li>
+  </ol>
+</nav>
 
-<p>
-  <strong>Name:</strong>
-  <%= @service.name %>
-</p>
 
-<p>
-  <strong>Site url:</strong>
-  <%= @service.site_url %>
-</p>
+<div class="container">
+  <div class="media">
+    <img src="<%=@service.logo_url%>" title="<%=@service.name%>" id: "#{@company.name}" size=200>
+    <div class="media-body">
+      <h5 class="mt-0"><%= @service.name %></h5>
+      <%= @service.site_url %>
+    </div>
+  </div>
 
-<p>
-  <strong>Logo url:</strong>
-  <%= @service.logo_url %>
-</p>
+  <p>
+    <strong>Describe:</strong>
+    <%= @service.describe %>
+  </p>
 
-<p>
-  <strong>Describe:</strong>
-  <%= @service.describe %>
-</p>
+  <p>
+    <strong>Company:</strong>
+    <%= @service.company.name %>
+  </p>
 
-<p>
-  <strong>Company:</strong>
-  <%= @service.company.name %>
-</p>
+  <p>
+    <strong>Stack:</strong><br>
+    <%@stacks.each do |st|%>
+      <a href="/stacks/<%=st.stack_id%>" data-toggle="tooltip" title="<%=st.stack.name%>">
+        <%= image_tag "https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/#{st.stack.stack_field.name}/#{st.stack.name.capitalize}.png", id: "#{st.stack.name}", class: "mr-3", width: "50", height: "50" %>
+      </a>
+    <%end%>
+  </p>
+  <br>
 
-<p>
-  <strong>Stack:</strong><br>
-  <%@stacks.each do |st|%>
-    <a href="/stacks/<%=st.stack_id%>" data-toggle="tooltip" title="<%=st.stack.name%>">
-      <%= image_tag "https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/#{st.stack.stack_field.name}/#{st.stack.name.capitalize}.png", id: "#{st.stack.name}", class: "mr-3", width: "50", height: "50" %>
-    </a>
-  <%end%>
-</p>
-<br>
-
-<% if user_signed_in? && current_user.admin? %>
-  <%= link_to 'Edit', edit_service_path(@service) %> |
-<% end %>
-<%= link_to 'Back', detail_company_path(@service.company_id) %>
+  <% if user_signed_in? && current_user.admin? %>
+    <%= link_to 'Edit', edit_service_path(@service) %> |
+  <% end %>
+  <%= link_to 'Back', detail_company_path(@service.company_id) %>
+</div>
