@@ -1,25 +1,32 @@
 <h1>Hot Stacks</h1>
 
 <br>
-
-<div id="RotateXAxisTickText1"></div>
-<div id="RotateXAxisTickText2"></div>
+<div class="container">
+  <table>
+  <tr>
+    <div id="RotateXAxisTickText1"></div>
+    <div id="RotateXAxisTickText2"></div>
+  </tr>
+  <tr>
 <div id="RotateXAxisTickText3"></div>
 <div id="RotateXAxisTickText4"></div>
+</tr>
 <div id="DonutChart"></div>
+  </table>
+</div>
+<br>
 
-<br> 
-
-<%j=0%>
-<%@types.each do |type|%>
-  <strong><%= type%></strong><br>
-  <%for i in 0..4%>
-      <%= @stack_trends[i+j]["stack_name"]%><br>
+<div class="container">
+  <%j=0%>
+  <%@types.each do |type|%>
+    <strong><%= type%></strong><br>
+    <%for i in 0..4%>
+        <%= @stack_trends[i+j]["stack_name"]%><br>
+    <%end%>
+    <%j+=5%>
   <%end%>
-  <%j+=5%>
-<%end%>
-<br>
-<br>
+  <br>
+</div>
 
 <script>
 
