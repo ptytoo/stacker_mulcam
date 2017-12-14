@@ -4,7 +4,7 @@
   <div class="login login-bg login-parallax">
     <div class="login-box btn-rounded">
       <div class="panel panel-default devise-bs">
-        <div class="text-center">
+        <div class="text-center"><br>
           <h3><%= t('.sign_in', :default => 'Sign in') %></h3>
         </div>
         <div class="panel-body">
@@ -22,7 +22,7 @@
                 </div>
               </div>
               <% if devise_mapping.rememberable? %>
-                  <div class="checkbox">
+                  <div class="checkbox" align="left">
                     <%= f.label :remember_me do %>
                         <%= f.check_box :remember_me %>저장할까요?
                     <% end %>
