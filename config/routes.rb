@@ -41,6 +41,7 @@ Rails.application.routes.draw do
 
   #devise controller 생성했더니 이거 추가하라 했음 ㅠㅠㅠ....
   devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
