@@ -1,19 +1,33 @@
 <p id="notice"><%= notice %></p>
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/company_fields"><%= @company.company_field.name%></a></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @company.name %></li>
+  </ol>
+</nav>
 
-<h1>Listing Company Details</h1>
+
+<div class="container">
+
+<div class="media">
+  <img src="<%=@company.logo_url%>" title="<%=@company.name%>" id: "#{@company.name}" size=200>
+  <div class="media-body">
+    <h5 class="mt-0"><%= @company.name %></h5>
+    <%= @company.site_url %>
+  </div>
+</div>
 
 <br>
 
-<%= @company.name %><br>
-<%= @company.site_url %><br>
-<img src="<%=@company.logo_url%>" data-toggle="tooltip" title="<%=@company.name%>" id: "#{@company.name}"><br>
-<%= @company.describe %><br><br><br>
+<p class="text-xl-left"><%= @company.describe %></p>
+
+<br><br><br>
 
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th><%=@company.name%>이 제공하는 서비스</th>
       <!-- <th colspan="3"></th> -->
     </tr>
   </thead>
@@ -27,3 +41,4 @@
 </table>
 
 <%= link_to 'Back', company_field_path(@company.company_field_id) %>
+</div>
