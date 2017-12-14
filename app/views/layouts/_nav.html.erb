@@ -1,46 +1,69 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">Stacker</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<div class="subscribe section bg-dark py-4">
+  <div class="container">
+<!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark pt-4 px-0">
+    <a class="navbar-brand mr-5" href="/">
+      <img src="<%=asset_path 'shards-logo-green.svg'%>" class="mr-2" alt="Main Page">
+      STACKER
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <!-- <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li> -->
+        <li class="nav-item">
+          <%= link_to 'tech_stack', company_fields_path, class: "nav-link"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'trend-stack', trend_index_path, class: "nav-link js-scroll-trigger" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'career-stack', career_index_path, class: "nav-link js-scroll-trigger" %>
+        </li>
+        <li class="nav-item">
+          <!-- ranking_index_path -->
+          <%= link_to 'stackers', ranking_index_path, class: "nav-link js-scroll-trigger" %>
+        </li>
+      </ul>
+      <!-- Social Icons -->
+      <ul class="header-social-icons navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com"><i class="fa fa-twitter"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com"><i class="fa fa-github"></i></a>
+        </li>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <%= link_to 'tech_stack', company_fields_path, class: "nav-link"%>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'trend-stack', trend_index_path, class: "nav-link js-scroll-trigger" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'career-stack', career_index_path, class: "nav-link js-scroll-trigger" %>
-      </li>
-      <li class="nav-item">
-        <!-- ranking_index_path -->
-        <%= link_to 'stackers', ranking_index_path, class: "nav-link js-scroll-trigger" %>
-      </li>
-      <li class="nav-item">
-        <% if user_signed_in? %>
-          <%= current_user.nickname if current_user%>님 환영합니다.
-          <%#= link_to %>
-          <%if current_user.admin?%>
-            <%= link_to '관리자_홈', admin_users_path, method: :get,class: 'mdl-navigation__link'%>
-          <% elsif current_user.enter?%>
-            <%= link_to '회사관리_홈', enter_company_path(current_user.company_id),method: :get,class: 'mdl-navigation__link'%>
-          <% elsif current_user.indi?%>
-            <%= link_to '개인관리_홈', indi_users_path,class: 'mdl-navigation__link'%>
-          <%end%>
-          <%#= link_to 'My Stack', indi_users_path, class: "nav-link js-scroll-trigger"%>
-          <%= link_to '로그아웃', destroy_user_session_path, method: :delete, class: "nav-link js-scroll-trigger"%>
-        <% else %>
-          <%= link_to '로그인', new_user_session_path, class: "nav-link js-scroll-trigger"%>
-        <% end %>
-      </li>
-    </ul>
-
-     <form class="form-inline my-2 my-lg-0" action="/main/search">
-         <input class="form-control mr-sm-2" type="text" placeholder="검색" name="search">
-         <button class="btn btn-outline-light my-2 my-sm-0" type="submit">search</button>
-     </form>
-  </div>
-</nav>
+        <li class="nav-item">
+          <% if user_signed_in? %>
+            <%= current_user.nickname if current_user%>님 환영합니다.
+            <%#= link_to %>
+            <%if current_user.admin?%>
+              <%= link_to '관리자_홈', admin_users_path, method: :get,class: 'mdl-navigation__link'%>
+            <% elsif current_user.enter?%>
+              <%= link_to '회사관리_홈', enter_company_path(current_user.company_id),method: :get,class: 'mdl-navigation__link'%>
+            <% elsif current_user.indi?%>
+              <%= link_to '개인관리_홈', indi_users_path,class: 'mdl-navigation__link'%>
+            <%end%>
+            <%#= link_to 'My Stack', indi_users_path, class: "nav-link js-scroll-trigger"%>
+            <%= link_to '로그아웃', destroy_user_session_path, method: :delete, class: "nav-link js-scroll-trigger"%>
+          <% else %>
+            <%= link_to '로그인', new_user_session_path, class: "nav-link js-scroll-trigger"%>
+          <% end %>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0" action="/main/search">
+          <input class="form-control mr-sm-2" type="text" placeholder="검색" name="search">
+          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">search</button>
+      </form>
+    </div>
+  </nav>
+<!-- / Navigation -->
+</div>
+</div>

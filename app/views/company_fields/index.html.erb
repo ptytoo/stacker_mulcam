@@ -24,7 +24,7 @@
           <% @companies.each do |c|%>
             <%c.name%>
             <img src="<%=c.logo_url%>" data-toggle="tooltip" title="<%=c.name%>" id: "#{c.name}">
-            <%= link_to '<button type="button">상세보기</button>'.html_safe, detail_company_path(c) %>
+            <%= link_to '상세보기'.html_safe, detail_company_path(c), class: "btn btn-light" %>
             <br>
           <% end %>
         </div>
