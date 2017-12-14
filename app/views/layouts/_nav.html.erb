@@ -19,7 +19,7 @@
         <%= link_to 'stackers', ranking_index_path, class: "nav-link js-scroll-trigger" %>
       </li>
         <% if user_signed_in? %>
-          <li class="nav-item">
+          <li class="nav-item text-white">
             <%= current_user.nickname if current_user%>님 환영합니다.
           </li>
           <%#= link_to %>
