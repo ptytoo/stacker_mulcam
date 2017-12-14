@@ -4,7 +4,7 @@
   <h3>나와 비슷한 스택을 가진 유저</h3>
   <% @users.each do |u| %>
     <%us = User.find_by(id: u.id)%>
-    <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"> <%= us.nickname %></i> |
+    <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"> <%= us.nickname %></i> |
     <%= u.cnt %>개<br>
   <% end %>
   <br>
