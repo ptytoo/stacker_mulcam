@@ -1,6 +1,6 @@
 class Indi::ApplicationController < ApplicationController
   before_action :check_admin
-  layout 'indi'   #layout밑의 admin템플릿을 쓰겠다.
+  layout 'application_indi'   #layout밑의 admin템플릿을 쓰겠다.
 
 
   private

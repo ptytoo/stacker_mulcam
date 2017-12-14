@@ -1,6 +1,6 @@
 class Enter::ApplicationController < ApplicationController
   before_action :check_admin
-  layout 'enter'   #layout밑의 admin템플릿을 쓰겠다.
+  layout 'application_enter'   #layout밑의 admin템플릿을 쓰겠다.
 
 
   private
