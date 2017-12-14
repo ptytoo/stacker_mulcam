@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
   validates :phone,
     presence: true,
-    format: {with: /\d/}
+    format: {with: /\^[0-9]\*\$/}
 
 
 
