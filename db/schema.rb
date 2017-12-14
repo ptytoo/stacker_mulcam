@@ -121,8 +121,16 @@ ActiveRecord::Schema.define(version: 20171211103619) do
     t.string   "logo_url"
     t.text     "describe"
     t.integer  "company_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "access_token"
+    t.string   "access_token_secret"
+    t.string   "refresh_token"
+    t.datetime "expires_at"
+    t.text     "auth"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "services", ["company_id"], name: "index_services_on_company_id"
