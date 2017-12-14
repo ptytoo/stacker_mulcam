@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">Stacker</a>
+  <a class="navbar-brand mr-5" href="/"><img src="<%=asset_path 'shards-logo-green.svg'%>" class="mr-2" alt="Main Page">Stacker</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,13 +7,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%= link_to 'tech_stack', company_fields_path, class: "nav-link"%>
+        <%= link_to 'tech stack', company_fields_path, class: "nav-link"%>
       </li>
       <li class="nav-item">
-        <%= link_to 'trend-stack', trend_index_path, class: "nav-link js-scroll-trigger" %>
+        <%= link_to 'trend stack', trend_index_path, class: "nav-link js-scroll-trigger" %>
       </li>
       <li class="nav-item">
-        <%= link_to 'career-stack', career_index_path, class: "nav-link js-scroll-trigger" %>
+        <%= link_to 'career stack', career_index_path, class: "nav-link js-scroll-trigger" %>
       </li>
       <li class="nav-item">
         <%= link_to 'stackers', ranking_index_path, class: "nav-link js-scroll-trigger" %>
@@ -47,3 +47,4 @@
      </form>
   </div>
 </nav>
+</div>
