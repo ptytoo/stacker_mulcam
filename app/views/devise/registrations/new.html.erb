@@ -2,6 +2,7 @@
 
   <div class="col-md-10 col-md-offset-10 login register">
 
+<<<<<<< HEAD
     <%= render 'layouts/error_messages', object: resource %>
     <div class="panel panel-default devise-bs col-xs-12">
 
@@ -43,6 +44,20 @@
               <%= f.radio_button(:role, "enter", value: "enter", id: "enter", data: {behavior: "clickable" })%>
               <%= f.label(:enter, "기업회원") %>
               <%=f.hidden_field :company_id, id:"company_id"%><br>
+=======
+  <div class="form-inputs">
+    <%= f.input :email, required: true, autofocus: true, placeholder: 'e-mail 양식을 지켜주세요'%>
+    <%= f.input :password, required: true, placeholder: '6글자 이상으로 구성해주세요' %>
+    <%= f.input :password_confirmation, required: true, placeholder: '다시한번 입력해주세요' %>
+    <%= f.input :nickname, required: true, autofocus: true, placeholder: '사용하실 닉네임을 입력해주세요' %>
+    <%= f.input :phone, required: true, autofocus: true , placeholder: '전화번호를 입력해주세요' %>
+    <%= f.radio_button(:role, "indi", value: "indi", id: "indi", data: {behavior: "clickable" }) %>
+    <%= f.label(:indi, "개인회원") %>
+    <%= f.radio_button(:role, "enter", value: "enter", id: "enter", data: {behavior: "clickable" })%>
+    <%= f.label(:enter, "기업회원") %>
+    <%= f.hidden_field :company_id, id:"company_id" %>
+  </div>
+>>>>>>> feature/jiin
 
             <%= f.submit t('.sign_up', :default => 'Sign up'), class: 'btn btn-small btn-dark-solid full-width btn-rounded' %>
             </div>

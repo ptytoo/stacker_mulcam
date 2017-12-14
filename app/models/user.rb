@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   validates :nickname, presence: {message: "닉네임을 입력해주세요!"}, length: {maximum: 15, message: "  닉네임이 너무 깁니다!"}, uniqueness: true
 
 
+  validates :phone,
+    presence: true,
+    format: {with: /[0-9]/}
 
     validates :email,
       presence: true,
