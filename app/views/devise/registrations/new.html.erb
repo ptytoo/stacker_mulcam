@@ -8,7 +8,7 @@
     <%= f.input :password, required: true, placeholder: '6글자 이상으로 구성해주세요' %>
     <%= f.input :password_confirmation, required: true, placeholder: '다시한번 입력해주세요' %>
     <%= f.input :nickname, required: true, autofocus: true, placeholder: '사용하실 닉네임을 입력해주세요' %>
-    <%= f.input :phone, required: true, autofocus: true %>
+    <%= f.input :phone, required: true, autofocus: true , placeholder: '전화번호를 입력해주세요' %>
     <%= f.radio_button(:role, "indi", value: "indi", id: "indi", data: {behavior: "clickable" }) %>
     <%= f.label(:indi, "개인회원") %>
     <%= f.radio_button(:role, "enter", value: "enter", id: "enter", data: {behavior: "clickable" })%>
