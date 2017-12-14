@@ -5,7 +5,7 @@
   <% @users.each do |u| %>
     <%us = User.find_by(id: u.id)%>
     <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"> <%= us.nickname %></i> |
-    <%= u.cnt %>개<br>
+    <%= u.cnt %>개<br><br>
   <% end %>
   <br>
 <% else %>
@@ -16,7 +16,7 @@
 <% @indi_users.each do |t|%>
   <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"> <%= t.nickname %></i>
   <%= t.stack_cnt%>
-  <br>
+  <br><br>
 <% end %>
 
 <h3>기업 회원 순위 (스택 갯수 기준 / 상위 10개)</h3>
