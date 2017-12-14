@@ -1,11 +1,10 @@
-
-<br><br><br>
-<h3 align="center">분야별 회사목록</h3>
-
-<div class="container">
+<br><br>
+<h3 align="left">분야별 회사목록</h3>
+<br>
+<!-- <div class="container"> -->
   <div class="row">
     <!-- First column -->
-    <div class="col-4">
+    <div class="col-2">
       <!-- Navigation -->
       <div class="list-group" id="list-tab" role="tablist">
         <% @company_fields.each do |company_field| %>
@@ -16,40 +15,28 @@
     </div>
     <!-- First column -->
     <!-- Second column -->
-    <div class="col-4">
+    <div class="col-10">
       <!-- Content -->
       <div class="tab-content" id="nav-tabContent">
         <% @company_fields.each do |company_field| %>
-        <div class="tab-pane fade show" id="list-<%= company_field.id %>" role="tabpanel" aria-labelledby="list-<%= company_field.id %>-list"> <%= company_field.name %>분야 회사들 목록 나오게 하기 <%= link_to '상세보기', company_field %> </div>
-        <!-- <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div> -->
+        <div class="tab-pane fade show" id="list-<%= company_field.id %>" role="tabpanel" aria-labelledby="list-<%= company_field.id %>-list">
+          <% @companies = Company.where(company_field_id: company_field)%>
+          <% @companies.each do |c|%>
+            <%c.name%>
+            <img src="<%=c.logo_url%>" data-toggle="tooltip" title="<%=c.name%>" id: "#{c.name}">
+            <%= link_to '<button type="button">상세보기</button>'.html_safe, detail_company_path(c) %>
+            <br>
+          <% end %>
+        </div>
         <% end %>
       </div>
       <!-- Content -->
     </div>
     <!-- Second column -->
   </div>
-</div>
+<!-- </div> -->
 <% if user_signed_in? &&  current_user.admin? %>
 <%= link_to 'New Company field', new_company_field_path %>
 <% end %>
 
-<br><br><br>
-
-
-<!-- old version
-<p id="notice"><%= notice %></p>
-
-<h1 align="center">분야별 회사목록</h1>
-
-<div class="container">
-  <% @company_fields.each do |company_field| %>
-    <div class="card">
-        <div class="card-body">
-        <h5 class="card-title"><%= company_field.name %></h5>
-        <%= link_to 'Show', company_field %>
-        </div>
-    </div>
-  <% end %>
-</div>
-<br>
--->
+<br><br>
