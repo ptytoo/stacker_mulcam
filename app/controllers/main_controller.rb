@@ -1,6 +1,6 @@
 class MainController < ApplicationController
   def index
-    @gitdata = Gittrend.all
+    @gitdata = Gittrend.all.limit(5)
   end
 
   def search
