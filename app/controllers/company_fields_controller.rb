@@ -13,8 +13,9 @@ class CompanyFieldsController < ApplicationController
   # GET /company_fields
   # GET /company_fields.json
   def index
-    @companys = Company.all
+    # @companys = Company.all
     @company_fields = CompanyField.all
+    @companies = Company.where(company_field_id: params[:id])
   end
 
   # GET /company_fields/1
