@@ -1,9 +1,29 @@
+<<<<<<< HEAD
 <div class="container" align="center">
 
   <div class="col-md-6 col-md-offset-3 login register">
 
     <%= render 'layouts/error_messages', object: resource %>
     <div class="panel panel-default devise-bs col-xs-12">
+=======
+<h2><%= t(".sign_up") %></h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :email, required: true, autofocus: true, placeholder: 'e-mail 양식을 지켜주세요'%>
+    <%= f.input :password, required: true, placeholder: '6글자 이상으로 구성해주세요' %>
+    <%= f.input :password_confirmation, required: true, placeholder: '다시한번 입력해주세요' %>
+    <%= f.input :nickname, required: true, autofocus: true, placeholder: '사용하실 닉네임을 입력해주세요' %>
+    <%= f.input :phone, required: true, autofocus: true, placeholder: '숫자만 입력해 주세요' %>
+    <%= f.radio_button(:role, "indi", value: "indi", id: "indi", data: {behavior: "clickable" }) %>
+    <%= f.label(:indi, "개인회원") %>
+    <%= f.radio_button(:role, "enter", value: "enter", id: "enter", data: {behavior: "clickable" })%>
+    <%= f.label(:enter, "기업회원") %>
+    <%= f.hidden_field :company_id, id:"company_id" %>
+  </div>
+>>>>>>> de9109c744006b12d5141329fdb7e09ed56dcbf7
 
       <div class="panel-body">
         <div class="heading-title text-center">

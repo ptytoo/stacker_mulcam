@@ -19,30 +19,32 @@
         <!-- ranking_index_path -->
         <%= link_to 'stackers', ranking_index_path, class: "nav-link js-scroll-trigger" %>
       </li>
-      <li class="nav-item">
         <% if user_signed_in? %>
-          <%= current_user.nickname if current_user%>님 환영합니다.
+          <li class="nav-item">
+            <%= current_user.nickname if current_user%>님 환영합니다.
+          </li>
           <%#= link_to %>
-          <%if current_user.admin?%>
-            <%= link_to '관리자_홈', admin_users_path, method: :get,class: 'mdl-navigation__link'%>
-          <% elsif current_user.enter?%>
-            <%= link_to '회사관리_홈', enter_company_path(current_user.company_id),method: :get,class: 'mdl-navigation__link'%>
-          <% elsif current_user.indi?%>
-            <%= link_to '개인관리_홈', indi_users_path,class: 'mdl-navigation__link'%>
-          <%end%>
+          <li class="nav-item">
+            <%if current_user.admin?%>
+              <%= link_to '관리자_홈', admin_users_path, method: :get,class: "nav-link js-scroll-trigger"%>
+            <% elsif current_user.enter?%>
+              <%= link_to '회사관리_홈', enter_company_path(current_user.company_id),method: :get,class: "nav-link js-scroll-trigger"%>
+            <% elsif current_user.indi?%>
+              <%= link_to '개인관리_홈', indi_users_path,class: "nav-link js-scroll-trigger"%>
+            <%end%>
+          </li>
           <%#= link_to 'My Stack', indi_users_path, class: "nav-link js-scroll-trigger"%>
+          <li class="nav-item">
           <%= link_to '로그아웃', destroy_user_session_path, method: :delete, class: "nav-link js-scroll-trigger"%>
         <% else %>
           <%= link_to '로그인', new_user_session_path, class: "nav-link js-scroll-trigger"%>
         <% end %>
-      </li>
+        </li>
     </ul>
 
      <form class="form-inline my-2 my-lg-0" action="/main/search">
          <input class="form-control mr-sm-2" type="text" placeholder="검색" name="search">
-         <button class="btn btn-outline-light my-2 my-sm-0" type="submit">search</button>
+         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">search</button>
      </form>
   </div>
 </nav>
-
-<!-- ############################################################################################################# -->

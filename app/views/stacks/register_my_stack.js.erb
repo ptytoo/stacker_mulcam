@@ -1,7 +1,7 @@
 if(<%= @result%>){
   alert("등록 취소");
-  $('#my_button').removeClass("btn-info").addClass("btn-danger");
+  $('#my_button').addClass("btn-primary").removeClass("btn-success");
 }else{
   alert("등록 완료");
-  $('#my_button').removeClass("btn-danger").addClass("btn-info");
+  $('#my_button').addClass("btn-success").removeClass("btn-primary");
 }
