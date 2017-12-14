@@ -20,7 +20,7 @@
       <div class="tab-content" id="nav-tabContent">
         <% @company_fields.each do |company_field| %>
           <div class="tab-pane fade show" id="list-<%= company_field.id %>" role="tabpanel" aria-labelledby="list-<%= company_field.id %>-list">
-            <div class="container">
+            <div class="col-sm-10">
               <div class="row">
                 <% @companies = Company.where(company_field_id: company_field)%>
                 <% @companies.each do |c|%>
