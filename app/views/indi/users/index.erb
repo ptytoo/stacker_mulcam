@@ -1,9 +1,28 @@
-<h1>개인 정보 관리 페이지</h1>
-이메일 : <%= @user.email%><br>
-이름 : <%= @user.nickname%><br>
-권한 : <%= @user.role%><br>
-전화번호 : <%= @user.phone%><br>
-<%= link_to '수정', edit_user_registration_path %>
+<div class="wrapper">
+  <section class="page-title">
+    <h4>개인정보</h4>
+  </section>
+  <div class="col-md-7">
+    <div class="product-title">
+      <h2 class="text-uppercase">
+        <%= @user.nickname %></h2>
+    </div>
+<ul class="portfolio-meta m-bot-10 m-top-10 ">
+            <li>
+              <span>email</span> : <%= @user.email %></li>
+            <li>
+              <span>nickname</span> : <%= @user.nickname %></li>
+            <li>
+              <span>role</span> : <%= @user.role %></li>
+            <li>
+              <span>phone</span> : <%= @user.phone %></li>
+          </ul>
+
+          <div class="clearfix">
+            <a href="/users/edit" class="btn btn-small btn-dark-solid">
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>수정하기
+            </a>
+          </div>
 <br><br>
 <h1>나의 스택 확인</h1>
 <%= link_to '추가',  add_my_indi_users_path, method: :get %><br>
