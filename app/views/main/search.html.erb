@@ -1,21 +1,25 @@
-<h1>검색 결과 창</h1>
-<h3>검색 결과(스택)</h3>
-<%@result_stacks.each do |r| %>
-  <a href="/stacks/<%=r.id%>">
-    <img src="https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/<%=r.stack_field.name%>/<%= r.name.capitalize %>.png" width="40">
-  </a>
-<%end%>
-<br>
-<h3>검색 결과(회사)</h3>
-<%@result_companies.each do |r| %>
-  <a href="/company_fields/<%=r.id%>/detail">
-    <img src="<%=r.logo_url%>", width="50">
-  </a>
-<%end%>
-<br>
-<h3>검색 결과(서비스)</h3>
-<%@result_services.each do |r| %>
-  <a href="/services/<%=r.id%>">
-    <img src="<%=r.logo_url%>", width="50">
-  </a>
-<%end%>
+<br><br>
+
+<div class="container">
+  <h2>'<%=@check%>'에 대한 검색 결과</h1>
+  <h3>검색 결과(스택)</h3>
+  <%@result_stacks.each do |r| %>
+    <a href="/stacks/<%=r.id%>">
+      <img src="https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/<%=r.stack_field.name%>/<%= r.name.capitalize %>.png" width="40">
+    </a>
+  <%end%>
+  <br>
+  <h3>검색 결과(회사)</h3>
+  <%@result_companies.each do |r| %>
+    <a href="/company_fields/<%=r.id%>/detail">
+      <img src="<%=r.logo_url%>", width="50">
+    </a>
+  <%end%>
+  <br>
+  <h3>검색 결과(서비스)</h3>
+  <%@result_services.each do |r| %>
+    <a href="/services/<%=r.id%>">
+      <img src="<%=r.logo_url%>", width="50">
+    </a>
+  <%end%>
+</div>
