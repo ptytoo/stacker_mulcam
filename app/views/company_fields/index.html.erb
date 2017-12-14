@@ -20,12 +20,17 @@
       <div class="tab-content" id="nav-tabContent">
         <% @company_fields.each do |company_field| %>
           <div class="tab-pane fade show" id="list-<%= company_field.id %>" role="tabpanel" aria-labelledby="list-<%= company_field.id %>-list">
-            <div class="container">
+            <div class="col-sm-10">
               <div class="row">
                 <% @companies = Company.where(company_field_id: company_field)%>
                 <% @companies.each do |c|%>
+<<<<<<< HEAD
                 <div class="col-sm-4 col-lg-4 col-xs-6">
                   <div class="card" style="width: 10rem; height: 20em">
+=======
+                <div class="col-sm-4 col-lg-3 col-xs-3">
+                  <div class="card" style="width: 15rem; height: 20em">
+>>>>>>> 3b4b5cae908e7e7aebd1b38f2a1bba93c2d28152
                       <img src="<%=c.logo_url%>" data-toggle="tooltip" title="<%=c.name%>" id: "#{c.name}">
                       <div class="card-body">
                           <h4 class="card-title"><%=c.name%></h4>

@@ -1,12 +1,13 @@
 class Service < ActiveRecord::Base
   belongs_to :company
 
-  has_and_belongs_to_many :stacks
-  has_many :service_stacks
-  has_many :stacks, through: :service_stacks
+  #has_and_belongs_to_many :stacks
   #mount_uploader :logo_url, ServiceLogoUploader
-  has_many :impressions, :as=>:impressionable
-  resourcify
+
+  has_many :impressions, :as=> :impressionable
+
+  has_many :services, through: :service_stacks
+  has_many :services_stack
 
    def impression_count
        impressions.size
