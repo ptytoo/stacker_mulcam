@@ -56,7 +56,9 @@
 <p>
   <strong>이 스택을 사용하는 서비스들:</strong><br>
   <% @services.each do |s| %>
-    <%= s.service.name %><br>
+  <button type="button" class="btn btn-outline-primary btn-pill">
+    <%= s.service.name %>
+    </button>
   <% end %>
 </p>
 
