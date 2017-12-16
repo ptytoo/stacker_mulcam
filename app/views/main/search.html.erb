@@ -11,15 +11,11 @@
   <br>
   <h3>검색 결과(회사)</h3>
   <%@result_companies.each do |r| %>
-    <a href="<%=detail_company_path(r)%>">
-      <img src="<%=r.logo_url%>", width="50">
-    </a>
+    <a href="<%=detail_company_path(r)%>"><img src="<%=r.logo_url%>", width="50"></a>
   <%end%>
   <br>
   <h3>검색 결과(서비스)</h3>
   <%@result_services.each do |r| %>
-    <a href="/services/<%=r.id%>">
-      <img src="<%=r.logo_url%>", width="50">
-    </a>
+    <a href="/services/<%=r.id%>"><img src="<%=r.logo_url%>", width="50"></a>
   <%end%>
 </div>

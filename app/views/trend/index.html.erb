@@ -9,55 +9,47 @@
       <div id="DonutChart"></div>
     </div>
 </div>
-</div>
 
 <br><br><br><br>
 
 <div class="container-fluid">
-<div class="row">
-  <div class="col-sm-6"><center><strong>Ten most forked projects</strong></center><br><div id="RotateXAxisTickText1"></div></div>
-  <div class="col-sm-6"> <center><strong>Projects with the most contributors</strong><br></center><div id="RotateXAxisTickText2"></div></div>
-</div>
-
-<br><br><br><br>
-
-<div class="row">
-    <div class="col-sm-6"><center><strong>Projects with the most reviews</center></strong><br><div id="RotateXAxisTickText3"></div></div>
-    <div class="col-sm-6"><center><strong>ten most-discussed repositories</center></strong><br><div id="RotateXAxisTickText4"></div></div>
-</div>
-
-<br><br><br><br>
-
-
-
-
-
-<br><br><br><hr><br>
-
-<div>
-  <div class='row'>
-    <%j=0%>
-    <%@types.each do |type|%>
-  <div class="col-lg-6 col-xl-5 mb-6">
-
-      <h4 class="f1 h lh-condensed mb-4">
-        <strong><%= type%></strong>
-        <br>
-      </h4>
-      <ol class="list-style-none f5 f4-md text-uppercase text-break">
-        <%for i in 0..4%>
-          <li class="my-3">
-            <span><font color="blue"><%= @stack_trends[i+j]["stack_name"]%></font><br>
-            </span>
-          </li>
-        <%end%>
-      <%j+=5%><br><hr><br>
-      </ol>
-    </div>
-    <%end%>
-    <br>
+  <div class="row">
+    <div class="col-sm-6"><center><strong>Ten most forked projects</strong></center><br><div id="RotateXAxisTickText1"></div></div>
+    <div class="col-sm-6"> <center><strong>Projects with the most contributors</strong><br></center><div id="RotateXAxisTickText2"></div></div>
   </div>
+
+  <br><br><br><br>
+
+  <div class="row">
+      <div class="col-sm-6"><center><strong>Projects with the most reviews</center></strong><br><div id="RotateXAxisTickText3"></div></div>
+      <div class="col-sm-6"><center><strong>ten most-discussed repositories</center></strong><br><div id="RotateXAxisTickText4"></div></div>
+  </div>
+
+  <br><br><br><br>
+
+  <div>
+    <div class='row'>
+      <%j=0%>
+      <%@types.each do |type|%>
+      <div class="col-lg-6 col-xl-5 mb-6">
+        <h4 class="f1 h lh-condensed mb-4"><%= type%></h4>
+        <ol class="list-style-none f5 f4-md text-uppercase text-break">
+          <%for i in 0..4%>
+            <li class="my-3">
+              <span><%= @stack_trends[i+j]["stack_name"]%></span>
+            </li>
+          <%end%>
+          <%j+=5%>
+        </ol>
+      </div>
+      <%end%>
+      <br>
+    </div>
+  </div>
+
 </div>
+
+
 <script>
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()

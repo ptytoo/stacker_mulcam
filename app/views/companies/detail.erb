@@ -1,6 +1,7 @@
 <% unless notice.nil? %>
   <p id="notice"><%= notice %></p>
 <% end %>
+
 <nav aria-label="breadcrumb" role="navigation">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/company_fields"><%= @company.company_field.name%></a></li>
@@ -10,27 +11,26 @@
 
 
 <div class="col-sm-10">
-
-<div class="media">
-  <img src="<%=@company.logo_url%>" title="<%=@company.name%>" id: "#{@company.name}" size=200>
-  <div class="media-body">
-    <h5 class="mt-0"><%= @company.name %></h5>
-    <%= @company.site_url %>
+  <div class="media">
+    <img src="<%=@company.logo_url%>" title="<%=@company.name%>" id: "#{@company.name}" size=200>
+    <div class="media-body">
+      <h5 class="mt-0"><%= @company.name %></h5>
+      <%= @company.site_url %>
+    </div>
   </div>
-</div>
 
-<br>
+  <br>
 
-<p class="text-xl-left"><%= @company.describe %></p>
+  <p class="text-xl-left"><%= @company.describe %></p>
 
-<br>
-<p>
-  <strong><%=@company.name%>의 서비스</strong><br><br>
-  <% @services.each do |service| %>
-  <%= link_to "<button type='button' class='btn btn-outline-primary btn-pill'>#{service.name}</button>".html_safe, "/services/#{service.id}" %></td>
-  <% end %>
-</p>
-<br><br>
-<%= link_to 'Back', company_fields_path %>
-<%#= link_to 'Back', company_field_path(@company.company_field_id) %>
+  <br>
+  <p>
+    <strong><%=@company.name%>의 서비스</strong><br><br>
+    <% @services.each do |service| %>
+    <%= link_to "<button type='button' class='btn btn-outline-primary btn-pill'>#{service.name}</button>".html_safe, "/services/#{service.id}" %></td>
+    <% end %>
+  </p>
+  <br><br>
+  <%= link_to 'Back', company_fields_path %>
+  <%#= link_to 'Back', company_field_path(@company.company_field_id) %>
 </div>

@@ -1,11 +1,8 @@
 <div class="container" align="center">
 
   <div class="col-md-10 col-md-offset-10 login register">
-
-
     <%= render 'layouts/error_messages', object: resource %>
     <div class="panel panel-default devise-bs col-xs-12">
-
       <div class="panel-body">
         <div class="heading-title text-center">
           <br>
@@ -25,10 +22,10 @@
             <div class="form-group col-xs-12">
               <%= f.password_field :password, class: 'form-control', placeholder: '6글자 이상으로 구성해주세요' %>
             </div>
-              <div class="form-group col-xs-12" align="left">
+            <div class="form-group col-xs-12" align="left">
               <%= f.label :패스워드확인 %>
-              <div>
-              <div class="form-group col-xs-12">
+            </div>
+            <div class="form-group col-xs-12">
               <%= f.password_field :password_confirmation, class: 'form-control', placeholder: '다시한번 입력해주세요' %>
             </div>
             <div class="form-group col-xs-12">
@@ -54,45 +51,50 @@
       </div>
     </div>
   </div>
-</div>
 
-<br>
 
-<div id="group_user_id" class="form-group">
-  <%= form_for(companies_path, method: :post) do |f|%>
-  <div class="form-group col-xs-12" align="left">
-    <%= f.label :회사명 %>
-  </div>
+  <br>
+
+  <div id="group_user_id" class="form-group">
+    <%= form_for(companies_path, method: :post) do |f|%>
+    <div class="form-group col-xs-12" align="left">
+      <%= f.label :회사명 %>
+    </div>
     <div class="form-group col-xs-12">
-    <%= f.text_field :name, class: 'form-control', placeholder: '회사명을 입력해주세요', id: 'name' %>
-  </div>
-  <div class="form-group col-xs-12" align="left">
-    <%= f.label :회사사이트주소 %>
-  </div>
+      <%= f.text_field :name, class: 'form-control', placeholder: '회사명을 입력해주세요', id: 'name' %>
+    </div>
+    <div class="form-group col-xs-12" align="left">
+      <%= f.label :회사사이트주소 %>
+    </div>
     <div class="form-group col-xs-12">
-    <%= f.text_field :site_url, class: 'form-control', placeholder: '회사 URL을 입력해주세요', id: 'site_url' %>
-  </div>
-  <div class="form-group col-xs-12" align="left">
-    사업 분야 :
-  </div>
-    <select name="companies[company_field_id]" id="field_id">
-    <% @company_fields.each do |field|%>
-      <option class="enter" value="<%=field.id%>"><%= field.name %></option>
-    <% end %>
-    <%= f.file_field :logo_url, id: "logo_url"%>
-    </select>
-    <span>
-      <%#= f.trix_editor :describe %>
-      <%= f.text_field :describe, size: "100", placeholder: "회사 소개", id: "describe" %>
-    </span>
-
+      <%= f.text_field :site_url, class: 'form-control', placeholder: '회사 URL을 입력해주세요', id: 'site_url' %>
+    </div>
+    <div class="form-group col-xs-12" align="left">
+      사업 분야 :
+      <select name="companies[company_field_id]" id="field_id">
+        <% @company_fields.each do |field|%>
+          <option class="enter" value="<%=field.id%>"><%= field.name %></option>
+        <% end %>
+      </select>
+    </div><br>
+    <div class="form-group col-xs-12" align="left">
+      로고 이미지 :
+      <%= f.file_field :logo_url, id: "logo_url"%>
+    </div>
+    <div class="form-group col-xs-12" align="left">
+      <span><!--이거 span태그 왜 먹인거지...? 위에처럼 div맥이면 안되나????? -->
+        회사 소개 :
+        <%#= f.trix_editor :describe %>
+        <%= f.text_field :describe, class: 'form-control', size: "100", placeholder: "회사 소개", id: "describe" %>
+      </span>
+    </div>
     <!-- <div class="form-actions"> -->
     <%= f.button :submit %>
-    <!-- </div> -->
     <%end%>
-    </div>
   </div>
 </div>
+
+
 
 
 
@@ -125,9 +127,7 @@ $(function() {
               alert("회사정보가 입력되었습니다. 회원가입버튼을 눌러주세요");
             }
           });
-
         //$.session.set("company_name", input);
-
       });
     }
   });
