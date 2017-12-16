@@ -25,7 +25,7 @@ class StacksController < ApplicationController
       @like_inter = InterStack.where(user_id: current_user.id).where(stack_id: @stack.id).exists?
     end
     @edu_paths = EduPath.where(stack_id: @stack.id)
-    @services = ServiceStack.where(stack_id: @stack.id)
+    @services = ServiceStack.where(stack_id: @stack.id).includes(:service)
     @edu_paths = EduPath.where(stack_id: @stack.id)
   end
 

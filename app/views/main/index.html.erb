@@ -1,51 +1,83 @@
 <header class="bg-dark text-white">
   <div class="container text-center">
     <div class="justify-content-center">
-      <!-- <form class="my-2 my-lg-0"> -->
-      <div class="container">
-        <div class="row">
-          <div class="col-sm">
-            <h3>원하는 스택 검색</h3>
-          </div>
-          <div class="col-sm">
-          <h3>Git 트렌드</h3>
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">No.</th>
-                <th scope="col">Language</th>
-                <th scope="col">Stars</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @gitdata.each do |git|%>
-              <%if git.name == 'C++'%>
-                <%git.name = 'c pp'%>
-              <%end%>
-              <% st = Stack.where('lower(name)=?',git.name.downcase).first%>
-              <tr>
-                <td><%= git.id %></td>
-                <td>
-                  <img src="https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/<%=st.stack_field.name%>/<%= git.name.capitalize %>.png" width="40">
-                </td>
-                <!-- <td><%= git.name %></td> -->
-                <td><%= git.count %></td>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <!-- Searching Section -->
+       <div class="subscribe section bg-dark py-4">
+         <h4 class="section-title text-center text-white m-5">궁금한 서비스의 기술스택을 알려드립니다.</h4>
+         <p class="text-muted col-md-6 text-center mx-auto">서비스 또는 스택을 입력하세요</p>
+         <form class="form-inline d-table mb-5 mx-auto" action="/main/search">
+           <div class="form-group">
+             <input class="form-control border-0 mr-3 mb-2" type="text" placeholder="검색" name="search">
+             <button class="btn btn-success mb-2" type="submit">search</button>
+           </div>
+         </form>
+       </div>
     </div>
   </div>
 </header>
+
+<!-- Jumbotron -->
+     <div class="jumbotron">
+       <h1 align="center">About Stacker</h1>
+       <p class="lead" align="center">국내 스타트업 서비스들의 기술스택을 지금 확인할 수 있습니다.</p>
+     </div>
+
+<div class="container">
+     <!-- Example row of columns -->
+     <div class="row">
+       <div class="col-lg-4">
+         <h2><i class="fa fa-search fa-2x" aria-hidden="true"></i><br>Search</h2>
+         <p>관심있는 회사의 기술스택이 궁금하신가요? 지금 바로 검색해보세요. 해당 서비스의 기술 스택을 알려드립니다.</p>
+         <p></p>
+       </div>
+       <div class="col-lg-4">
+         <h2><i class="fa fa-check-square-o fa-2x" aria-hidden="true"></i><br>Stacks</h2>
+         <p>관심 있는 기술 스택을 확인하고 나만의 기술 스택을 쌓아보세요. 어떤 스택을 쌓아야할지 로드맵을 제시해드립니다.</p>
+      </div>
+       <div class="col-lg-4">
+         <h2><i class="fa fa-line-chart fa-2x" aria-hidden="true"></i><br>Learn</h2>
+         <p>현재 가장 많이 쓰이는 언어와 기술 변동 트렌드를 확인하고 끊임없이 코딩하세요.</p>
+       </div>
+     </div>
+ </div>
+
+
+ <!-- <!— <form class="my-2 my-lg-0"> —> -->
+   <div class="row">
+     <div class="col-lg-6 mx-auto">
+     <h4 class="text-black" align="center">Git 트렌드</h4>
+     <table class="table">
+       <thead>
+         <tr>
+           <th scope="col">No.</th>
+           <th scope="col">Language</th>
+           <th scope="col">Stars</th>
+         </tr>
+       </thead>
+       <tbody>
+         <% @gitdata.each do |git|%>
+         <%if git.name == 'C++'%>
+           <%git.name = 'c pp'%>
+         <%end%>
+         <% st = Stack.where('lower(name)=?',git.name.downcase).first%>
+         <tr>
+           <td><%= git.id %></td>
+           <td>
+             <img src="https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/<%=st.stack_field.name%>/<%= git.name.capitalize %>.png" width="40">
+           </td>
+           <!-- <!— <td><%= git.name %></td> —> -->
+           <td><%= git.count %></td>
+         </tr>
+         <% end %>
+       </tbody>
+     </table>
+   </div>
+ </div>
 
 <section id="about">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto">
-        <h2><i class="fa fa-github-alt" aria-hidden="true">About Stacker</i></h2>
-        <p class="lead">Show you all tech stacks</p>
       </div>
     </div>
   </div>
@@ -54,73 +86,43 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto">
-        <h2>Services Stacker offer</h2>
-        <p class="lead">Search</p>
-        <p class="lead">Stack</p>
-        <p class="lead">Learn</p>
+        <p></p>
+        <p class="lead">어떻게 커리어를 쌓을지 고민 되시나요?</p>
+        <p class="lead">관심스택과 마이스택을 등록해주세요!</p>
+        <p class="lead">나와 비슷한 스택을 가진 유저를 추천해 드립니다</p>
+        <p class="lead">그리고 함께 정보를 공유해 보세요</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- <section id="contact">
+<section id="contact">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto">
-        <h2>Contact us</h2> -->
-        <!-- <p class="lead">This is 보노보노 theme </p> -->
-      <div class="container">
-        <div class="section">
-          <div class="w-container">
-            <div class="w-row">
-              <div class="w-col w-col-2"><h2>THE TEAM</h2></div>
-              <div class="w-col w-col-2"><div class="team-member"><img src="https://daks2k3a4ib2z.cloudfront.net/5a047a7d0245bc00019cff8c/5a0566cd60a58b0001f097d5_astronaut-user.png" width="138"/>
-                <div class="name">김도현</div>
-                <div class="position">DB</div>
-                <div class="icons-wrapper">
-                  <a href="#" class="social-icon w-inline-block"><img src="https://daks2k3a4ib2z.cloudfront.net/5a047a7d0245bc00019cff8c/5a047a7d0245bc00019cffa0_facebook-icon_black.svg"/></a>
-                  <a href="#" class="social-icon w-inline-block"></a>
-                  <a href="#" class="social-icon w-inline-block"><img src="https://daks2k3a4ib2z.cloudfront.net/5a047a7d0245bc00019cff8c/5a047a7d0245bc00019cffac_linkdin-icon-black.svg"/></a>
-                </div>
-              </div>
-            </div>
-            <div class="w-col w-col-2">
-              <div class="team-member">
-                <img src="https://daks2k3a4ib2z.cloudfront.net/5a047a7d0245bc00019cff8c/5a05263212148e0001585456_astronaut%20(1).png" width="138"/>
-                <div class="name">박지수</div>
-                <div class="position">Developer</div>
-                <div class="icons-wrapper">
-                  <a href="#" class="social-icon w-inline-block">
-                    <img src="https://daks2k3a4ib2z.cloudfront.net/5a047a7d0245bc00019cff8c/5a047a7d0245bc00019cffa0_facebook-icon_black.svg"/></a>
-                    <a href="#" class="social-icon w-inline-block"></a>
-                    <a href="#" class="social-icon w-inline-block"></a>
-                  </div>
-                </div>
-              </div>
-              <div class="w-col w-col-2">
-                <div class="team-member"><img src="https://daks2k3a4ib2z.cloudfront.net/5a047a7d0245bc00019cff8c/5a05651cd7919e0001b5569d_alien%20(1).png" width="138"/>
-                  <div class="name">유지인</div>
-                  <div class="position">Developer</div>
-                  <div class="icons-wrapper">
-                    <a href="#" class="social-icon w-inline-block"><img src="https://daks2k3a4ib2z.cloudfront.net/5a047a7d0245bc00019cff8c/5a047a7d0245bc00019cff9b_twitter-icon_black.svg"/></a>
-                    <a href="#" class="social-icon w-inline-block"></a><a href="#" class="social-icon w-inline-block"></a>
-                    <a href="#" class="social-icon w-inline-block"></a>
-                  </div>
-                </div>
-              </div>
-              <div class="w-col w-col-2"><img src="https://daks2k3a4ib2z.cloudfront.net/5a047a7d0245bc00019cff8c/5a05645812148e000158701a_alien.png" width="138"/>
-                <div class="name">최다혜</div>
-                <div class="position">Devleoper</div>
-                <a href="#" class="social-icon w-inline-block"><img src="https://daks2k3a4ib2z.cloudfront.net/5a047a7d0245bc00019cff8c/5a047a7d0245bc00019cffa0_facebook-icon_black.svg"/></a>
-              </div>
-              <div class="w-col w-col-2">
-                <a href="#" class="social-icon w-inline-block"></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- </div>
+        <br><br>
+        <h2 align="center">Contact us</h2>
+        <p class="lead"></p>
+
+       </div>
     </div>
   </div>
-</section> -->
+</section>
+
+<footer class="main-footer py-5">
+        <p class="text-muted text-center small p-0 mb-4"></p>
+        <div class="social d-table ml-auto mr-auto">
+            <a class="twitter mx-3 h4" href="https://twitter.com/" target="_blank">
+                <i class="fa fa-twitter"></i>
+                <span class="sr-only">View our Twitter Profile</span>
+            </a>
+            <a class="facebook mx-3 h4" href="https://www.facebook.com/" target="_blank">
+                <i class="fa fa-facebook"></i>
+                <span class="sr-only">View our Facebook Profile <span>
+            </a>
+            <a class="github mx-3 h4" href="https://github.com/" target="_blank">
+                <i class="fa fa-github"></i>
+                <span class="sr-only">View our GitHub Profile</span>
+            </a>
+        </div>
+</footer>

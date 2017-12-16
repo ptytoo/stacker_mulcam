@@ -7,10 +7,9 @@
     <%= link_to 'Edit', edit_stack_path(@stack) %> |
   <% end %>
     <%= link_to ' Back', url_for(:back), class: "fa fa-angle-left fa-1x"  %><br><br>
-
+  조회수 : <%= "#{@hit_post.unique_impression_count}" %>
   <h2><%= @stack.name.capitalize %></h2>
   <%= @stack.version %>v
-  조회수 : <%= "#{@hit_post.unique_impression_count}" %>
   <br>
   <p>
     <img src="https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/<%=@stack.stack_field.name%>/<%= @stack.name.capitalize %>.png" width="100">
@@ -50,10 +49,10 @@
 
 <p>
   <strong>이 스택을 사용하는 서비스들:</strong><br>
-  <% @services.each do |s| %>
-  <button type="button" class="btn btn-outline-primary btn-pill">
-    <%= s.service.name %>
-    </button>
+  <% @services.each do |st| %>
+    <% unless st.service.nil? %>
+      <%= link_to "<button type='button' class='btn btn-outline-primary btn-pill'>#{st.service.name}</button>".html_safe %>
+    <% end %>
   <% end %>
 </p>
 
@@ -64,7 +63,7 @@
     <a href="<%=s.url%>" target="_blank" class="fa fa-pencil fa-1x"><%= s.url %></a><br>
   <% end %>
 </p>
-
+<br><br>
 </div>
 
 <script>

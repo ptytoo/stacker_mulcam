@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% unless notice.nil? %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 
 <nav aria-label="breadcrumb" role="navigation">
   <ol class="breadcrumb">
@@ -10,6 +12,12 @@
 
 
 <div class="container">
+
+  <% if user_signed_in? && current_user.admin? %>
+    <%= link_to 'Edit', edit_service_path(@service) %> |
+  <% end %>
+  <%= link_to 'Back', detail_company_path(@service.company_id), class: "fa fa-angle-left fa-1x" %>
+
   <div class="media">
     <img src="<%=@service.logo_url%>" title="<%=@service.name%>" id: "#{@company.name}" size=200>
     <div class="media-body">
@@ -19,7 +27,6 @@
   </div>
 
   <p>
-    <strong>Describe:</strong>
     <%= @service.describe %>
   </p>
 
@@ -38,8 +45,5 @@
   </p>
   <br>
 
-  <% if user_signed_in? && current_user.admin? %>
-    <%= link_to 'Edit', edit_service_path(@service) %> |
-  <% end %>
-  <%= link_to 'Back', detail_company_path(@service.company_id) %>
+
 </div>

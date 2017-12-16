@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% unless notice.nil? %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 <nav aria-label="breadcrumb" role="navigation">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/company_fields"><%= @company.company_field.name%></a></li>
@@ -29,5 +31,6 @@
   <% end %>
 </p>
 <br><br>
-<%= link_to 'Back', company_field_path(@company.company_field_id) %>
+<%= link_to 'Back', company_fields_path %>
+<%#= link_to 'Back', company_field_path(@company.company_field_id) %>
 </div>

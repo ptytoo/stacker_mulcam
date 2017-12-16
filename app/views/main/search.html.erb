@@ -11,7 +11,7 @@
   <br>
   <h3>검색 결과(회사)</h3>
   <%@result_companies.each do |r| %>
-    <a href="/company_fields/<%=r.id%>/detail">
+    <a href="<%=detail_company_path(r)%>">
       <img src="<%=r.logo_url%>", width="50">
     </a>
   <%end%>
