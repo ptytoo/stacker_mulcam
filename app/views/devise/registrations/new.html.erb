@@ -2,6 +2,7 @@
 
   <div class="col-md-10 col-md-offset-10 login register">
 
+
     <%= render 'layouts/error_messages', object: resource %>
     <div class="panel panel-default devise-bs col-xs-12">
 
@@ -43,8 +44,7 @@
               <%= f.radio_button(:role, "enter", value: "enter", id: "enter", data: {behavior: "clickable" })%>
               <%= f.label(:enter, "기업회원") %>
               <%=f.hidden_field :company_id, id:"company_id"%><br>
-
-            <%= f.submit t('.sign_up', :default => 'Sign up'), class: 'btn btn-small btn-dark-solid full-width btn-rounded' %>
+              <%= f.submit t('.sign_up', :default => 'Sign up'), class: 'btn btn-small btn-dark-solid full-width btn-rounded' %>
             </div>
         <% end %>
       </div>
@@ -82,7 +82,7 @@
     </select>
     <span>
       <%#= f.trix_editor :describe %>
-      <%= f.text_field :describe, size: "500", placeholder: "회사 소개", id: "describe" %>
+      <%= f.text_field :describe, size: "100", placeholder: "회사 소개", id: "describe" %>
     </span>
 
     <!-- <div class="form-actions"> -->
