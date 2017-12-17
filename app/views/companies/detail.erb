@@ -9,28 +9,29 @@
   </ol>
 </nav>
 
-
-<div class="col-sm-10">
-  <div class="media">
-    <img src="<%=@company.logo_url%>" title="<%=@company.name%>" id: "#{@company.name}" size=200>
-    <div class="media-body">
-      <h5 class="mt-0"><%= @company.name %></h5>
-      <%= @company.site_url %>
+<div class="container">
+  <div class="col-sm-12">
+    <div class="media">
+      <img src="<%=@company.logo_url%>" title="<%=@company.name%>" id: "#{@company.name}" size=200>
+      <div class="media-body">
+        <h5 class="mt-0"><%= @company.name %></h5>
+        <%= @company.site_url %>
+      </div>
     </div>
+
+    <br>
+
+    <p class="text-xl-left"><%= @company.describe %></p>
+
+    <br>
+    <p>
+      <strong><%=@company.name%>의 서비스</strong><br><br>
+      <% @services.each do |service| %>
+      <%= link_to "<button type='button' class='btn btn-outline-primary btn-pill'>#{service.name}</button>".html_safe, "/services/#{service.id}" %></td>
+      <% end %>
+    </p>
+    <br><br>
+    <%= link_to 'Back', company_fields_path %>
+    <%#= link_to 'Back', company_field_path(@company.company_field_id) %>
   </div>
-
-  <br>
-
-  <p class="text-xl-left"><%= @company.describe %></p>
-
-  <br>
-  <p>
-    <strong><%=@company.name%>의 서비스</strong><br><br>
-    <% @services.each do |service| %>
-    <%= link_to "<button type='button' class='btn btn-outline-primary btn-pill'>#{service.name}</button>".html_safe, "/services/#{service.id}" %></td>
-    <% end %>
-  </p>
-  <br><br>
-  <%= link_to 'Back', company_fields_path %>
-  <%#= link_to 'Back', company_field_path(@company.company_field_id) %>
 </div>
