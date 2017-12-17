@@ -67,7 +67,7 @@ bb.generate({
     color: function(color, d) {
       if (typeof d === "object") {
         // for data point
-        console.log(d)
+        // console.log(d)
         if (d.index %2 == 1) {
           return "#b1cbbb";
           // for data type (ex. line, bar)
@@ -109,7 +109,7 @@ bb.generate({
     color: function(color, d) {
       if (typeof d === "object") {
         // for data point
-        console.log(d)
+        // console.log(d)
         if (d.index %2 == 1) {
           return "#b1cbbb";
           // for data type (ex. line, bar)
@@ -150,7 +150,7 @@ bb.generate({
     color: function(color, d) {
       if (typeof d === "object") {
         // for data point
-        console.log(d)
+        // console.log(d)
         if (d.index %2 == 1) {
           return "#b1cbbb";
           // for data type (ex. line, bar)
@@ -193,7 +193,7 @@ bb.generate({
     color: function(color, d) {
       if (typeof d === "object") {
         // for data point
-        console.log(d)
+        // console.log(d)
         if (d.index %2 == 1) {
           return "#b1cbbb";
           // for data type (ex. line, bar)
@@ -245,11 +245,11 @@ var chart = bb.generate({
     "title": {
            "text": "not just software"
     },
-    "onclick": function (d, i) { console.log("onclick", d, i); },
-    "onover": function (d, i) { console.log("onover", d, i); },
-    "onout": function (d, i) { console.log("onout", d, i); },
+    // "onclick": function (d, i) { console.log("onclick", d, i); },
+    // "onover": function (d, i) { console.log("onover", d, i); },
+    // "onout": function (d, i) { console.log("onout", d, i); },
     color: function(color, d) {
-      console.log(d)
+      // console.log(d)
       if (typeof d === "string") {
         // for data point
         //if (d.index % 2 == 1) {
@@ -260,8 +260,8 @@ var chart = bb.generate({
       //    return "#cce6ff";
         //}
       } else {
-        console.log(typeof d)
-        console.log("!!!")
+        // console.log(typeof d)
+        // console.log("!!!")
 
         return 'blue';
       }
