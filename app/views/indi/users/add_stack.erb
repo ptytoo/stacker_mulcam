@@ -1,11 +1,9 @@
 <%#= link_to 'click', indi_register_stack_path, method: :post, :onclick => "$('#aa').click()"  %>
 
-
+<input type="button" value = "등록" id="aa"><br>
 <% @stack_fields.each do |field|%>
 
-
   <div class="container" style="height: 180px;">
-    <input type="button" value = "등록" id="aa"><br>
     <h5><%= field.name%></h5>
     <% field.stacks.each do |stack| %>
       <div style="height:50px;width:50px; float:left; margin:5px">
