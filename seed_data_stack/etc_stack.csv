@@ -16,7 +16,7 @@ JIRA,https://ko.atlassian.com/software/jira,"Jira is a proprietary issue tracki
 Hubot,https://hubot.github.com/,Hubot is your friendly robot sidekick. ,"휴봇은 GitHub에서 만든 채팅 봇으로 처음에는 사내용으로 만들어졌지만, 많은 발전을 거듭하며 현재는 오픈 소스로 공개되어 있습니다.",2.3.2,
 Mattermost,https://about.mattermost.com/,"Open source, private cloud Slack-alternative, Workplace messaging for web,",업무용 채팅 어플리케이션으로써 비즈니스 커뮤니케이션 도구 중 하나다. IRC(Internet Relay Chat)기반으로 채널/비밀그룹/1대1 등 지원하고 이러한 공간에서 팀원 간의 메세징을 통해 빠르고 간단한 업무 소통과 다양한 채팅 봇들을 지원하고 있어 사용자의 편의성을 높인다.,4.4,
 Zenhub,https://www.zenhub.com/,ZenHub is agile project management within GitHub.,"젠허브는 기트허브(GitHub) 내부의 프로젝트 관리를 지원한다. 칸반과 같은 태스크 보드, 번다운 차트 등의 기능과 슬랙(Slack) 통합 같은 프로젝트 관리 기능이 특징이다. 'ZenHub.io'는 기트허브닷컴(GitHub.com)과 직접 연동되는 클라우드 호스팅 방식의 웹 제품이고, 'ZenHub Enterprise'는 기트허브 엔터프라이즈(GitHub Enterprise)를 지원하는 온프레미스 제품이다. 도커(Docker), NBC, 소니, 마이크로소프트 등을 고객으로 두고 있다.",2.35.36,
-InVision ,https://www.invisionapp.com/," a prototyping, collaboration, and workflow platform.","Invision은 디자인 프로토타입을 팀간 또는 클라이언트와의 협업 도구입니다.
+InVision,https://www.invisionapp.com/," a prototyping, collaboration, and workflow platform.","Invision은 디자인 프로토타입을 팀간 또는 클라이언트와의 협업 도구입니다.
 
 웹이나 모바일웹, 모바일앱을 디자인 할 때 초기 설계 단계에서 디자이너는 여러 번의 시행 착오를 거치게 되죠. 동료 팀원이나 상사, 클라이언트와 의사소통이 쉽지 않습니다. Invision은 이 과정에서의 협업을 도와주는 도구입니다.
 Invision은 디자인 프로토타입을 팀간 또는 클라이언트와의 협업 도구입니다.
