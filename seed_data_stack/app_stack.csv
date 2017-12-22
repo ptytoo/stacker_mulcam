@@ -1,7 +1,7 @@
-Android,https://developer.android.com/index.html,Andriod,"안드로이드는 휴대 전화를 비롯한 휴대용 장치를 위한 운영 체제와 미들웨어, 사용자 인터페이스 그리고 표준 응용 프로그램을 포함하고 있는 소프트웨어 스택이자 모바일 운영 체제이다.",8.0 Oreo
-IOS,https://www.apple.com/ios/ios-11,iOS,iOS는 애플의 모바일 운영 체제이다.,iOS 11
-Unity,https://unity3d.com/,Unity,"Unity는 3D 비디오 게임이나 건축 시각화, 실시간 3D 애니메이션 같은 기타 인터랙티브 콘텐츠를 제작하기 위한 통합 저작 도구이다. 에디터는 윈도와 맥 OS X 상에서 실행되어 윈도나 맥, Wii, 아이패드, 아이폰 플랫폼으로 게임을 만들 수 있다. 엔진 자체에 라이트 맵핑이나, 물리 엔진 등과 같은 미들웨어가 탑재되어있다.",2017.2
-Ionic,https://ionicframework.com/,Ionic,"Ionic은 하이브리드 모바일 어플리케이션 개발을 위해 쓰이는 오픈소스 SDK이다. Ionic은 CSS, HTML, Sass와 같은 하이브리드 모바일 어플리케이션에 필요한 툴과 서비스를 제공한다. Apache Cordova에서 Ionic 코드와 네이티브 모바일 어플리케이션 코드를 함께 쓰일 경우 다른 하이브리드 어플리케이션보다 월등히 좋은 퍼포먼스가 나온다.",03.9.2.
-Fabric,https://get.fabric.io/,fabric,"패브릭(Fabric)은 앱 개발자들이 흔히 직면하는 안정성, 사용자 확보, 수익성, 사용자 인증의 이슈들을 해결해 줄 세 가지의 모듈형 키트들로 이루어져 있습니다. ",
-Firebase,https://firebase.google.com/?hl=ko,firebase,Firebase는 더 멋진 모바일 앱을 개발하고 비즈니스의 성장시키는 데 도움을 줍니다.,
-CocoaPods,https://cocoapods.org/,CocoaPods,CocoaPods는 Swift 및 Objective-C 코코아 프로젝트의 종속성 관리자입니다,
+Android,https://developer.android.com/index.html,Andriod,"안드로이드는 휴대 전화를 비롯한 휴대용 장치를 위한 운영 체제와 미들웨어, 사용자 인터페이스 그리고 표준 응용 프로그램을 포함하고 있는 소프트웨어 스택이자 모바일 운영 체제이다. ",8.0 Oreo,
+Ios,https://www.apple.com/ios/ios-11/,iOS,iOS는 애플의 모바일 운영 체제이다.,iOS 11,
+Unity,https://unity3d.com/,Unity,"Unity는 3D 비디오 게임이나 건축 시각화, 실시간 3D 애니메이션 같은 기타 인터랙티브 콘텐츠를 제작하기 위한 통합 저작 도구이다. 에디터는 윈도와 맥 OS X 상에서 실행되어 윈도나 맥, Wii, 아이패드, 아이폰 플랫폼으로 게임을 만들 수 있다. 엔진 자체에 라이트 맵핑이나, 물리 엔진 등과 같은 미들웨어가 탑재되어있다.",2017.2,
+Ionic,https://ionicframework.com/,Ionic,"Ionic은 하이브리드 모바일 어플리케이션 개발을 위해 쓰이는 오픈소스 SDK이다. Ionic은 CSS, HTML, Sass와 같은 하이브리드 모바일 어플리케이션에 필요한 툴과 서비스를 제공한다. Apache Cordova에서 Ionic 코드와 네이티브 모바일 어플리케이션 코드를 함께 쓰일 경우 다른 하이브리드 어플리케이션보다 월등히 좋은 퍼포먼스가 나온다.",03.9.2.,
+Fabric,https://get.fabric.io/,fabric,"패브릭(Fabric)은 앱 개발자들이 흔히 직면하는 안정성, 사용자 확보, 수익성, 사용자 인증의 이슈들을 해결해 줄 세 가지의 모듈형 키트들로 이루어져 있습니다. ",,
+Firebase,https://firebase.google.com/?hl=ko,firebase,Firebase는 더 멋진 모바일 앱을 개발하고 비즈니스의 성장시키는 데 도움을 줍니다.,,
+CocoaPods,https://cocoapods.org/,CocoaPods,CocoaPods는 Swift 및 Objective-C 코코아 프로젝트의 종속성 관리자입니다,,

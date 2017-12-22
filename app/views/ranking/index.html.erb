@@ -1,30 +1,30 @@
 <br><br>
 <div class="container">
-<% if user_signed_in? && current_user.indi? %>
-  <h3>나와 비슷한 스택을 가진 유저</h3>
-  <% @users.each do |u| %>
-    <%us = User.find_by(id: u.id)%>
-    <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"> <%= us.nickname %></i> |
-    <%= u.cnt %>개<br>
+  <% if user_signed_in? && current_user.indi? %>
+    <h3>나와 비슷한 스택을 가진 유저</h3>
+    <% @users.each do |u| %>
+      <%us = User.find_by(id: u.id)%>
+      <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"> <%= us.nickname %></i> |
+      <%= u.cnt %>개<br><br>
+    <% end %>
+    <br>
+  <% else %>
+    <h3>개인 계정 로그인 시, 나와 비슷한 스택을 가진 유저를 추천해 드립니다.</h3><br>
   <% end %>
-  <br>
-<% else %>
-  <h3>개인 계정 로그인 시, 나와 비슷한 스택을 가진 유저를 추천해 줍니다.</h3><br>
-<% end %>
 
-<h3>개인 회원 순위 (스택 갯수 기준)</h3>
-<% @indi_users.each do |t|%>
-  <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"> <%= t.nickname %></i>
-  <%= t.stack_cnt%>
-  <br><br>
-<% end %>
+  <h3>개인 회원 순위 (스택 갯수 기준)</h3>
+  <% @indi_users.each do |t|%>
+    <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"> <%= t.nickname %></i>
+    <%= t.stack_cnt%>
+    <br><br>
+  <% end %>
 
-<h3>기업 회원 순위 (스택 갯수 기준 / 상위 10개)</h3>
-<% @services_cnt.each do |t|%>
-  <%cpy = Service.find_by(name: t.name)%>
-  <img src="<%=cpy.logo_url%>" height = "50">
-  <%= t.stack_cnt%>
-  <br>
-<% end %>
+  <h3>기업 회원 순위 (스택 갯수 기준 / 상위 10개)</h3>
+  <% @services_cnt.each do |t|%>
+    <%cpy = Service.find_by(name: t.name)%>
+    <img src="<%=cpy.logo_url%>" height = "50">
+    <%= t.stack_cnt%>
+    <br>
+  <% end %>
 </div>
 <br><br>

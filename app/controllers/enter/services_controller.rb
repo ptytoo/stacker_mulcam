@@ -59,7 +59,7 @@ class Enter::ServicesController < Enter::ApplicationController
     authorize! :destroy, @service
     @service.destroy
     respond_to do |format|
-      format.html { redirect_to services_url, notice: 'Service was successfully destroyed.' }
+      format.html { redirect_to enter_company_path(current_user.company_id), notice: 'Service was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

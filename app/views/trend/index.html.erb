@@ -9,55 +9,47 @@
       <div id="DonutChart"></div>
     </div>
 </div>
-</div>
 
 <br><br><br><br>
 
 <div class="container-fluid">
-<div class="row">
-  <div class="col-sm-6"><center><strong>Ten most forked projects</strong></center><br><div id="RotateXAxisTickText1"></div></div>
-  <div class="col-sm-6"> <center><strong>Projects with the most contributors</strong><br></center><div id="RotateXAxisTickText2"></div></div>
-</div>
-
-<br><br><br><br>
-
-<div class="row">
-    <div class="col-sm-6"><center><strong>Projects with the most reviews</center></strong><br><div id="RotateXAxisTickText3"></div></div>
-    <div class="col-sm-6"><center><strong>ten most-discussed repositories</center></strong><br><div id="RotateXAxisTickText4"></div></div>
-</div>
-
-<br><br><br><br>
-
-
-
-
-
-<br><br><br><hr><br>
-
-<div>
-  <div class='row'>
-    <%j=0%>
-    <%@types.each do |type|%>
-  <div class="col-lg-6 col-xl-5 mb-6">
-
-      <h4 class="f1 h lh-condensed mb-4">
-        <strong><%= type%></strong>
-        <br>
-      </h4>
-      <ol class="list-style-none f5 f4-md text-uppercase text-break">
-        <%for i in 0..4%>
-          <li class="my-3">
-            <span><font color="blue"><%= @stack_trends[i+j]["stack_name"]%></font><br>
-            </span>
-          </li>
-        <%end%>
-      <%j+=5%><br><hr><br>
-      </ol>
-    </div>
-    <%end%>
-    <br>
+  <div class="row">
+    <div class="col-sm-6"><center><strong>Ten most forked projects</strong></center><br><div id="RotateXAxisTickText1"></div></div>
+    <div class="col-sm-6"> <center><strong>Projects with the most contributors</strong><br></center><div id="RotateXAxisTickText2"></div></div>
   </div>
+
+  <br><br><br><br>
+
+  <div class="row">
+      <div class="col-sm-6"><center><strong>Projects with the most reviews</center></strong><br><div id="RotateXAxisTickText3"></div></div>
+      <div class="col-sm-6"><center><strong>ten most-discussed repositories</center></strong><br><div id="RotateXAxisTickText4"></div></div>
+  </div>
+
+  <br><br><br><br>
+
+  <div>
+    <div class='row'>
+      <%j=0%>
+      <%@types.each do |type|%>
+      <div class="col-lg-6 col-xl-5 mb-6">
+        <h4 class="f1 h lh-condensed mb-4"><%= type%></h4>
+        <ol class="list-style-none f5 f4-md text-uppercase text-break">
+          <%for i in 0..4%>
+            <li class="my-3">
+              <span><%= @stack_trends[i+j]["stack_name"]%></span>
+            </li>
+          <%end%>
+          <%j+=5%>
+        </ol>
+      </div>
+      <%end%>
+      <br>
+    </div>
+  </div>
+
 </div>
+
+
 <script>
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
@@ -75,7 +67,7 @@ bb.generate({
     color: function(color, d) {
       if (typeof d === "object") {
         // for data point
-        console.log(d)
+        // console.log(d)
         if (d.index %2 == 1) {
           return "#b1cbbb";
           // for data type (ex. line, bar)
@@ -117,7 +109,7 @@ bb.generate({
     color: function(color, d) {
       if (typeof d === "object") {
         // for data point
-        console.log(d)
+        // console.log(d)
         if (d.index %2 == 1) {
           return "#b1cbbb";
           // for data type (ex. line, bar)
@@ -158,7 +150,7 @@ bb.generate({
     color: function(color, d) {
       if (typeof d === "object") {
         // for data point
-        console.log(d)
+        // console.log(d)
         if (d.index %2 == 1) {
           return "#b1cbbb";
           // for data type (ex. line, bar)
@@ -201,7 +193,7 @@ bb.generate({
     color: function(color, d) {
       if (typeof d === "object") {
         // for data point
-        console.log(d)
+        // console.log(d)
         if (d.index %2 == 1) {
           return "#b1cbbb";
           // for data type (ex. line, bar)
@@ -253,11 +245,11 @@ var chart = bb.generate({
     "title": {
            "text": "not just software"
     },
-    "onclick": function (d, i) { console.log("onclick", d, i); },
-    "onover": function (d, i) { console.log("onover", d, i); },
-    "onout": function (d, i) { console.log("onout", d, i); },
+    // "onclick": function (d, i) { console.log("onclick", d, i); },
+    // "onover": function (d, i) { console.log("onover", d, i); },
+    // "onout": function (d, i) { console.log("onout", d, i); },
     color: function(color, d) {
-      console.log(d)
+      // console.log(d)
       if (typeof d === "string") {
         // for data point
         //if (d.index % 2 == 1) {
@@ -268,8 +260,8 @@ var chart = bb.generate({
       //    return "#cce6ff";
         //}
       } else {
-        console.log(typeof d)
-        console.log("!!!")
+        // console.log(typeof d)
+        // console.log("!!!")
 
         return 'blue';
       }

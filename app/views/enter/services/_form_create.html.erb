@@ -4,9 +4,9 @@
       <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
 
       <ul>
-      <% @service.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @service.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
