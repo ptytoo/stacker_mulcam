@@ -12,12 +12,24 @@ class RankingController < ApplicationController
                 .group("service_stacks.service_id")
                 .order("stack_cnt DESC limit 10")
 
+    # @services_cnt = Service.select('services.name', 'COUNT(service_stacks.stack_id) stack_cnt')
+    #                 .joins(:service_stacks)
+    #                 .group('service_stacks.service_id')
+    #                 .order('stack_cnt DESC limit 10')
+
     if user_signed_in? && current_user.indi?
       @users = MyStack.select("b.user_id as id, COUNT(b.stack_id) as cnt")
               .joins("INNER JOIN my_stacks b ON my_stacks.stack_id = b.stack_id")
               .where("my_stacks.user_id is not b.user_id AND my_stacks.user_id = #{current_user.id}")
               .group("b.user_id")
               .order("cnt DESC limit 1")
+
+      # #레일즈 스럽게...?????
+      # @r_users = MyStack.select('b.user_id as id', 'COUNT(b.stack_id) as cnt')
+      #                 .joins(:my_stack)
+      #                 .where("my_stacks.user_id is not b.user_id AND my_stacks.user_id = #{current_user.id}")
+      #                 .group('b.user_id')
+      #                 .order('cnt DESC limit 1')
     end
 
     #모델파일에서 validates_uniqueness_of
