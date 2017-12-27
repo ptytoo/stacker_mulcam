@@ -29,7 +29,7 @@
   <p>
     <%= @service.describe %>
   </p>
- 
+
   <p>
     <strong>Company:</strong>
     <%= @service.company.name %>
@@ -37,7 +37,7 @@
 
   <p>
     <strong>Stack:</strong><br>
-    <% @f_name = ['Language','Database','Server','	Front-end','	Native_App','Etc'] %>
+    <% @f_name = ['Language','Database','Server','Front-end','Native_App','Etc'] %>
     <% @f_name.each_with_index do |f, index|%>
       <%= f%><br>
       <p>
