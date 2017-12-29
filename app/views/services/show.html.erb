@@ -22,7 +22,7 @@
     <img src="<%=@service.logo_url%>" title="<%=@service.name%>" id: "#{@company.name}" size=200>
     <div class="media-body">
       <h5 class="mt-0"><%= @service.name %></h5>
-      <%= @service.site_url %>
+      <a href="<%= @service.site_url %>">홈페이지</a>
     </div>
   </div>
 
@@ -37,9 +37,9 @@
 
   <p>
     <strong>Stack:</strong><br>
-    <% @f_name = ['Language','Database','Server','	Front-end','	Native_App','Etc'] %>
+    <% @f_name = ['Language','Database','Server','Front-end','Native_App','Etc'] %>
     <% @f_name.each_with_index do |f, index|%>
-      <%= f%><br>
+      <%= f %><br>
       <p>
         <%@stacks.each do |st|%>
           <% if st.stack.stack_field_id == (index+1)%>
