@@ -1,5 +1,34 @@
-<p id="notice"><%= notice %></p>
+<% unless notice.nil? %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 
+<br><br><br>
+<h2><%= @company_field.name %></h2>
+
+<% @companies.each do |company| %>
+  <!--Card-->
+  <div class="card">
+    <!--Card image-->
+    <div class="view overlay hm-white-slight">
+        <img src="<%=company.logo_url%>" title="<%=company.name%>" id: "#{company.name}" height="70" width="70">
+        <a href="#"><div class="mask"></div></a>
+    </div>
+
+    <!--Card content-->
+    <div class="card-body">
+        <!--Title-->
+        <h4 class="card-title"><%= company.name %></h4>
+        <!--Text-->
+        <!-- <p class="card-text"><%= company.describe %></p> -->
+        <%= link_to '상세보기'.html_safe, detail_company_path(company), class: "btn btn-unique" %>
+    </div>
+
+  </div>
+  <!--/.Card-->
+<% end %>
+
+
+<!-- old version
 <p>
   <strong>Name:</strong>
   <%= @company_field.name %>
@@ -13,7 +42,6 @@
       <th colspan="3"></th>
     </tr>
 </thead>
-
 
 
   <tbody>
@@ -34,3 +62,5 @@
 
 <%= link_to 'Edit', edit_company_field_path(@company_field) %> |
 <%= link_to 'Back', company_fields_path %>
+
+-->

@@ -1,51 +1,100 @@
-<h2><%= t(".sign_up") %></h2>
+<div class="container" align="center">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true %>
-    <%= f.input :password_confirmation, required: true %>
-    <%= f.input :nickname, required: true, autofocus: true %>
-    <%= f.input :phone, required: true, autofocus: true %>
-    <%= f.radio_button(:role, "indi", value: "indi", id: "indi", data: {behavior: "clickable" }) %>
-    <%= f.label(:indi, "개인회원") %>
-    <%= f.radio_button(:role, "enter", value: "enter", id: "enter", data: {behavior: "clickable" })%>
-    <%= f.label(:enter, "기업회원") %>
-    <%= f.hidden_field :company_id, id:"company_id" %>
+  <div class="col-md-10 col-md-offset-10 login register">
+    <%= render 'layouts/error_messages', object: resource %>
+    <div class="panel panel-default devise-bs col-xs-12">
+      <div class="panel-body">
+        <div class="heading-title text-center">
+          <br>
+          <h3 class="text-uppercase" style ="font-weight:bold;">"Register"</h3>
+          <span class="text-uppercase">회원가입을 해주세요!</span>
+        </div><br>
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: {role: 'form'}) do |f| %>
+            <div class="form-group col-xs-12" align="left">
+              <%= f.label :이메일 %>
+            </div>
+            <div class="form-group col-xs-12">
+              <%= f.email_field :email, autofocus: true, class: 'form-control ', placeholder: 'e-mail 양식을 지켜주세요' %>
+            </div>
+            <div class="form-group col-xs-12" align="left">
+              <%= f.label :패스워드 %>
+            </div>
+            <div class="form-group col-xs-12">
+              <%= f.password_field :password, class: 'form-control', placeholder: '6글자 이상으로 구성해주세요' %>
+            </div>
+            <div class="form-group col-xs-12" align="left">
+              <%= f.label :패스워드확인 %>
+            </div>
+            <div class="form-group col-xs-12">
+              <%= f.password_field :password_confirmation, class: 'form-control', placeholder: '다시한번 입력해주세요' %>
+            </div>
+            <div class="form-group col-xs-12">
+              <%= f.label :닉네임 %>
+              <%= f.text_field :nickname, class: 'form-control', placeholder: '사용하실 닉네임을 입력해주세요' %>
+            </div>
+            <div class="form-group col-xs-12">
+              <%= f.label :전화번호 %>
+              <%= f.text_field :phone, class: 'form-control', placeholder: '사용하실 전화번호를 입력해주세요' %>
+            </div>
+            <div class="form-inputs" align="center">
+              <%= f.radio_button(:role, "indi", value: "indi", id: "indi", data: {behavior: "clickable" }) %>
+              <%= f.label(:indi, "개인회원") %>
+              <%= f.radio_button(:role, "enter", value: "enter", id: "enter", data: {behavior: "clickable" })%>
+              <%= f.label(:enter, "기업회원") %>
+              <%=f.hidden_field :company_id, id:"company_id"%><br>
+              <%= f.submit t('.sign_up', :default => 'Sign up'), class: 'btn btn-small btn-dark-solid full-width btn-rounded' %>
+            </div>
+        <% end %>
+      </div>
+      <div class="text-center">
+        <%= render 'devise/shared/links' %>
+      </div>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, t(".sign_up") %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <br>
 
-<br>
-
-<div id="group_user_id" class="form-group">
-  <%= form_for(companies_path, method: :post) do |f|%>
-    회사 명 : <%= f.text_field :name, id: "name" %><br>
-    회사 사이트 주소 : <%= f.text_field :site_url, id: "site_url"%><br>
-    사업 분야 :
-    <select name="companies[company_field_id]" id="field_id">
-    <% @company_fields.each do |field|%>
-      <option class="enter" value="<%=field.id%>"><%= field.name %></option>
-    <% end %>
-    <%= f.file_field :logo_url, id: "logo_url"%>
-    </select>
-    <span>
-      <%#= f.trix_editor :describe %>
-      <%= f.text_field :describe, size: "500", placeholder: "회사 소개", id: "describe" %>
-    </span>
-
+  <div id="group_user_id" class="form-group">
+    <%= form_for(companies_path, method: :post) do |f|%>
+    <div class="form-group col-xs-12" align="left">
+      <%= f.label :회사명 %>
+    </div>
+    <div class="form-group col-xs-12">
+      <%= f.text_field :name, class: 'form-control', placeholder: '회사명을 입력해주세요', id: 'name' %>
+    </div>
+    <div class="form-group col-xs-12" align="left">
+      <%= f.label :회사사이트주소 %>
+    </div>
+    <div class="form-group col-xs-12">
+      <%= f.text_field :site_url, class: 'form-control', placeholder: '회사 URL을 입력해주세요', id: 'site_url' %>
+    </div>
+    <div class="form-group col-xs-12" align="left">
+      사업 분야 :
+      <select name="companies[company_field_id]" id="field_id">
+        <% @company_fields.each do |field|%>
+          <option class="enter" value="<%=field.id%>"><%= field.name %></option>
+        <% end %>
+      </select>
+    </div><br>
+    <div class="form-group col-xs-12" align="left">
+      로고 이미지 :
+      <%= f.file_field :logo_url, id: "logo_url"%>
+    </div>
+    <div class="form-group col-xs-12" align="left">
+      <span><!--이거 span태그 왜 먹인거지...? 위에처럼 div맥이면 안되나????? -->
+        회사 소개 :
+        <%#= f.trix_editor :describe %>
+        <%= f.text_field :describe, class: 'form-control', size: "100", placeholder: "회사 소개", id: "describe" %>
+      </span>
+    </div>
     <!-- <div class="form-actions"> -->
     <%= f.button :submit %>
-    <!-- </div> -->
-  <%end%>
+    <%end%>
+  </div>
 </div>
+
+
 
 
 
@@ -75,11 +124,10 @@ $(function() {
           success: function(company){
               console.log(company);
               $("#company_id").val(company.id);
+              alert("회사정보가 입력되었습니다. 회원가입버튼을 눌러주세요");
             }
           });
-
         //$.session.set("company_name", input);
-
       });
     }
   });

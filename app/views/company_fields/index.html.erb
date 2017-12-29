@@ -1,30 +1,34 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Company Fields</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @company_fields.each do |company_field| %>
-      <tr>
-        <td><%= company_field.name %></td>
-        <td><%= link_to 'Show', company_field %></td>
-        <% if user_signed_in? &&  current_user.admin? %>
-        <td><%= link_to 'Edit', edit_company_field_path(company_field) %></td>
-        <td><%= link_to 'Destroy', company_field, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<header class="bg-dark text-white">
+  <div class="container text-center">
+    <div class="justify-content-center">
+      <!-- Searching Section -->
+       <div class="subscribe section bg-dark py-1">
+         <h4 class="section-title text-center text-white m-5">원하는 분야의 스택 사용 확인</h4>
+         <p class="text-muted col-md-6 text-center mx-auto">간단한 설명 들어갈 부분</p>
+       </div>
+    </div>
+  </div>
+</header>
 <br>
-<% if user_signed_in? &&  current_user.admin? %>
-<%= link_to 'New Company field', new_company_field_path %>
-<% end %>
+<div id="b_form">
+  <% c_field_list = ["Social media/Communication","Edu Tech","Utility","Fintech","Game",
+  "E-Commerce","Foodtech","Contents","Healthcare","Ad/Marketing","IoT","Analytics","Sharing Economy"] %>
+  <% @company_fields.each_with_index do |field, index| %>
+  <div>
+      <p><%= field.name%></p>
+      <% @companies.each do |c| %>
+        <% if c.company_field_id == (index+1) %>
+          <%= link_to "<button type='button' class='btn btn-outline-primary btn-pill'>#{c.name}</button>".html_safe, detail_company_path(c.id), method: :get %>
+          <%#= c.name%>
+        <% end %>
+      <% end %>
+      <br><br>
+    <% end %>
+  </div>
+</div>
+
+<style>
+  #b_form {
+    text-align: center;
+  }
+</style>

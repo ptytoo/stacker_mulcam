@@ -1,29 +1,44 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="wrapper">
+  <div class="container">
+    <%= render 'layouts/error_messages', object: resource %>
+    <div class="panel panel-default devise-bs">
+      <div class="heading-title-alt border-short-bottom text-center ">
+        <br>
+        <h3 class="text-uppercase">개인정보 수정</h3>
+        <br>
+      </div>
+      <div class="career-form">
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put}) do |f| %>
+            <div class="form-group col-md-6">
+              <%= f.label :현재비밀번호 %>
+              <%= f.password_field :current_password, class: 'form-control', placeholder: '현재 비밀번호를 입력해주세요' %>
+            </div>
+            <div class="form-group col-md-6">
+              <%= f.label :변경비밀번호 %>
+              <%= f.password_field :password, :autocomplete => 'off', class: 'form-control', placeholder: '변경비밀번호' %>
+            </div>
+            <div class="form-group col-md-6">
+              <%= f.label :변경비밀번호확인 %>
+              <%= f.password_field :password_confirmation, class: 'form-control', placeholder: '다시 한번 입력해주세요' %>
+            </div>
+            <div class="form-group col-md-6">
+              <%= f.label :이름 %>
+              <%= f.text_field :nickname, class: 'form-control' %>
+            </div>
+            <div class="form-group col-md-6">
+              <%= f.label :전화번호 %>
+              <%= f.text_field :phone, class: 'form-control' %>
+            </div>
+            <div class = "text-center">
+              <%= f.submit t('.update', :default => 'Update'), class: 'btn btn-primary' %>
+              <p><%= t('.unhappy', :default => 'Unhappy') %>
+                ? <%= link_to t('.cancel_my_account', :default => 'Cancel my account'), registration_path(resource_name), :data => {:confirm => t('.are_you_sure', :default => 'Are you sure?')}, :method => :delete %>
+              </p>
+              <%= link_to t('.back', :default => 'Back'), :back %>
+            </div>
+        <% end %>
+      </div>
+    </div>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-    <%= f.input :nickname, required: true, autofocus: true %>
-    <%= f.input :phone, required: true, autofocus: true %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

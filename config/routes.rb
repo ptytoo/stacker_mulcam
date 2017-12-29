@@ -33,7 +33,7 @@ Rails.application.routes.draw do
       post '/register_my_stack' => 'stacks#register_my_stack', as: 'register_my'
     end
     collection do
-
+      get '/add_stack' => 'stacks#add_stack', as: 'add_my'
     end
   end
 
@@ -41,6 +41,7 @@ Rails.application.routes.draw do
 
   #devise controller 생성했더니 이거 추가하라 했음 ㅠㅠㅠ....
   devise_for :users, controllers: {
+    # omniauth_callbacks: 'users/omniauth_callbacks',
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
@@ -65,9 +66,9 @@ Rails.application.routes.draw do
   end
 
   namespace :indi do
+    post '/regist_stack' => 'users#regist_stack', as: 'register_stack'
     resources :users do
       collection do
-        post '/regist_stack' => 'users#regist_stack', as: 'register_stack'
         get '/add_stack' => 'users#add_stack', as: 'add_my'
       end
     end

@@ -1,28 +1,37 @@
-<p id="notice"><%= notice %></p>
-<p>
-  <strong>Name:</strong>
-  <%= @company.name %>
-</p>
+<% unless notice.nil? %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 
-<p>
-  <strong>Site url:</strong>
-  <%= @company.site_url %>
-</p>
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/company_fields"><%= @company.company_field.name%></a></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @company.name %></li>
+  </ol>
+</nav>
 
-<p>
-  <strong>Logo url:</strong>
-  <%= @company.logo_url %>
-</p>
+<div class="container">
+  <div class="col-sm-12">
+    <div class="media">
+      <img src="<%=@company.logo_url%>" title="<%=@company.name%>" id: "#{@company.name}" size=200>
+      <div class="media-body">
+        <h5 class="mt-0"><%= @company.name %></h5>
+        <%= @company.site_url %>
+      </div>
+    </div>
 
-<p>
-  <strong>Describe:</strong>
-  <%= @company.describe %>
-</p>
+    <br>
 
-<p>
-  <strong>Company field:</strong>
-  <%= @company.company_field %>
-</p>
+    <p class="text-xl-left"><%= @company.describe %></p>
 
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+    <br>
+    <p>
+      <strong><%=@company.name%>의 서비스</strong><br><br>
+      <% @services.each do |service| %>
+      <%= link_to "#{service.name}", "/services/#{service.id}" %></td>
+      <% end %>
+    </p>
+    <br><br>
+    <%= link_to 'Back', company_fields_path %>
+    <%#= link_to 'Back', company_field_path(@company.company_field_id) %>
+  </div>
+</div>

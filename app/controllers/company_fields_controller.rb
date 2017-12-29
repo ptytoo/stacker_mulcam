@@ -13,7 +13,7 @@ class CompanyFieldsController < ApplicationController
   # GET /company_fields
   # GET /company_fields.json
   def index
-    @companys = Company.all
+    @companies = Company.all
     @company_fields = CompanyField.all
   end
 

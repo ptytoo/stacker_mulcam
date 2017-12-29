@@ -44,7 +44,7 @@ class Enter::ServicesController < Enter::ApplicationController
   def update
     respond_to do |format|
       if @service.update(service_params)
-        format.html { redirect_to "/enter/companies/#{@service.company_id}/services/#{@service.id}", notice: 'Service was successfully updated.' }
+        format.html { redirect_to "/enter/companies/#{@service.company_id}/services/#{@service.id}",method: :get, notice: 'Service was successfully updated.' }
         format.json { render :show, status: :ok, location: @service }
       else
         format.html { render :edit }
@@ -56,12 +56,14 @@ class Enter::ServicesController < Enter::ApplicationController
   # DELETE /services/1
   # DELETE /services/1.json
   def destroy
+    authorize! :destroy, @service
     @service.destroy
     respond_to do |format|
-      format.html { redirect_to services_url, notice: 'Service was successfully destroyed.' }
+      format.html { redirect_to enter_company_path(current_user.company_id), notice: 'Service was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
+
   def add_stack
     @stack_fields = StackField.all
   end
@@ -70,7 +72,6 @@ class Enter::ServicesController < Enter::ApplicationController
     # @st = Service.find_by(name: @service.name)
     stack_list = params[:return_val]
     service_id = params[:service_id]
-    puts stack_list
     stack_list.each do |st|
         check = ServiceStack.where(service_id: service_id).where(stack_id: st).exists?
         unless check
@@ -80,6 +81,7 @@ class Enter::ServicesController < Enter::ApplicationController
           )
         end
     end
+    redirect_to enter_company_service_path(current_user.company_id, service_id)
   end
 
   def delete_stack

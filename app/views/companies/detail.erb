@@ -1,29 +1,46 @@
-<p id="notice"><%= notice %></p>
+<% unless notice.nil? %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 
-<h1>Listing Company Details</h1>
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/company_fields"><%= @company.company_field.name%></a></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @company.name %></li>
+  </ol>
+</nav>
 
-<br>
+<div class="container">
+  <div class="col-sm-12">
+    <div class="media">
+      <div id="frame1"><img src="<%=@company.logo_url%>" title="<%=@company.name%>" id: "#{@company.name}" size=200></div>
+      <div class="media-body" id="desc">
+        <h5 class="mt-0" style="font-size: 30px;"><strong><%= @company.name %></strong></h5>
+        <%#= @company.site_url %>
+      </div>
+    </div>
 
-<%= @company.name %><br>
-<%= @company.site_url %><br>
-<img src="<%=@company.logo_url%>" data-toggle="tooltip" title="<%=@company.name%>" id: "#{@company.name}"><br>
-<%= @company.describe %><br><br><br>
+    <br>
 
+    <p class="text-xl-left"><%= @company.describe %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <!-- <th colspan="3"></th> -->
-    </tr>
-  </thead>
-    <tbody>
+    <br>
+    <p>
+      <strong><%=@company.name%>의 서비스</strong><br><br>
       <% @services.each do |service| %>
-        <tr>
-          <td><%= service.name %><%= link_to '<button type="button">상세보기</button>'.html_safe, "/services/#{service.id}" %></td>
-        </tr>
+      <%= link_to "<button type='button' class='btn btn-outline-primary btn-pill'>#{service.name}</button>".html_safe, "/services/#{service.id}" %></td>
       <% end %>
-  </tbody>
-</table>
+    </p>
+    <br><br>
+    <%= link_to 'Back', company_fields_path %>
+    <%#= link_to 'Back', company_field_path(@company.company_field_id) %>
+  </div>
+</div>
 
-<%= link_to 'Back', company_field_path(@company.company_field_id) %>
+<style>
+  #frame1 {
+    padding: 20px;
+  }
+  #desc {
+    margin:40px;
+  }
+</style>

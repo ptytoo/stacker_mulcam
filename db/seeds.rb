@@ -210,7 +210,8 @@ end
 #   "git","go","haskell","html-5","ios-swift","java","java-spring-framework","javascript",
 #   "jquery","kotlin","mongodb","mysql","nginx","node-js","php","polymer","python","react",
 #   "redis","rust","sap-abap","sass","scala","sql-server","typescript","visual-basic-vb",
-#   "vue-js","couchdb","elm","ember-js","erlang","less","lua","objective-c","postgres","meteor"]
+#   "vue-js","couchdb","elm","ember-js","erlang","less","lua","objective-c","postgres","meteor","ruby","ruby-on-rails"]
+
 
 # stack_name.each do |stack_name|
     text = File.open(Rails.root.join('edu_path.csv')).read

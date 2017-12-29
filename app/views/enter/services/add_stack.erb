@@ -1,16 +1,17 @@
-<!-- <input type="button" value = "등록" id="aa"><br> -->
-<%= link_to 'submit', enter_company_service_path(current_user.company_id, @service.id), method: :get, :onclick => "$('#aa').submit()"  %>
+<%#= link_to 'submit', enter_company_service_path(current_user.company_id, @service.id), method: :get, :onclick => "$('#aa').submit()"  %>
 
+<input type="button" value = "등록" id="aa"><br>
 <% @stack_fields.each do |field|%>
 
-  <strong><%= field.name%></strong><br><br>
-
-  <% field.stacks.each do |stack| %>
-    <div style="width:50px; float:left; margin:5px">
-      <img class="img" src="https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/<%=field.name%>/<%= stack.name.capitalize %>.png", id= "<%= stack.id%>", width="50">
-      <%=hidden_field_tag "", current_user.my?(stack), class: "cb", stack_id: stack.id%>
-    </div>
-  <% end %>
+  <div class="container" style="height: 180px;">
+    <h5><%= field.name%></h5>
+    <% field.stacks.each do |stack| %>
+      <div style="height:50px;width:50px; float:left; margin:5px">
+        <img class="img" src="https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/<%=field.name%>/<%= stack.name.capitalize %>.png", id= "<%= stack.id%>", width="50">
+        <%=hidden_field_tag "", current_user.my?(stack), class: "cb", stack_id: stack.id%>
+      </div>
+    <% end %>
+  </div>
 
 <% end %>
 
@@ -38,7 +39,8 @@ $(function(){
     $(".cb[value=true]").each(function(){
       ret.push($(this).attr("stack_id"))
     });
-    // console.log(ret);
+    console.log(ret);
+
     $.ajax({
       url: "<%= register_stack_enter_company_services_path %>",
       method: "POST",

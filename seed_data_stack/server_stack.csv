@@ -14,3 +14,6 @@ Apache http server,https://www.apache.org/,Server,"아파치 HTTP 서버는 아�
 Apache tomcat,http://tomcat.apache.org/,Server,아파치 톰캣은 아파치 소프트웨어 재단에서 개발된 서블릿 컨테이너(또는 웹 컨테이너)만 있는 웹 애플리케이션 서버이다.,Tomcat 9
 Nginx,http://nginx.org/,Server,"Nginx(엔진 x라 읽는다)는 웹 서버 소프트웨어로, 가벼움과 높은 성능을 목표로 한다. 웹 서버, 리버스 프록시 및 메일 프록시 기능을 가진다.",1.1.37
 Iis,https://www.iis.net/,Server,"마이크로소프트 인터넷 정보 서비스(Internet Information Services, IIS)는 마이크로소프트 윈도우를 사용하는 서버들을 위한 인터넷 기반 서비스들의 모임이다. 이전 이름은 인터넷 정보 서버(Internet Information Server)였다.",1.2
+Couchbase,https://www.couchbase.com/,Server,"카우치베이스 서버(Couchbase Server)는 유연한 JSON 모델로 고정 데이터베이스 스키마의 제약 없이 쉽게 애플리케이션을 수정할 수 있으며, submilisecond (1/1000 ms 이하)의 초고속 데이터 입출력 처리의 높은 성능을 보장합니다. 또한, 간편한 스케일 아웃(scale-out)으로 다운타임 없이 시스템 구성 변경 및 확장을 지원합니다.",5,
+Hazelcast,https://hazelcast.com/,Server,Java 기반의 미들웨어이며 프로그램들을 그룹화해서 각각 데이터를 가변적으로 분산시켜주기 위한 것이다.,3.9,
+WindowsServer2008R2,https://support.microsoft.com/ko-kr/help/976932/information-about-service-pack-1-for-windows-7-and-for-windows-server,Server,"윈도우 서버 2008 R2(Windows Server 2008 R2)는 윈도우 서버 2008의 후속이다. 전 세계 공통으로, 윈도우 7과 익스체인지 서버 2010과 같이 2009년 10월 22일에 출시되었다.",,

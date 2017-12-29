@@ -1,75 +1,71 @@
-<p id="notice"><%= notice %></p>
+<% unless notice.nil? %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 
-조회수 : <%= "#{@hit_post.unique_impression_count}" %>
+<br>
+<div class="container">
 
-<p>
-  <img src="https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/<%=@stack.stack_field.name%>/<%= @stack.name.capitalize %>.png" width="100">
+  <% if user_signed_in? && current_user.admin? %>
+    <%= link_to 'Edit', edit_stack_path(@stack) %> |
+  <% end %>
+  <%= link_to ' Back', url_for(:back), class: "fa fa-angle-left fa-1x"  %><br><br>
+  조회수 : <%= "#{@hit_post.unique_impression_count}" %>
+  <h2><%= @stack.name.capitalize %></h2>
+  <%= @stack.version %> v
   <br>
-  <!-- 관심스택 등록 버튼 -->
-  <%if user_signed_in?%>
-    <% if current_user.indi? %>
-      <% if @like_inter %>
-        <%= link_to "관심스택", '', class: "btn btn-info", id: "inter_button" %>
-      <% else %>
-        <%= link_to "관심스택", '', class: "btn btn-danger", id: "inter_button" %>
-      <% end %>
-      <!-- 마이스택 등록 버튼 -->
-      <% if @like_my %>
-        <%= link_to "마이스택", '', class: "btn btn-info", id: "my_button" %>
-      <% else %>
-        <%= link_to "마이스택", '', class: "btn btn-danger", id: "my_button" %>
+  <p>
+    <img src="https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/<%=@stack.stack_field.name%>/<%= @stack.name.capitalize %>.png" width="100">
+    <br><br>
+    <!-- 관심스택 등록 버튼 -->
+    <%if user_signed_in?%>
+      <% if current_user.indi? %>
+        <% if @like_inter %>
+          <button type="button" class="btn btn-success btn-pill" id= "inter_button">관심스택</button>
+        <% else %>
+          <button type="button" class="btn btn-primary btn-pill" id= "inter_button">관심스택</button>
+        <% end %>
+        <!-- 마이스택 등록 버튼 -->
+        <% if @like_my %>
+          <button type="button" class="btn btn-success btn-pill" id= "my_button">마이스택</button>
+        <% else %>
+          <button type="button" class="btn btn-primary btn-pill" id= "my_button">마이스택</button>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
-</p>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @stack.name.capitalize %>
-</p>
 
-<p>
-  <strong>Version:</strong>s
-  <%= @stack.version %>
-</p>
+  <p>
+    <strong>Site url:</strong>
+    <%= @stack.site_url %>
+  </p>
 
-<p>
-  <strong>Site url:</strong>
-  <%= @stack.site_url %>
-</p>
+  <p>
+    <%= @stack.describe %>
+  </p>
 
-<p>
-  <strong>Short describe:</strong>
-  <%= @stack.short_describe %>
-</p>
+  <p>
+    <strong>Stack field:</strong>
+    <%= @stack.stack_field.name %>
+  </p>
 
-<p>
-  <strong>Describe:</strong>
-  <%= @stack.describe %>
-</p>
+  <p>
+    <strong>이 스택을 사용하는 서비스들:</strong><br>
+    <% @services.each do |st| %>
+      <% unless st.service.nil? %>
+        <%= link_to "<button type='button' class='btn btn-outline-primary btn-pill'>#{st.service.name}</button>".html_safe, service_path(st.service.id), method: :get %>
+      <% end %>
+    <% end %>
+  </p>
 
-<p>
-  <strong>Stack field:</strong>
-  <%= @stack.stack_field.name %>
-</p>
-
-<p>
-  <strong>이 스택을 사용하는 서비스들:</strong><br>
-  <% @services.each do |s| %>
-    <%= s.service.name %><br>
-  <% end %>
-</p>
-
-<p>
-
-  <strong>스택 교육 사이트:</strong><br>
-  <% @edu_paths.each do |s| %>
-    <a href="<%=s.url%>" target="_blank"><%= s.url %></a><br>
-  <% end %>
-</p>
-
-<%= link_to 'Edit', edit_stack_path(@stack) %> |
-<%= link_to 'Back', url_for(:back) %>
+  <p>
+    <strong>스택 교육 사이트:</strong><br>
+    <% @edu_paths.each do |s| %>
+      <a href="<%=s.url%>" target="_blank" class="fa fa-pencil fa-1x"><%= s.url %></a><br>
+    <% end %>
+  </p>
+  <br><br>
+</div>
 
 <script>
   $(function(){

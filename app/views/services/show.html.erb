@@ -1,41 +1,65 @@
-<p id="notice"><%= notice %></p>
+<% unless notice.nil? %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 
-조회수 : <%= "#{@hit_post.unique_impression_count}" %>
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/company_fields"><%= @service.company.company_field.name%></a></li>
+    <li class="breadcrumb-item"><a href="/companies/<%=@service.company_id%>/detail"><%= @service.company.name%></a></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @service.name %>  (조회수 : <%= "#{@hit_post.unique_impression_count}" %>)</li>
+  </ol>
+</nav>
 
-<p>
-  <strong>Name:</strong>
-  <%= @service.name %>
-</p>
 
-<p>
-  <strong>Site url:</strong>
-  <%= @service.site_url %>
-</p>
+<div class="container">
 
-<p>
-  <strong>Logo url:</strong>
-  <%= @service.logo_url %>
-</p>
+  <% if user_signed_in? && current_user.admin? %>
+    <%= link_to 'Edit', edit_service_path(@service) %> |
+  <% end %>
+  <%= link_to 'Back', detail_company_path(@service.company_id), class: "fa fa-angle-left fa-1x" %>
 
-<p>
-  <strong>Describe:</strong> 
-  <%= @service.describe %>
-</p>
+  <div class="media">
+    <div id="frame1"><img src="<%=@service.logo_url%>" title="<%=@service.name%>" id: "#{@company.name}" size=200></div>
+    <div class="media-body" id="desc">
+      <h5 class="mt-0" style="font-size: 30px;"><strong><%= @service.name %></strong></h5>
+      <a href="<%= @service.site_url %>" target="_blank"><%= @service.site_url %></a>
+    </div>
+  </div>
 
-<p>
-  <strong>Company:</strong>
-  <%= @service.company.name %>
-</p>
+  <p>
+    <%= @service.describe %>
+  </p>
 
-<p>
-  <strong>Stack:</strong><br>
-  <%@stacks.each do |st|%>
-    <a href="/stacks/<%=st.stack_id%>" data-toggle="tooltip" title="<%=st.stack.name%>">
-      <%= image_tag "https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/#{st.stack.stack_field.name}/#{st.stack.name.capitalize}.png", id: "#{st.stack.name}", class: "mr-3", width: "50", height: "50" %>
-    </a>
-  <%end%>
-</p>
-<br>
+  <p>
+    <strong>Company:</strong>
+    <%= @service.company.name %>
+  </p>
 
-<%= link_to 'Edit', edit_service_path(@service) %> |
-<%= link_to 'Back', detail_company_path(@service.company_id) %>
+  <p>
+    <strong>Stack:</strong><br>
+    <% @f_name = ['Language','Database','Server','Front-end','Native_App','Etc'] %>
+    <% @f_name.each_with_index do |f, index|%>
+      <%= f%><br>
+      <p>
+        <%@stacks.each do |st|%>
+          <% if st.stack.stack_field_id == (index+1)%>
+            <a href="/stacks/<%=st.stack_id%>" data-toggle="tooltip" title="<%=st.stack.name%>">
+              <%= image_tag "https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/#{st.stack.stack_field.name}/#{st.stack.name.capitalize}.png", id: "#{st.stack.name}", class: "mr-3", width: "50", height: "50" %>
+            </a>
+          <%end%>
+        <%end%>
+      </p>
+    <% end %>
+  </p>
+  <br>
+
+</div>
+
+<style>
+  #frame1 {
+    padding: 20px;
+  }
+  #desc {
+    margin:40px;
+  }
+</style>

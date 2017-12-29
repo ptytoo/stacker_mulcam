@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% unless notice.nil? %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 
 <h1>Listing Companies</h1>
 
@@ -33,5 +35,6 @@
 </table>
 
 <br>
-
+<% if user_signed_in? &&  current_user.admin? %>
 <%= link_to 'New Company', new_company_path %>
+<% end %>
