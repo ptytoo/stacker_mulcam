@@ -1,30 +1,68 @@
-<br><br>
-<div class="container">
-  <% if user_signed_in? && current_user.indi? %>
-    <h3>나와 비슷한 스택을 가진 유저</h3>
-    <% @users.each do |u| %>
-      <%us = User.find_by(id: u.id)%>
-      <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"> <%= us.nickname %></i> |
-      <%= u.cnt %>개<br><br>
-    <% end %>
-    <br>
-  <% else %>
-    <h3>개인 계정 로그인 시, 나와 비슷한 스택을 가진 유저를 추천해 드립니다.</h3><br>
-  <% end %>
+<header class="bg-dark text-white">
+  <div class="container text-center">
+    <div class="justify-content-center">
+      <!-- Searching Section -->
+       <div class="subscribe section bg-dark py-1">
+         <h4 class="section-title text-center text-white m-5">랭킹 확인 페이지</h4>
+         <p class="text-muted col-md-6 text-center mx-auto">간단한 설명 들어갈 부분</p>
+       </div>
+    </div>
+  </div>
+</header>
 
-  <h3>개인 회원 순위 (스택 갯수 기준)</h3>
+<p class="info_frame">
+  <div class="signed_in_rank">
+  <% if user_signed_in? && current_user.indi? %>
+    <div class="bg-light" style="padding: 10px; margin-top: 10px;"><h3>나와 스택이 비슷한 유저</h3></div>
+      <% @users.each do |u| %>
+        <%us = User.find_by(id: u.id)%>
+        <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"> <%= us.nickname %></i>  (<%= u.cnt %>)
+        <br>
+      <% end %>
+    <br>
+  </div>
+  <% else %>
+    <div class="alert alert-info alert-dismissible fade show" role="alert" id="alert_info">
+      <i class="fa fa-info"></i>  개인 계정 로그인 시, 나와 비슷한 스택을 가진 유저를 추천해 드립니다.
+    </div>
+  <% end %>
+</p>
+
+
+<div class="big_frame">
+
+  <div class="bg-light" style="padding: 10px; margin-top: 10px;"><h3>개인 회원 순위</h3></div>
+  <p>(스택 갯수 기준)</p>
   <% @indi_users.each do |t|%>
-    <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"> <%= t.nickname %></i>
-    <%= t.stack_cnt%>
+    <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"> <%= t.nickname %></i>  (<%= t.stack_cnt%>)
     <br><br>
   <% end %>
 
-  <h3>기업 회원 순위 (스택 갯수 기준 / 상위 10개)</h3>
-  <% @services_cnt.each do |t|%>
-    <%cpy = Service.find_by(name: t.name)%>
-    <img src="<%=cpy.logo_url%>" height = "50">
-    <%= t.stack_cnt%>
-    <br>
-  <% end %>
+  <div class="bg-light" style="padding: 10px; margin-top: 10px;"><h3>서비스 순위</h3></div>
+  <p>(스택 갯수 기준 / 상위 10개)</p>
+  <p class="service_rank">
+    <% @services_cnt.each do |t|%>
+      <%cpy = Service.find_by(name: t.name)%>
+      <%= cpy.name %>   (<%= t.stack_cnt%>)
+      <br>
+    <% end %>
+  </p>
 </div>
 <br><br>
+<style>
+  .big_frame {
+    margin: 30px;
+    text-align: center;
+  }
+  .service_rank {
+    font-size: 20px;
+  }
+  .info_frame {
+    margin: 0px;
+    text-align: center;
+  }
+  .signed_in_rank {
+    margin: 30px;
+    text-align: center;
+  }
+</style>
