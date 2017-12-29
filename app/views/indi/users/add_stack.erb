@@ -35,7 +35,7 @@ $(function(){
   })
   $("#aa").on("submit", function(){
     var ret = []
-    $(".cb[value=true]").each(function(){
+    $(".cb[value=true]").each(function(){ 
       ret.push($(this).attr("stack_id"))
     });
     console.log(ret);
