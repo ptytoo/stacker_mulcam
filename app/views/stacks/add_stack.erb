@@ -41,7 +41,11 @@ $(function(){
     var ret = []
     $(".cb[value=true]").each(function(){
       ret.push($(this).attr("stack_id"))
+<<<<<<< HEAD
+    }); 
+=======
     });
+>>>>>>> develop
     console.log(ret);
     $.ajax({
       url: "<%= indi_register_stack_path %>",

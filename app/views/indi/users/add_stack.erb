@@ -33,9 +33,9 @@ $(function(){
       $(this).parent("div").css("border","2px solid red");
     }
   })
-  $("#aa").on("submit", function(){
+  $("#aa").on("click", function(){
     var ret = []
-    $(".cb[value=true]").each(function(){ 
+    $(".cb[value=true]").each(function(){
       ret.push($(this).attr("stack_id"))
     });
     console.log(ret);
