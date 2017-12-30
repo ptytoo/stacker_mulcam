@@ -1,4 +1,18 @@
-<h1>유저 관리 페이지</h1>
+<!-- 아래의 3가지관리를 각각의 관리페이지로 연결해서 그 해당 페이지에 들어가면 수정/삭제 가능하도록 만들기 -->
+
+<h1>유저 관리</h1>
 <% @users.each do |user|%>
   <%= user.email%>
+<% end %>
+
+
+<h1>회사 관리</h1>
+<% @companies.each do |company|%>
+  <%= company.name%>
+<% end %>
+
+
+<h1>스택 관리</h1>
+<% @stacks.each do |stack|%>
+  <%= stack.name%>
 <% end %>

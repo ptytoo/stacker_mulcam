@@ -39,7 +39,7 @@
     <strong>Stack:</strong><br>
     <% @f_name = ['Language','Database','Server','Front-end','Native_App','Etc'] %>
     <% @f_name.each_with_index do |f, index|%>
-      <%= f%><br>
+      <%= f %><br>
       <p>
         <%@stacks.each do |st|%>
           <% if st.stack.stack_field_id == (index+1)%>
