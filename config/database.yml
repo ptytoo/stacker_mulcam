@@ -23,4 +23,3 @@ test:
 production:
   <<: *default
   database: stacker_mulcam
-  pool: 5
