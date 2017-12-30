@@ -22,4 +22,4 @@ test:
 
 production:
   <<: *default
-  database: stacker_mulcam
+  database: db/production.sqlite3
