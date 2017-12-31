@@ -21,7 +21,8 @@
   <%= link_to 'new', "/enter/companies/#{@company.id}/services/new"%><br>
   <% if @services %>
     <% @services.each do |sv|%>
-      <a href="/enter/companies/<%=@company.id%>/services/<%=sv.id%>" title="<%=sv.name%>"><%=sv.name%></a><br>
+    <%= link_to "<button type='button' class='btn btn-outline-primary btn-pill'>#{sv.name}</button>".html_safe, enter_company_service_path(@company.id, sv.id), method: :get %>
+
     <% end %>
   <% end %>
 </div>
