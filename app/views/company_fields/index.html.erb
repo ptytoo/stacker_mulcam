@@ -1,48 +1,36 @@
+<header class="bg-dark text-white">
+  <div class="container text-center">
+    <div class="justify-content-center">
+      <!-- Searching Section -->
+       <div class="subscribe section bg-dark py-1">
+         <h4 class="section-title text-center text-white m-5">원하는 분야의 스택 사용 확인</h4>
+         <p class="text-muted col-md-6 text-center mx-auto">다양한 서비스의 기술 스택을 확인하세요</p>
+       </div>
+    </div>
+  </div>
+</header>
 <br>
-<!-- <div class="container"> -->
-<div class="row">
-  <!-- First column -->
-  <div class="col-2">
-    <!-- Navigation -->
-    <div class="list-group" id="list-tab" role="tablist">
-      <% @company_fields.each do |company_field| %>
-      <a class="list-group-item list-group-item-action" id="list-<%= company_field.id %>-list" data-toggle="list" href="#list-<%= company_field.id %>" role="tab" aria-controls="<%= company_field.id %>"><%= company_field.name %></a>
-      <!-- <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a> -->
+<div id="b_form">
+  <% c_field_list = ["Social media/Communication","Edu Tech","Utility","Fintech","Game",
+  "E-Commerce","Foodtech","Contents","Healthcare","Ad/Marketing","IoT","Analytics","Sharing Economy"] %>
+  <% @company_fields.each_with_index do |field, index| %>
+  <div>
+      <p><%= field.name%></p>
+      <% @companies.each do |c| %>
+        <% if c.company_field_id == (index+1) %>
+          <%= link_to "<button type='button' class='btn btn-outline-primary btn-pill'>#{c.name}</button>".html_safe, detail_company_path(c.id), method: :get %>
+          <%#= c.name%>
+        <% end %>
       <% end %>
-    </div>
+      <br><br>
+    <% end %>
   </div>
-  <!-- First column -->
-  <!-- Second column -->
-  <div class="col-10">
-    <!-- Content -->
-    <div class="tab-content" id="nav-tabContent">
-      <% @company_fields.each do |company_field| %>
-        <div class="tab-pane fade show" id="list-<%= company_field.id %>" role="tabpanel" aria-labelledby="list-<%= company_field.id %>-list">
-          <div class="col-sm-10">
-            <div class="row">
-              <% @companies = Company.where(company_field_id: company_field)%>
-              <% @companies.each do |c|%>
-              <div class="col-sm-4 col-lg-3 col-xs-3">
-                <div class="card" style="width: 15rem; height: 20em">
-                    <img src="<%=c.logo_url%>" data-toggle="tooltip" title="<%=c.name%>" id: "#{c.name}">
-                    <div class="card-body">
-                        <h4 class="card-title"><%=c.name%></h4>
-                        <a href="<%=detail_company_path(c)%>" class="btn btn-primary">자세히 보기</a>
-                    </div>
-                </div><br>
-              </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    <!-- <!— Content —> -->
-    </div>
-  <!-- <!— Second column —> -->
-  </div>
-<!-- <!— </div> —> -->
-<% if user_signed_in? &&  current_user.admin? %>
-<%= link_to 'New Company field', new_company_field_path %>
-<% end %>
-
-<br><br>
+</div>
+<p></p>
+<p></p>
+</div>
+<style>
+  #b_form {
+    text-align: center;
+  }
+</style>

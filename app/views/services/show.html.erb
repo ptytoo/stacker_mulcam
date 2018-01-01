@@ -19,10 +19,10 @@
   <%= link_to 'Back', detail_company_path(@service.company_id), class: "fa fa-angle-left fa-1x" %>
 
   <div class="media">
-    <img src="<%=@service.logo_url%>" title="<%=@service.name%>" id: "#{@company.name}" size=200>
-    <div class="media-body">
-      <h5 class="mt-0"><%= @service.name %></h5>
-      <%= @service.site_url %>
+    <div id="frame1"><img src="<%=@service.logo_url%>" title="<%=@service.name%>" id: "#{@company.name}" size=200></div>
+    <div class="media-body" id="desc">
+      <h5 class="mt-0" style="font-size: 30px;"><strong><%= @service.name %></strong></h5>
+      <a href="<%= @service.site_url %>" target="_blank"><%= @service.site_url %></a>
     </div>
   </div>
 
@@ -39,7 +39,7 @@
     <strong>Stack:</strong><br>
     <% @f_name = ['Language','Database','Server','Front-end','Native_App','Etc'] %>
     <% @f_name.each_with_index do |f, index|%>
-      <%= f%><br>
+      <%= f %><br>
       <p>
         <%@stacks.each do |st|%>
           <% if st.stack.stack_field_id == (index+1)%>
@@ -54,3 +54,12 @@
   <br>
 
 </div>
+
+<style>
+  #frame1 {
+    padding: 20px;
+  }
+  #desc {
+    margin:40px;
+  }
+</style>

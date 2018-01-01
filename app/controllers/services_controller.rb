@@ -42,6 +42,7 @@ class ServicesController < ApplicationController
         format.json { render json: @service.errors, status: :unprocessable_entity }
       end
     end
+    @service.update(logo_url: params[:logo_url]["logo_s3_url"])
   end
 
   # PATCH/PUT /services/1
