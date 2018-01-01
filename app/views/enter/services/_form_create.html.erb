@@ -1,38 +1,46 @@
-<%= form_for(@service, url: enter_company_services_path(@company.id), method: :post) do |f| %>  <!--, url: "/enter/companies/#{@company.id}/services/#{@service.id}/add_stack", method: :get-->
-  <% if @service.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
+<div class="new_form">
+  <h1>새로운 서비스</h1>
+  <%= form_for(@service, url: enter_company_services_path(@company.id), method: :post) do |f| %>  <!--, url: "/enter/companies/#{@company.id}/services/#{@service.id}/add_stack", method: :get-->
+    <% if @service.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
 
-      <ul>
-        <% @service.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% @service.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field col-sm-6">
+      <%= f.label :name %><br>
+      <%= f.text_field :name, class: 'form-control'%>
+    </div>
+    <div class="field col-sm-6">
+      <%= f.label :site_url %><br>
+      <%= f.text_field :site_url, class: 'form-control' %>
+    </div>
+    <div class="field col-sm-6">
+      <%= f.label :logo_url %><br>
+      <%= f.file_field :logo_url%>
+    </div>
+    <div class="field col-sm-6">
+      <%= f.label :describe %><br>
+      <%= f.text_area :describe , class: 'form-control'%>
+    </div>
+    <%= f.hidden_field :company_id, id:"company_id"%>
+    <br>
+    <div class="actions col-sm-6">
+      <%= f.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name%><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :site_url %><br>
-    <%= f.text_field :site_url %>
-  </div>
-  <div class="field">
-    <%= f.label :logo_url %><br>
-    <%= f.file_field :logo_url%>
-  </div>
-  <div class="field">
-    <%= f.label :describe %><br>
-    <%= f.text_area :describe %>
-  </div>
-  <%= f.hidden_field :company_id, id:"company_id"%>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
+</div>
+<style>
+  .new_form {
+    margin-top: 20px;
+  }
+</style>
 <script>
   $(function(){
     // console.log(<%#=@company.id%>)

@@ -9,7 +9,11 @@
     <%= link_to 'Edit', edit_stack_path(@stack) %> |
   <% end %>
   <%= link_to ' Back', url_for(:back), class: "fa fa-angle-left fa-1x"  %><br><br>
+  <p>
+    <%= @stack.stack_field.name %> > <%= @stack.name%>
+  </p>
   조회수 : <%= "#{@hit_post.unique_impression_count}" %>
+
   <h2><%= @stack.name.capitalize %></h2>
   <%= @stack.version %> v
   <br>
@@ -44,10 +48,6 @@
     <%= @stack.describe %>
   </p>
 
-  <p>
-    <strong>Stack field:</strong>
-    <%= @stack.stack_field.name %>
-  </p>
 
   <p>
     <strong>이 스택을 사용하는 서비스들:</strong><br>

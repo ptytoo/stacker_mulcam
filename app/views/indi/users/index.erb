@@ -22,25 +22,42 @@
       </a>
     </div>
 
-    <br><br>
-    <h2>나의 스택 확인</h2>
-    <%= link_to '추가',  add_my_indi_users_path, method: :get %><br>
-    <% @mstacks.each do |s| %>
-      <% st = Stack.find(s.stack_id)%>
-      <% field = StackField.find(st.stack_field_id)%>
-      <a href="/stacks/<%=st.id%>" data-toggle="tooltip" title="<%=st.name%>">
-        <%= image_tag "https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/#{st.stack_field.name}/#{st.name.capitalize}.png", id: "#{st.name}", class: "stack_img mr-3", width: "50", height: "50" %>
-      </a>
-    <% end %>
 
-    <br><br>
-    <h2>나의 관심 스택 확인</h2>
-    <% @stacks.each do |stack| %>
-      <% inter_stack = Stack.find(stack.stack_id)%>
-      <a href="/stacks/<%=inter_stack.id%>" data-toggle="tooltip" title="<%=inter_stack.name%>">
-        <%= image_tag "https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/#{inter_stack.stack_field.name}/#{inter_stack.name.capitalize}.png", id: "#{inter_stack.name}", class: "stack_img mr-3", width: "50", height: "50" %>
-      </a>
-    <% end %>
+    <p>
+      <h2>나의 스택</h2>
+      <%= link_to '추가',  add_my_indi_users_path, method: :get %><br>
+      <% @f_name = ['Language','Database','Server','Front-end','Native_App','Etc'] %>
+      <% @f_name.each_with_index do |f, index|%>
+        <%= f %><br>
+        <p>
+          <%@mstacks.each do |st|%>
+            <% if st.stack.stack_field_id == (index+1)%>
+              <a href="/stacks/<%=st.stack_id%>" data-toggle="tooltip" title="<%=st.stack.name%>">
+                <%= image_tag "https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/#{st.stack.stack_field.name}/#{st.stack.name.capitalize}.png", id: "#{st.stack.name}", class: "mr-3", width: "50", height: "50" %>
+              </a>
+            <%end%>
+          <%end%>
+        </p>
+      <% end %>
+    </p>
+
+    <p>
+      <h2>나의 관심 스택</h2>
+      <% @f_name = ['Language','Database','Server','Front-end','Native_App','Etc'] %>
+      <% @f_name.each_with_index do |f, index|%>
+        <%= f %><br>
+        <p>
+          <%@stacks.each do |st|%>
+            <% if st.stack.stack_field_id == (index+1)%>
+              <a href="/stacks/<%=st.stack_id%>" data-toggle="tooltip" title="<%=st.stack.name%>">
+                <%= image_tag "https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/#{st.stack.stack_field.name}/#{st.stack.name.capitalize}.png", id: "#{st.stack.name}", class: "mr-3", width: "50", height: "50" %>
+              </a>
+            <%end%>
+          <%end%>
+        </p>
+      <% end %>
+    </p>
+
   </div>
 </div>
 
