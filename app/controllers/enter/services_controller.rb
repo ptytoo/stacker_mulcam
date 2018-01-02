@@ -17,7 +17,8 @@ class Enter::ServicesController < Enter::ApplicationController
   def new
     @service = Service.new
     # @stacks = Stack.all
-    @company = Company.find_by(params[:id])
+    @company = Company.find_by(id: current_user.company_id)
+    # binding.pry
   end
 
   # GET /services/1/edit
