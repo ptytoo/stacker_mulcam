@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <% unless notice.nil? %>
   <p id="notice"><%= notice %></p>
 <% end %>
@@ -7,82 +6,38 @@
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/company_fields"><%= @service.company.company_field.name%></a></li>
     <li class="breadcrumb-item"><a href="/companies/<%=@service.company_id%>/detail"><%= @service.company.name%></a></li>
-    <li class="breadcrumb-item active" aria-current="page"><%= @service.name %>  (조회수 : <%= "#{@hit_post.unique_impression_count}" %>)</li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @service.name %></li>
   </ol>
 </nav>
 
-
-<div class="container">
-
-  <% if user_signed_in? && current_user.admin? %>
-    <%= link_to 'Edit', edit_service_path(@service) %> |
-  <% end %>
-  <%= link_to 'Back', detail_company_path(@service.company_id), class: "fa fa-angle-left fa-1x" %>
-
-  <div class="media">
-    <img src="<%=@service.logo_url%>" title="<%=@service.name%>" id: "#{@company.name}" size=200>
-    <div class="media-body">
-      <h5 class="mt-0"><%= @service.name %></h5>
-      <%= @service.site_url %>
-    </div> 
-  </div>
-
-  <p>
-    <%= @service.describe %>
-  </p>
-
-  <p>
-    <strong>Company:</strong>
-    <%= @service.company.name %>
-  </p>
-
-  <p>
-    <strong>Stack:</strong><br>
-    <% @f_name = ['Language','Database','Server','Front-end','Native_App','Etc'] %>
-    <% @f_name.each_with_index do |f, index|%>
-      <%= f%><br>
-      <p>
-        <%@stacks.each do |st|%>
-          <% if st.stack.stack_field_id == (index+1)%>
-            <a href="/stacks/<%=st.stack_id%>" data-toggle="tooltip" title="<%=st.stack.name%>">
-              <%= image_tag "https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/#{st.stack.stack_field.name}/#{st.stack.name.capitalize}.png", id: "#{st.stack.name}", class: "mr-3", width: "50", height: "50" %>
-            </a>
-          <%end%>
-        <%end%>
-      </p>
-    <% end %>
-  </p>
-  <br>
-
-</div>
-=======
 <div class="form">
   <p id="notice"><%= notice %></p>
 
   <p>
-    <strong>Name:</strong>
+    <strong>회사명:</strong>
+    <%= @service.company.name %>
+  </p>
+
+  <p>
+    <strong>서비스명:</strong>
     <%= @service.name %>
   </p>
 
   <p>
-    <strong>Site url:</strong>
+    <strong>사이트 주소:</strong>
     <%= @service.site_url %>
   </p>
 
   <p>
-    <strong>Logo url:</strong>
-    <%= @service.logo_url %>
+    <strong>로고:</strong>
+    <img src="<%= @service.logo_url %>" width="90" height="90">
   </p>
 
   <p>
-    <strong>Describe:</strong>
+    <strong>서비스 설명:</strong>
     <%= @service.describe %>
   </p>
 
-  <p>
-    <strong>Company:</strong>
-    <%= @service.company.name %>
-  </p>
   <p>
     <strong>Stack:</strong><br>
     <% @f_name = ['Language','Database','Server','Front-end','Native_App','Etc'] %>
@@ -114,4 +69,3 @@
     margin-left: 30px;
   }
 </style>
->>>>>>> 40c58edae5fca86ed22abaf0bb3ed11e13cdd0ed
