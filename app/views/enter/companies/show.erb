@@ -18,11 +18,10 @@
   <br><br>
 
   <h1>서비스 정보!</h1>
-  <%= link_to 'new', "/enter/companies/#{@company.id}/services/new"%><br>
+  <%= link_to 'new', new_enter_company_service_path(@company.id), method: :get%><br>
   <% if @services %>
     <% @services.each do |sv|%>
     <%= link_to "<button type='button' class='btn btn-outline-primary btn-pill'>#{sv.name}</button>".html_safe, enter_company_service_path(@company.id, sv.id), method: :get %>
-
     <% end %>
   <% end %>
 </div>
