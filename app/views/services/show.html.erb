@@ -17,7 +17,7 @@
   <%= link_to 'Back', detail_company_path(@service.company_id), class: "fa fa-angle-left fa-1x" %>
 
   <div class="media">
-    <div id="frame1"><img src="<%=@service.logo_url%>" title="<%=@service.name%>" id: "#{@company.name}" size=200></div>
+    <div><img src="<%=@service.logo_url%>" title="<%=@service.name%>" id: "#{@company.name}" size=200></div>
   </div>
   <div class="media-body" id="desc">
     <h5 class="mt-0" style="font-size: 30px;"><strong><%= @service.name %></strong></h5>
