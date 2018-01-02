@@ -84,11 +84,9 @@
     <div class="form-group col-xs-12" align="left">
       <div class="form-group col-xs-12" align="left">
         회사 소개 :
-        <%#= f.trix_editor :describe %>
         <%= f.text_field :describe, class: 'form-control', size: "100", placeholder: "회사 소개", id: "describe" %>
       </div>
     </div>
-    <!-- <div class="form-actions"> -->
     <%= f.button :submit, class: 'btn btn-small btn-dark-solid full-width btn-rounded' %>
     <%end%>
   </div>
