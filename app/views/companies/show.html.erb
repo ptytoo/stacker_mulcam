@@ -10,8 +10,7 @@
 <div class="container">
   <div class="col-sm-12">
     <div class="media">
-      <% imgl = @company.logo_url.gsub!(":","/")%>
-      <img src="<%=imgl%>" title="<%=@company.name%>" id: "#{@company.name}" size=200>
+      <img src="<%=@company.logo_url%>" title="<%=@company.name%>" id: "#{@company.name}" size=200>
       <div class="media-body">
         <h5 class="mt-0"><%= @company.name %></h5>
         <%= @company.site_url %>
