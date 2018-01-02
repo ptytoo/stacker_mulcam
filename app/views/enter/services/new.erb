@@ -3,5 +3,5 @@
 <%= render 'form_create' %>
 
 
-
-<%= link_to 'Back', enter_companies_path(@company) %>
+회사 아이디 : <%= @company.id%>
+<%= link_to 'Back', enter_company_path(@company.id), method: :get %>
