@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-c_field_list = ["Social media/Communication","Edu Tech","Utility","Fintech","Game",
-"E-Commerce","Foodtech","Contents","Healthcare","Ad/Marketing","IoT","Analytics","Sharing Economy"]
+c_field_list = ["Socialmedia/Communication","EduTech","Utility","Fintech","Game",
+"E-Commerce","Foodtech","Contents","Healthcare","Ad/Marketing","IoT","Analytics","SharingEconomy"]
 c_field_list.each do |field|
   CompanyField.create(
       name: field

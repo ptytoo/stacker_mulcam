@@ -3,10 +3,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
+  # new가 이제는 개인/기업 선택 페이지로
   def new
     @company_fields = CompanyField.all
     super
   end
+
+  def new_indi
+  end
+
+  def new_enter
+  end
+
 
   # POST /resource
   def create
