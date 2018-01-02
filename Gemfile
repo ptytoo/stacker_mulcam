@@ -71,5 +71,5 @@ group :development do
   gem 'rails_db'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'omniauth-facebook'
+
 end
