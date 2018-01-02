@@ -25,14 +25,14 @@
             <div class="form-group col-xs-12" align="left">
               <%= f.label :패스워드확인 %>
             </div>
-            <div class="form-group col-xs-12">
+            <div class="form-group col-xs-12" align="left">
               <%= f.password_field :password_confirmation, class: 'form-control', placeholder: '다시한번 입력해주세요' %>
             </div>
-            <div class="form-group col-xs-12">
+            <div class="form-group col-xs-12" align="left">
               <%= f.label :닉네임 %>
               <%= f.text_field :nickname, class: 'form-control', placeholder: '사용하실 닉네임을 입력해주세요' %>
             </div>
-            <div class="form-group col-xs-12">
+            <div class="form-group col-xs-12" align="left">
               <%= f.label :전화번호 %>
               <%= f.text_field :phone, class: 'form-control', placeholder: '사용하실 전화번호를 입력해주세요' %>
             </div>
@@ -47,14 +47,14 @@
         <% end %>
       </div>
       <div class="text-center">
-        <%= render 'devise/shared/links' %>
+        <%#= render 'devise/shared/links' %>
       </div>
     </div>
   </div>
 
 
   <br>
-
+<div class="col-md-10 col-md-offset-10">
   <div id="group_user_id" class="form-group">
     <%= form_for(companies_path, method: :post) do |f|%>
     <div class="form-group col-xs-12" align="left">
@@ -79,17 +79,17 @@
     </div><br>
     <div class="form-group col-xs-12" align="left">
       로고 이미지 :
-      <%= f.file_field :logo_url, id: "logo_url"%>
+      <%= f.file_field :logo_url, id: "logo_url", class: 'btn btn-small btn-dark-solid full-width btn-rounded'%>
     </div>
     <div class="form-group col-xs-12" align="left">
-      <span><!--이거 span태그 왜 먹인거지...? 위에처럼 div맥이면 안되나????? -->
+      <div class="form-group col-xs-12" align="left">
         회사 소개 :
         <%#= f.trix_editor :describe %>
         <%= f.text_field :describe, class: 'form-control', size: "100", placeholder: "회사 소개", id: "describe" %>
-      </span>
+      </div>
     </div>
     <!-- <div class="form-actions"> -->
-    <%= f.button :submit %>
+    <%= f.button :submit, class: 'btn btn-small btn-dark-solid full-width btn-rounded' %>
     <%end%>
   </div>
 </div>
