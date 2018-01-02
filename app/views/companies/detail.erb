@@ -13,10 +13,9 @@
   <div class="col-sm-12">
     <div class="media">
       <div id="frame1"><img src="<%=@company.logo_url%>" title="<%=@company.name%>" id: "#{@company.name}" size=200></div>
-      <div class="media-body" id="desc">
-        <h5 class="mt-0" style="font-size: 30px;"><strong><%= @company.name %></strong></h5>
-        <%#= @company.site_url %>
-      </div>
+    </div>
+    <div class="media-body" id="desc">
+      <h5 class="mt-0" style="font-size: 30px;"><strong><%= @company.name %></strong></h5>
     </div>
 
     <br>
@@ -41,6 +40,6 @@
     padding: 20px;
   }
   #desc {
-    margin:40px;
+    margin-top:40px;
   }
 </style>
