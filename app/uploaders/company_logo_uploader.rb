@@ -11,7 +11,8 @@ class CompanyLogoUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "Company/#{model.company_field.name}/#{model.name}"
+    f_name = model.company_field.name.gsub!("/", ":")
+    "Company/#{f_name}/#{model.name}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
