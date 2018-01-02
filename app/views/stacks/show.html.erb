@@ -1,6 +1,7 @@
 <% unless notice.nil? %>
-  <p id="notice"><%= notice %></p>
+    <p class="alert alert-success alert-dismissible fade show" role="alert" id="notice"><%= notice %></p>
 <% end %>
+
 
 <br>
 <div class="container">
@@ -39,10 +40,10 @@
   </p>
 
 
-  <p>
+  <div>
     <strong>Site url:</strong>
-    <%= @stack.site_url %>
-  </p>
+    <a href="<%= @stack.site_url %>" target="_blank"><%= @stack.site_url %></a>
+  </div>
 
   <p>
     <%= @stack.describe %>
