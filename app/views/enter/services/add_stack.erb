@@ -1,6 +1,7 @@
 <%#= link_to 'submit', enter_company_service_path(current_user.company_id, @service.id), method: :get, :onclick => "$('#aa').submit()"  %>
-
-<input type="button" value = "등록" id="aa"><br>
+<br><br>
+<h4 align="center"> 사용중인 스택을 선택 하신 후 등록 버튼을 눌러주세요 </h4>
+<!-- <input type="button" value = "등록" id="aa" class="btn btn-outline-success btn-pill"><br> -->
 <% @stack_fields.each do |field|%>
 
   <div class="container" style="height: 180px;">
@@ -14,7 +15,9 @@
   </div>
 
 <% end %>
-
+<br>
+<p align="center"><input type="button" value = "등록하기" id="aa" class="btn btn-outline-primary btn-pill"><br></p>
+<br>
 
 <script>
 $(function(){

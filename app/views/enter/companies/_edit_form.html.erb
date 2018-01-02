@@ -1,3 +1,6 @@
+<br><br>
+<div class="container">
+ <h1>회사 정보 수정</h1>
 <%= form_for(@company, url: enter_company_path(@company), method: :patch) do |f| %>
   <% if @company.errors.any? %>
     <div id="error_explanation">
@@ -21,7 +24,7 @@
   </div>
   <div class="field">
     <%= f.label :logo_url %><br>
-    <%= f.text_field :logo_url %>
+    <%= f.file_field :logo_url %>
   </div>
   <div class="field">
     <%= f.label :describe %><br>
@@ -31,3 +34,6 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<%= link_to 'Back', enter_company_path(@company) %>
+</div>
