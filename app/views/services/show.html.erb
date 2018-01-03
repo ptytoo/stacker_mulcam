@@ -15,9 +15,9 @@
     <%= link_to 'Edit', edit_service_path(@service) %> |
   <% end %>
   <%= link_to 'Back', detail_company_path(@service.company_id), class: "fa fa-angle-left fa-1x" %>
-
+  <br><br>
   <div class="media">
-    <div><img src="<%=@service.logo_url%>" title="<%=@service.name%>" id: "#{@company.name}" size=200></div>
+    <div><img src="<%=@service.logo_url%>" title="<%=@service.name%>" id: "#{@company.name}" width=100></div>
   </div>
   <div class="media-body" id="desc">
     <h5 class="mt-0" style="font-size: 30px;"><strong><%= @service.name %></strong></h5>
@@ -42,7 +42,7 @@
         <%@stacks.each do |st|%>
           <% if st.stack.stack_field_id == (index+1)%>
             <a href="/stacks/<%=st.stack_id%>" data-toggle="tooltip" title="<%=st.stack.name%>">
-              <%= image_tag "https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/#{st.stack.stack_field.name}/#{st.stack.name.capitalize}.png", id: "#{st.stack.name}", class: "mr-1", width: "50", height: "50" %>
+              <%= image_tag "https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/#{st.stack.stack_field.name}/#{st.stack.name.capitalize}.png", id: "#{st.stack.name}", class: "mr-2", width: "50", height: "50" %>
             </a>
           <%end%>
         <%end%>
