@@ -10,6 +10,7 @@
 </nav>
 
 <div class="container">
+  <%= link_to 'Back', company_fields_path, class: "fa fa-angle-left fa-1x" %>
   <div class="col-sm-12">
     <div class="media">
       <div><img src="<%=@company.logo_url%>" title="<%=@company.name%>" id: "#{@company.name}" width=100></div>
@@ -29,8 +30,6 @@
       <%= link_to "<button type='button' class='btn btn-outline-primary btn-pill'>#{service.name}</button>".html_safe, "/services/#{service.id}" %></td>
       <% end %>
     </p>
-    <br><br>
-    <%= link_to 'Back', company_fields_path %>
     <%#= link_to 'Back', company_field_path(@company.company_field_id) %>
   </div>
 </div>
