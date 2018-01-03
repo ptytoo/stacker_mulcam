@@ -4,7 +4,7 @@ aim@@$^ Google Drive,SendGrid,Postman,Amazon CloudFront,Google Analytics, InVisi
 에잇퍼센트@@$^ Elasticsearch,Mixpanel,Amazon CloudFront,Google Drive,Google Analytics, Selenium,Travis CI,Docker,Sentry,New Relic,GitHub, Confluence,Zendesk,Google Apps,Trello,Slack, React,Amazon S3,PostgreSQL,Django,Python,Apache HTTP Server,Amazon EC2,JavaScript,jQuery
 코인원@@$^ Amazon AWS,GitHub Pages,CloudFlare,Google Analytics, bamboo,Bitbucket,Git, Slack,Zendesk,Confluence,JIRA, ethereume,bitcoin,Microsoft SQL Server,Amazon DynamoDB,c#.net,Django,Python,MySQL,AngularJS,Node.js,JavaScript
 카카오스탁@@$^ Google Analytics,Google Drive,GitHub Pages, GitLab,HAProxy,Ansible,Jenkins,Docker,New Relic,GitHub, Confluence,Slack,JIRA, React,Ruby On Rails,Spring,Java
-펀다@@$^   JANDI,Slack,JIRA,Confluence 
+펀다@@$^   JANDI,Slack,JIRA,Confluence
 P2P 대출/투자 서비스@@$^ MailChimp,KISSmetrics,GitHub Pages,Mandrill,Google Drive,Amazon CloudFront,Google Analytics, GitHub, MailChimp,Trello,Google Apps,Slack, Amazon S3,Amazon EC2,MySQL,Bootstrap,Spring,Java,Python,JavaScript,jQuery
 소딧@@$^Dropbox,Google Analytics,  JANDI, Apache HTTP Server,MySQL,PHP,JavaScript,nginx,Bootstrap,jQuery
 크라우드펀딩 플랫폼@@$^ Amazon SES,Elasticsearch,Google Analytics, Jenkins,Bitbucket,GitHub, Confluence,Trello,JIRA, Java,React,Redis,MySQL,AngularJS,JavaScript,nginx,jQuery
@@ -12,7 +12,7 @@ P2P 대출/투자 서비스@@$^ MailChimp,KISSmetrics,GitHub Pages,Mandrill,Goog
 코인스택@@$^ Dropbox, Docker,New Relic,Bitbucket, Trello,Zendesk,Slack, Meteor,Python,Ruby,Amazon S3,MongoDB,Java,Amazon EC2,Node.js,JavaScript
 센트비@@$^ Mailgun,Mixpanel,Google Drive,Google Analytics, Sublime Text,Docker,GitLab, appear.in,Google Apps,Asana,Skype,Slack, PostgreSQL,Python,Ruby,React,Ruby On Rails,JavaScript
 트루밸런스@@$^ Dropbox,Google Drive,Google Analytics, Git, InVision,Zendesk,WordPress,Skype,JIRA,Trello,Slack
-젠포트@@$^ JavaScript,CSS3,HTML5,NoSQL,ms-office,Redmine,Dropbox,Google Drive,Google Analytics,  typeform,Google Drive,JANDI, CSS3,HTML5,WebSocket,AngularJS,Ajax,jQuery,JavaScript,NoSQL
+젠포트@@$^ JavaScript,CSS3,HTML5,NoSQL,ms-office,Redmine,Dropbox,Google Drive,Google Analytics,  typeform,Google Drive,JANDI, CSS3,HTML5,WebSocket,AngularJS,Ajax,jQuery,NoSQL
 합리적인 대출상품@@$^  PyCharm,SourceTree,Git,GitHub, JIRA,Trello,Slack, JavaScript,CSS3,HTML5,Bootstrap,Amazon AWS,nginx,PHP,MySQL,Django,Python
 EverSafe@@$^ Dropbox,Google Drive, Xcode,Vim,Bitbucket,Jenkins,Docker,Git, Confluence,JIRA,Slack, spring-data-jpa,spring-framework,HazelCast,Couchbase,AngularJS,datatables,MariaDB,Redis,Apache HTTP Server,Objective-C,Bootstrap,jQuery,Ruby,nginx,Python,Java,JavaScript
 오픈트레이드@@$^    Google App Engine,Apache HTTP Server,Amazon S3,Amazon EC2,MySQL,PHP,JavaScript,jQuery
