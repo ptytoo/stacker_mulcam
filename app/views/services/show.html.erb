@@ -15,7 +15,7 @@
     <%= link_to 'Edit', edit_service_path(@service) %> |
   <% end %>
   <%= link_to 'Back', detail_company_path(@service.company_id), class: "fa fa-angle-left fa-1x" %>
-
+  <br><br>
   <div class="media">
     <div><img src="<%=@service.logo_url%>" title="<%=@service.name%>" id: "#{@company.name}" width=100></div>
   </div>
