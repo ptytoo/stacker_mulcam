@@ -12,9 +12,9 @@ require 'csv'
 # end
 
 
-File.open("com1.csv", "w") do |file|
-  file.write("")
-end
+#File.open("test.csv", "w") do |file|
+#  file.write("")
+#end
 
 DATA.each do |name|
   url = URI.encode "https://www.rocketpunch.com/companies/#{name}"
@@ -27,17 +27,20 @@ DATA.each do |name|
   #   puts "#{name}"
   # end
   # puts content
-  name = text.css('#company-header .name strong').text
-  logo_url = text.css(".ui.large.logo img")[0]["src"]
-  describe = text.css('#company-overview').text
-  service = text.css('#company-products > div:nth-child(2) > div.ui.items > div > div.content > div.overview').text
+  #name = text.css('#company-header .name strong').text
+  #logo_url = text.css(".ui.large.logo img")[0]["src"]
+  #site_url = text.css('#company-info > div.ui.top.attached.segment > div > div:nth-child(3) > div.content').text
+  site_url = text.css(".content a")[2]["href"]
+  #describe = text.css('#company-overview').text
+  #service = text.css('#company-products > div:nth-child(2) > div.ui.items > div > div.content > div.overview').text
 
   result = Array.new
-  result << name
-  result << url
-  result << logo_url
-  result << describe
+  #result << name
+  #result << url
+  #result << logo_url
+  #result << describe
   #result << service
+  result << site_url
 
 
   # content.split("\n").each do |line|
@@ -55,4 +58,14 @@ DATA.each do |name|
 end
 
 __END__
-abc
+seerslab
+sualab
+jobisnv
+seworks
+gaudio
+bluenight
+studioxidkorea
+omnious
+loplat
+swingvy
+xbrain
