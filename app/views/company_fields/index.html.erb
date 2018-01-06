@@ -11,26 +11,15 @@
 </header>
 <br>
 <div id="b_form">
-  <% c_field_list = ["Social media/Communication","Edu Tech","Utility","Fintech","Game",
-  "E-Commerce","Foodtech","Contents","Healthcare","Ad/Marketing","IoT","Analytics","Sharing Economy"] %>
   <% @company_fields.each_with_index do |field, index| %>
-  <div>
-      <p><%= field.name%></p>
-      <% @companies.each do |c| %>
-        <% if c.company_field_id == (index+1) %>
-          <%= link_to "<button type='button' class='btn btn-outline-primary btn-pill'>#{c.name}</button>".html_safe, detail_company_path(c.id), method: :get %>
-          <%#= c.name%>
-        <% end %>
-      <% end %>
-      <br><br>
-    <% end %>
-  </div>
+    <p><a href="<%=company_field_path(field)%>"><%=field.name%></a></p>
+  <% end %>
 </div>
-<p></p>
-<p></p>
-</div>
+<br>
+
 <style>
   #b_form {
     text-align: center;
   }
+
 </style>

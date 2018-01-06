@@ -1,64 +1,33 @@
-
-
-<br><br><br>
-<h2><%= @company_field.name %></h2>
-
-<% @companies.each do |company| %>
-  <!--Card-->
-  <div class="card">
-    <!--Card image-->
-    <div class="view overlay hm-white-slight">
-        <img src="<%=company.logo_url%>" title="<%=company.name%>" id: "#{company.name}" height="70" width="70">
-        <a href="#"><div class="mask"></div></a>
+<header class="bg-dark text-white">
+  <div class="container text-center">
+    <div class="justify-content-center">
+      <!-- Searching Section -->
+       <div class="subscribe section bg-dark py-1">
+         <h4 class="section-title text-center text-white m-5"><%= @company_field.name%></h4>
+         <p class="text-muted col-md-6 text-center mx-auto">다양한 서비스의 기술 스택을 확인하세요</p>
+       </div>
     </div>
-
-    <!--Card content-->
-    <div class="card-body">
-        <!--Title-->
-        <h4 class="card-title"><%= company.name %></h4>
-        <!--Text-->
-        <!-- <p class="card-text"><%= company.describe %></p> -->
-        <%= link_to '상세보기'.html_safe, detail_company_path(company), class: "btn btn-unique" %>
-    </div>
-
   </div>
-  <!--/.Card-->
-<% end %>
-
-
-<!-- old version
-<p>
-  <strong>Name:</strong>
-  <%= @company_field.name %>
-</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Logo</th>
-      <th>Compnany Name</th>
-      <th colspan="3"></th>
-    </tr>
-</thead>
-
-
-  <tbody>
-    <% @companies.each do |company| %>
-      <tr>
-        <td><img src="<%=company.logo_url%>" data-toggle="tooltip" title="<%=company.name%>" id: "#{company.name}"></td>
-        <td><%= company.name %><%= link_to '<button type="button">상세보기</button>'.html_safe, detail_company_path(company) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<script>
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
-
-<%= link_to 'Edit', edit_company_field_path(@company_field) %> |
-<%= link_to 'Back', company_fields_path %>
-
--->
+</header>
+<br>
+<div id="b_form">
+  <div>
+      <% @companies.each do |c| %>
+          <%= link_to "<img src='#{c.logo_url}' width=100 id=logo_img>".html_safe, detail_company_path(c.id), method: :get %>
+      <% end %>
+      <br><br>
+  </div>
+</div>
+<p></p>
+<p></p>
+</div>
+<style>
+  #b_form {
+    text-align: center;
+  }
+  #logo_img{
+    -webkit-filter: grayscale(100%);
+    filter: gray;
+    padding: 10px;
+  }
+</style>
