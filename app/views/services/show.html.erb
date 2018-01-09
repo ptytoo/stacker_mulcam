@@ -2,8 +2,8 @@
 
 <nav aria-label="breadcrumb" role="navigation">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/company_fields"><%= @service.company.company_field.name%></a></li>
-    <li class="breadcrumb-item"><a href="/companies/<%=@service.company_id%>/detail"><%= @service.company.name%></a></li>
+    <li class="breadcrumb-item"><a href="<%=company_field_path(@service.company.company_field_id)%>"><%= @service.company.company_field.name%></a></li>
+    <li class="breadcrumb-item"><a href="<%=detail_company_path(@service.company_id)%>"><%= @service.company.name%></a></li>
     <li class="breadcrumb-item active" aria-current="page"><%= @service.name %>  (조회수 : <%= "#{@hit_post.unique_impression_count}" %>)</li>
   </ol>
 </nav>

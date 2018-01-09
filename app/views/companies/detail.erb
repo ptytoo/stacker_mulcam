@@ -4,7 +4,7 @@
 
 <nav aria-label="breadcrumb" role="navigation">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/company_fields"><%= @company.company_field.name%></a></li>
+    <li class="breadcrumb-item"><a href="<%=company_field_path(@company.company_field_id)%>"><%= @company.company_field.name%></a></li>
     <li class="breadcrumb-item active" aria-current="page"><%= @company.name %></li>
   </ol>
 </nav>
