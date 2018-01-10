@@ -31,15 +31,13 @@
 
 <div class="big_frame">
 
-  <div class="bg-light" style="padding: 10px; margin-top: 10px;"><h3>개인 회원 순위</h3></div>
-  <p>(스택 갯수 기준)</p>
+  <div class="bg-light" style="padding: 10px; margin-top: 10px;"><h3>개인 회원 순위</h3>(스택 갯수 기준)</div>
   <% @indi_users.each do |t|%>
     <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"> <%= t.nickname %></i>  (<%= t.stack_cnt%>)
     <br><br>
   <% end %>
-
-  <div class="bg-light" style="padding: 10px; margin-top: 10px;"><h3>서비스 순위</h3></div>
-  <p>(스택 갯수 기준 / 상위 10개)</p>
+  <br>
+  <div class="bg-light" style="padding: 10px; margin-top: 10px;"><h3>서비스 순위</h3>(스택 갯수 기준 / 상위 10개)</div>
   <p class="service_rank">
     <% @services_cnt.each do |t|%>
       <%cpy = Service.find_by(name: t.name)%>
