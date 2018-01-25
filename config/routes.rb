@@ -45,7 +45,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-
+ 
   namespace :admin do
     resources :users do
     end

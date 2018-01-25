@@ -7,7 +7,7 @@ class RankingController < ApplicationController
                 .group("my_stacks.user_id")
                 .order("stack_cnt DESC")
 
-    @services_cnt = Service.select("services.name, COUNT(service_stacks.stack_id) stack_cnt")
+    @services_cnt = Service.select("services.id, services.logo_url, services.name, COUNT(service_stacks.stack_id) stack_cnt")
                 .joins("LEFT OUTER JOIN service_stacks ON services.id = service_stacks.service_id")
                 .group("service_stacks.service_id")
                 .order("stack_cnt DESC limit 10")

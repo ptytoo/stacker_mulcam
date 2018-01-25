@@ -41,7 +41,8 @@
   <p class="service_rank">
     <% @services_cnt.each do |t|%>
       <%cpy = Service.find_by(name: t.name)%>
-      <%= cpy.name %>   (<%= t.stack_cnt%>)
+      <%= link_to "<img src='#{cpy.logo_url}' width=80 id=logo_img>".html_safe, service_path(t.id), method: :get%>
+      <%= t.stack_cnt%>
       <br>
     <% end %>
   </p>
@@ -61,5 +62,14 @@
   .signed_in_rank {
     /*margin: 30px;*/
     text-align: center;
+  }
+  a #logo_img{
+    -webkit-filter: grayscale(100%);
+    filter: gray;
+    padding: 10px;
+  }
+  a:hover #logo_img{
+    -webkit-filter: grayscale(0%);
+    filter: none;
   }
 </style>
