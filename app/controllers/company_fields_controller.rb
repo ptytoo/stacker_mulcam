@@ -34,9 +34,7 @@ class CompanyFieldsController < ApplicationController
               .where(service_id: ((Company.where(company_field_id: params[:id])).select('services.id').joins(:services)))
               .group('service_stacks.stack_id')
               .order('cnt desc')
-              .first(3)
-
-
+              .first(5)
 
 
   end
