@@ -20,12 +20,13 @@
   <hr>
   <div>
     <h6><%=@company_field.name%>에서 가장 많이 쓰이는 스택</h6>
-    <% @stacks.each do |s| %>
+    <% @stacks.each_with_index do |s, index| %>
       <% st = Stack.find_by(id: s.stack_id)%>
+      <%= index+1 %>.
       <a href="/stacks/<%=st.id%>">
         <img src="https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/<%=st.stack_field.name%>/<%= st.name.capitalize %>.png" width="50">
       </a>
-      <%= s.cnt%>
+      <%= s.cnt%><br>
     <% end %>
   </div>
 </div>
