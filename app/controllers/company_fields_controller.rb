@@ -29,6 +29,16 @@ class CompanyFieldsController < ApplicationController
     #                     .where(company_field_id: params[:id])
     #                     .joins(:stack_fields)
 
+    @stacks =
+    ServiceStack.select('service_stacks.stack_id, COUNT(service_stacks.stack_id) cnt')
+              .where(service_id: ((Company.where(company_field_id: params[:id])).select('services.id').joins(:services)))
+              .group('service_stacks.stack_id')
+              .order('cnt desc')
+              .first(3)
+
+
+
+
   end
 
 
