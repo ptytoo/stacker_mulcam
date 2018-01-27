@@ -3,8 +3,21 @@
     <div class="justify-content-center">
       <!-- Searching Section -->
        <div class="subscribe section bg-dark py-1">
-         <h4 class="section-title text-center text-white m-5"><%= @company_field.name%></h4>
-         <p class="text-muted col-md-6 text-center mx-auto">다양한 서비스의 기술 스택을 확인하세요</p>
+         <h4 class="section-title text-center text-white m-6"><%= @company_field.name%></h4>
+         <!-- <p class="text-muted col-md-6 text-center mx-auto">다양한 서비스의 기술 스택을 확인하세요</p> -->
+         <div class="text-white">
+           <div style="margin-bottom: 10px">스택 사용 순위</div>
+             <% @stacks.each_with_index do |s, index| %>
+               <div class="block">
+                   <% st = Stack.find_by(id: s.stack_id)%>
+                   <%= index+1 %>.
+                   <a href="/stacks/<%=st.id%>">
+                     <img src="https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/<%=st.stack_field.name%>/<%= st.name.capitalize %>.png" width="50">
+                   </a>
+               </div>
+             <% end %>
+         </div>
+         <br>
        </div>
     </div>
   </div>
@@ -17,18 +30,7 @@
       <% end %>
       <br><br>
   </div>
-  <hr>
-  <div>
-    <h6><%=@company_field.name%>에서 가장 많이 쓰이는 스택</h6>
-    <% @stacks.each_with_index do |s, index| %>
-      <% st = Stack.find_by(id: s.stack_id)%>
-      <%= index+1 %>.
-      <a href="/stacks/<%=st.id%>">
-        <img src="https://s3.ap-northeast-2.amazonaws.com/dahisy-4th-project/Stack/<%=st.stack_field.name%>/<%= st.name.capitalize %>.png" width="50">
-      </a>
-      <%= s.cnt%><br>
-    <% end %>
-  </div>
+
 </div>
 <p></p>
 <p></p>
@@ -81,5 +83,8 @@
   	margin-left: -76px;
   	z-index: 999;
   }
-
+  .block{
+    width: 80px;
+    display: inline-block;
+  }
 </style>
