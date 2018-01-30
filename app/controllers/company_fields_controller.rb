@@ -21,14 +21,7 @@ class CompanyFieldsController < ApplicationController
   # GET /company_fields/1.json
   def show
     @companies = Company.where(company_field_id: params[:id])
-    # @services_cnt = Service.select("services.name, COUNT(service_stacks.stack_id) stack_cnt")
-    #             .joins("LEFT OUTER JOIN service_stacks ON services.id = service_stacks.service_id")
-    #             .group("service_stacks.service_id")
-    #             .order("stack_cnt DESC limit 10")
-    # @analy = ServiceStack.select("stack_fields.name as field, ")
-    #                     .where(company_field_id: params[:id])
-    #                     .joins(:stack_fields)
-
+    
     @stacks =
     ServiceStack.select('service_stacks.stack_id, COUNT(service_stacks.stack_id) cnt')
               .where(service_id: ((Company.where(company_field_id: params[:id])).select('services.id').joins(:services)))
