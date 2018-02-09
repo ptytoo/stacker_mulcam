@@ -4,7 +4,7 @@
 
 
 <div class="table-responsive">
-    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
       <thead>
         <tr>
           <th>제목</th>
@@ -35,10 +35,14 @@
     </table>
 </div>
 
-<%= paginate @posts %>
+<div class="text-xs-center">
+  <ul class="pagination">
+    <%= paginate @posts %>
+  </ul>
+</div>
 
 <br>
 
 <% if user_signed_in? %>
-  <%= link_to 'New Post', new_post_path %>
+  <%= link_to '글쓰기', new_post_path %>
 <% end %>
