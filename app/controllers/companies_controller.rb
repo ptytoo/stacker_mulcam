@@ -16,6 +16,7 @@ class CompaniesController < ApplicationController
   # GET /companies/new
   def new
     @company = Company.new
+    @company_fields = CompanyField.all
   end
 
   # GET /companies/1/edit
@@ -31,7 +32,8 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if ret
-        format.html { redirect_to @company, notice: 'Company was successfully created.' }
+        session[:company_id] = @company.id
+        format.html { redirect_to new_user_registration_path, notice: 'Company was successfully created.' }
         format.json { render :show, status: :created, location: @company }
       else
         format.html { render :new }

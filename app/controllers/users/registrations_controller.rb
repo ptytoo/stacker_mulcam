@@ -5,7 +5,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   # new가 이제는 개인/기업 선택 페이지로
   def new
-    @company_fields = CompanyField.all
+    # binding.pry
+    if session[:company_id]
+      @company_id = session[:company_id]
+      company = Company.find(@company_id)
+      # f_id = params[:company_field_id].to_i
+      # company.update(company_field_id: f_id)
+
+      reset_session
+    end
     super
   end
 
@@ -15,10 +23,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new_enter
   end
 
+  def choose_user
+
+  end
 
   # POST /resource
   def create
-    @company_fields = CompanyField.all
     super
   end
 
@@ -61,11 +71,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def sign_up_params
-    params.require(:user).permit(:email,:password,:password_confirmation,:nickname, :phone, :role, :company_id)
+    params.require(:user).permit(:email,:password,:password_confirmation, :phone, :nickname, :role, :company_id)
   end
 
   def account_update_params
-    params.require(:user).permit(:email,:password,:password_confirmation,:nickname, :phone, :role,:current_password,:company_id)
+    params.require(:user).permit(:email,:password,:password_confirmation, :phone, :nickname, :role, :current_password,:company_id)
   end
 
   # The path used after sign up. 회원가입 클릭 후 이동하는 패스 설정하는 함수
@@ -74,7 +84,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if current_user.indi?
       add_my_indi_users_path
     else
-      enter_company_path(current_user.company_id)
+      root_path
     end
   end
 

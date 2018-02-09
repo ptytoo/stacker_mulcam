@@ -1,5 +1,5 @@
 class Enter::ServicesController < Enter::ApplicationController
-  before_action :set_service, only: [:show, :edit, :update, :destroy, :add_stack]
+  before_action :set_service, only: [:show, :edit, :update, :destroy, :add_stack, :add_comment]
   # GET /services
   # GET /services.json
   def index
@@ -63,6 +63,20 @@ class Enter::ServicesController < Enter::ApplicationController
       format.html { redirect_to enter_company_path(current_user.company_id), notice: 'Service was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def add_comment
+    @stacks = ServiceStack.where(service_id: @service.id)
+  end
+
+  def regist_comment
+    service_id = params[:service_id]
+    stack_id = params[:stack_id]
+    comment = params[:return_val]
+    for_update = ServiceStack.find_by(service_id: service_id).find_by(stack_id: stack_id)
+    for_update.update(
+      u_reason: comment
+    )
   end
 
   def add_stack

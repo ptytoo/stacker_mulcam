@@ -46,7 +46,11 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
- 
+
+  devise_scope :user do
+    get "users/choose_user" => "users/registrations#choose_user", as: 'choose_user'
+  end
+
   namespace :admin do
     resources :users do
     end
@@ -57,9 +61,11 @@ Rails.application.routes.draw do
       resources :services do
         member do
           get '/add_stack' => 'services#add_stack', as: 'add_stack_to'
+          get '/add_comment' => 'services#add_comment', as: 'add_comment_to'
         end
         collection do
           post '/regist_stack' => 'services#regist_stack', as: 'register_stack'
+          post '/regist_comment' => 'services#regist_comment', as: 'register_comment'
           delete '/delete_stack' => 'services#delete_stack', as: 'delete_stack_to'
         end
       end
