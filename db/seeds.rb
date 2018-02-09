@@ -16,7 +16,7 @@ end
 
 
 
-s_field_list = ["Language","Database","Server","Front-end","Native_App","Etc"]
+s_field_list = ["Language","Database","Server","Front-end","Native_App","AWS","Etc"]
 s_field_list.each do |field|
   s = StackField.create(
       name: field
@@ -101,6 +101,7 @@ stack_data =
 'seed_data_stack/server_stack.csv',
 'seed_data_stack/frontend_stack.csv',
 'seed_data_stack/app_stack.csv',
+'seed_data_stack/aws_stack.csv',
 'seed_data_stack/etc_stack.csv'
 ]
 
