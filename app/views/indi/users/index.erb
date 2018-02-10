@@ -1,20 +1,49 @@
-<br><br>
+<header class="bg-dark text-white">
+  <div class="container text-center">
+    <div class="justify-content-center">
+      <!-- Searching Section -->
+       <div class="subscribe section bg-dark py-1">
+         <h4 class="section-title text-center text-white m-5">마이페이지</h4>
+       </div>
+       <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            개인 정보
+          </div>
+          <hr height="10px" style="border: 1px solid #ccc;">
+          <div class="col-sm">
+            개인 스택
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+</header>
+<br>
 <div class="container">
   <section class="page-title"><h2>개인정보</h2></section>
   <div class="col-md-7">
-    <div class="product-title">
-      <h4 class="text-uppercase"><%= @user.nickname %></h4>
+    <div class="table-responsive">
+      <table class="table table-striped type09" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">이메일</th>
+            <td> <%= @user.email %></td>
+          </tr>
+          <tr>
+            <th scope="row">닉네임</th>
+            <td><%= @user.nickname %></td>
+          </tr>
+          <tr>
+            <th scope="row">전화번호</th>
+            <td><%= @user.phone %></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <ul class="portfolio-meta m-bot-10 m-top-10 ">
-      <li>
-        <span>email</span> : <%= @user.email %></li>
-      <li>
-        <span>nickname</span> : <%= @user.nickname %></li>
-      <li>
-        <span>role</span> : <%= @user.role %></li>
-      <li>
-        <span>phone</span> : <%= @user.phone %></li>
-    </ul>
 
     <div class="clearfix">
       <a href="/users/edit" class="btn btn-small btn-dark-solid">
@@ -71,5 +100,32 @@
     width: "50";
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
+  }
+  table.type09 {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+
+  }
+  table.type09 thead th {
+      padding: 10px;
+      font-weight: bold;
+      vertical-align: top;
+      color: #369;
+      border-bottom: 3px solid #036;
+  }
+  table.type09 tbody th {
+      width: 150px;
+      padding: 10px;
+      font-weight: bold;
+      vertical-align: top;
+      border-bottom: 1px solid #ccc;
+      background: #f3f6f7;
+  }
+  table.type09 td {
+      width: 350px;
+      padding: 10px;
+      vertical-align: top;
+      border-bottom: 1px solid #ccc;
   }
 </style>
