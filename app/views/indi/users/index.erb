@@ -4,13 +4,15 @@
       <!-- Searching Section -->
        <div class="subscribe section bg-dark py-1">
          <h4 class="section-title text-center text-white m-5">마이페이지</h4>
+         <p class="text-muted col-md-6 text-center mx-auto">개인정보 및 나의 스택을 관리하세요</p>
        </div>
+       <!-- 개인정보랑 스택확인 페이지 나눌거면 밑의 container추가 -->
        <div class="container">
         <div class="row">
           <div class="col-sm">
             개인 정보
           </div>
-          <hr height="10px" style="border: 1px solid #ccc;">
+          |
           <div class="col-sm">
             개인 스택
           </div>
@@ -87,6 +89,28 @@
       <% end %>
     </p>
 
+    <p>
+      <h2>나의 게시글</h2>
+      <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>제목</th>
+            <th>작성일</th>
+            <th>상세보기</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @posts.each do |post| %>
+          <tr>
+            <td><%= post.title %></td>
+            <td><%= post.created_at %></td>
+            <td><%= link_to '보기', post %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </p>
+    <br>
   </div>
 </div>
 

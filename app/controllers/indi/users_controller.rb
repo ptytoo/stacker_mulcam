@@ -3,6 +3,7 @@ class Indi::UsersController < Indi::ApplicationController
     @user = current_user
     @stacks = InterStack.where(user_id: @user.id)
     @mstacks = MyStack.where(user_id: @user.id)
+    @posts = Post.where(user_id: @user.id)
   end
 
   def add_stack
