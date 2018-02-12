@@ -1,0 +1,10 @@
+alert('댓글 등록 완료')
+$('#comment_body').val("");
+$('#comment_table tbody').prepend(
+  `
+  <tr id="comment-<%= @c.id %>">
+    <td><%= @c.body %></td>
+    <td><%= link_to '삭제', destroy_comment_posts_path(@c.id), method: :delete, data: {confirm: '삭제하시겠습니까?'}, class: "btn btn-warning", remote: true %></td>
+  </tr>
+  `
+)

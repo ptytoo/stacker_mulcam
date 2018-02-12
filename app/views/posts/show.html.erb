@@ -20,7 +20,7 @@
         <td><%= @post.updated_at.strftime("%Y/%m/%d %H:%M:%S")%></td>
         <td>
           <% if user_signed_in? && (current_user.id == @post.user_id)%>
-            <%= link_to '편집'%> | <%= link_to '삭제'%>
+            <%= link_to '편집'%> | <i class="far fa-trash-alt fa-1x"></i><%= link_to '삭제'%>
           <% end %>
         </td>
       </tr>
@@ -36,5 +36,47 @@
       </tr>
     </tbody>
   </table>
+  <!-- 댓글 작성  -->
+  <%= form_tag create_comment_to_post_path, id: "create_comment" do %>
+    <%= text_field_tag "comment[body]"%> <!--이거 맞나??ㅋㅋㅋㅋ;;-->
+    <%= submit_tag '등록'%>
+  <% end %>
+  <table class="table" id="comment_table">
+    <thead>
+      <tr>
+        <th>댓글</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @post.comments.reverse.each do |p| %>
+        <tr id="comment-<%= p.id %>">
+          <td><%= p.content%></td>
+          <td><%= link_to '삭제', destroy_comment_posts_path(p.id), method: :delete, data: {confirm: '삭제하시겠습니까?'}, class: "btn btn-warning", remote: true %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
   <%= link_to 'Back', :back %>
 </div>
+
+<script>
+  $(function(){
+    var form = $('#create_comment');
+    form.on('submit', function(e){
+      e.preventDefault();
+      var contents = form.serialize(); //serialize는 form안에 있는 모든 input tag를 한번에 파라미터로 만들어 줌
+      // var contents = $('#comment_body').val(); 사용안됨
+      if(contents==""){
+        alert('값을 입력해주세요');
+      }
+      $.ajax({
+        url: "<%= create_comment_to_post_path %>",
+        method: "POST",
+        data: contents,
+        ,error:function(request,status,error){
+          alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);}
+      });
+    });
+  });
+</script>

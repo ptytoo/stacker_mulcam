@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :create_comment]
   before_action :log_impression, :only=> [:show]
 
   # GET /posts
@@ -69,6 +69,19 @@ class PostsController < ApplicationController
     end
   end
 
+  def create_comment    #해당하는 글에 댓글다는 액션
+     @c = @post.comments.create(content: comment_params["body"],
+                                 post_id: @post.id,
+                                 user_id: current_user)
+    respond_to do |format|
+      format.html { redirect_to @post }
+    end
+  end
+
+  def destroy_comment
+    @c = Comment.find(params[:comment_id]).destroy
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -78,5 +91,9 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :content, :user_id)
+    end
+
+    def comment_params
+      params.require(:comment).permit(:body)
     end
 end

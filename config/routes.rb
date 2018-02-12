@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
 
-  resources :posts
+  resources :posts do
+    member do
+      # get '/create_comment' => 'posts#create_comment', as: 'create_comment'
+      post '/create_comment' => 'posts#create_comment', as: 'create_comment_to'
+    end
+    collection do
+      # /posts/{내가 설정한 url}
+      delete '/:comment_id/destroy_comment' => 'posts#destroy_comment', as: 'destroy_comment'
+    end
+  end
   get 'career/index'
   get 'career/show'
 

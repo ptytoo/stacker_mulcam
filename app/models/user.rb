@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   validates_uniqueness_of :nickname
   has_many :posts
+  has_many :comments
 
   validates :nickname, presence: {message: "닉네임을 입력해주세요!"}, length: {maximum: 15, message: "  닉네임이 너무 깁니다!"}, uniqueness: true
 
