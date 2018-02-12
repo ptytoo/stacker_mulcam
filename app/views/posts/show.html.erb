@@ -1,21 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>작성자:</strong>
-  <%= @post.user.nickname %>
-</p>
+  <p>
+    <strong>Title:</strong>
+    <%= @post.title %>
+  </p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content.html_safe %>
-</p>
+  <p>
+    <strong>작성자:</strong>
+    <%= @post.user.nickname %>
+  </p>
 
-<%= link_to 'Back', :back %>
-<% if user_signed_in? && (@post.user_id == current_user.id) %>
-  <%= link_to 'Edit', edit_post_path(@post) %> 
-<% end %>
+  <p>
+    <strong>Content:</strong>
+    <%= @post.content.html_safe %>
+  </p>
+
+  <%= link_to 'Back', :back %>
+  <% if user_signed_in? && (@post.user_id == current_user.id) %>
+    <%= link_to 'Edit', edit_post_path(@post) %>
+  <% end %>
+  
+</div>

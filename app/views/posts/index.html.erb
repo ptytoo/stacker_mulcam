@@ -1,8 +1,11 @@
 <p id="notice"><%= notice %></p>
-
-<h3>Stacker 게시판</h3>
-
-<div class="table-responsive table_div">
+<div class="container table-responsive table_div">
+  <h3>Stacker 게시판</h3>
+  <div align="right">
+    <% if user_signed_in? %>
+      <%= link_to '<i class="fa fa-pencil fa-1x"></i>글쓰기'.html_safe, new_post_path %>
+    <% end %>
+  </div>
     <table align="center" class="table table-striped" id="dataTable" width="100%" cellspacing="0" style="width:100%">
       <thead>
         <tr>
@@ -25,20 +28,15 @@
         <% end %>
       </tbody>
     </table>
+    <div class="text-center">
+      <ul class="pagination">
+        <li><%= paginate @posts %></li>
+      </ul>
+    </div>
 </div>
 
-
-<div class="text-center">
-  <ul class="pagination">
-    <li><%= paginate @posts %></li>
-  </ul>
-</div>
 
 <br>
-
-<% if user_signed_in? %>
-  <%= link_to '글쓰기', new_post_path %>
-<% end %>
 
 <style>
   th {
@@ -46,7 +44,7 @@
     color: white;
   }
   .table_div {
-    width: 80%;
+    width: 100%;
   }
   .jb-th-1 {
     width: 400px;
