@@ -1,25 +1,40 @@
-<div class="container">
-
-  <p id="notice"><%= notice %></p>
-
-  <p>
-    <strong>Title:</strong>
-    <%= @post.title %>
-  </p>
-
-  <p>
-    <strong>작성자:</strong>
-    <%= @post.user.nickname %>
-  </p>
-
-  <p>
-    <strong>Content:</strong>
-    <%= @post.content.html_safe %>
-  </p>
-
+<header class="bg-dark text-white">
+  <div class="container text-center">
+    <div class="justify-content-center">
+      <!-- Searching Section -->
+       <div class="subscribe section bg-dark py-1">
+         <h4 class="section-title text-center text-white m-5">게시판</h4>
+         <p class="text-muted col-md-6 text-center mx-auto">게시글 보기</p>
+       </div>
+    </div>
+  </div>
+</header>
+<br>
+<div class="container table-responsive table_div">
+  <table border="1" rules="none" align="center" class="table " id="dataTable" width="100%" cellspacing="0" style="width:100%">
+    <thead>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @post.title %></td>
+        <td><%= @post.updated_at.strftime("%Y/%m/%d %H:%M:%S")%></td>
+        <td>
+          <% if user_signed_in? && (current_user.id == @post.user_id)%>
+            <%= link_to '편집'%> | <%= link_to '삭제'%>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td><%= @post.user.nickname %></td>
+        <td></td>
+        <td><i class="fa fa-eye"></i><%= @hit_post.unique_impression_count %> | <i class="fa fa-comment"></i>댓수</td>
+      </tr>
+      <tr>
+        <td><%= @post.content.html_safe%></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <%= link_to 'Back', :back %>
-  <% if user_signed_in? && (@post.user_id == current_user.id) %>
-    <%= link_to 'Edit', edit_post_path(@post) %>
-  <% end %>
-  
 </div>
