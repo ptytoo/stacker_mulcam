@@ -94,6 +94,7 @@
       <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
+            <th></th>
             <th>제목</th>
             <th>작성일</th>
             <th>상세보기</th>
@@ -102,6 +103,7 @@
         <tbody>
         <% @posts.each do |post| %>
           <tr>
+            <td><%=  %></td>
             <td><%= post.title %></td>
             <td><%= post.created_at %></td>
             <td><%= link_to '보기', post %></td>

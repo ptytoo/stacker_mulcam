@@ -1,11 +1,18 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :log_impression, :only=> [:show]
 
   # GET /posts
   # GET /posts.json
   def index
     # @posts = Post.all
-    @posts = Post.order("updated_at DESC").page(params[:page])
+    @posts = Post.order("id DESC").page(params[:page])
+  end
+
+  def log_impression
+    @hit_post = Post.find(params[:id])
+    # this assumes you have a current_user method in your authentication system
+    @hit_post.impressions.create(ip_address: request.remote_ip)
   end
 
   # GET /posts/1
