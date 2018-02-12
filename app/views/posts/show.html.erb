@@ -20,7 +20,8 @@
         <td><%= @post.updated_at.strftime("%Y/%m/%d %H:%M:%S")%></td>
         <td>
           <% if user_signed_in? && (current_user.id == @post.user_id)%>
-            <%= link_to '편집'%> | <i class="far fa-trash-alt fa-1x"></i><%= link_to '삭제'%>
+            <%= link_to '편집', edit_post_path(@post)%> | <i class="far fa-trash-alt fa-1x"></i>
+            <%= link_to '삭제', post_path(@post), method: :delete%>
           <% end %>
         </td>
       </tr>
@@ -38,13 +39,17 @@
   </table>
   <!-- 댓글 작성  -->
   <%= form_tag create_comment_to_post_path, id: "create_comment" do %>
+  <div class="form-group col-xs-12">
     <%= text_field_tag "comment[body]"%> <!--이거 맞나??ㅋㅋㅋㅋ;;-->
     <%= submit_tag '등록'%>
+  </div>
   <% end %>
-  <table class="table" id="comment_table">
+  <br>
+  <table class="table" id="comment_table" style="border: 1px solid #444444;">
     <thead>
       <tr>
         <th>댓글</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
