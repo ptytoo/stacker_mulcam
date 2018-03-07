@@ -10,14 +10,26 @@
   </div>
 </header>
 <br>
-<div id="b_form">
+<div class="example col-md-10 ml-auto mr-auto">
+  <div class="row">
   <% @company_fields.each_with_index do |field, index| %>
-    <p><a href="<%=company_field_path(field)%>"><%=field.name%></a></p>
+  <div class="color-wrapper col-lg-4 col-md-4 col-sm-6">
+      <div class="color">
+          <div class="swatch"><img src='<%=asset_path "#{field.name}.png"%>' style="max-width: 100%; width: 50px;"></div>
+          <span class="title"><a href="<%=company_field_path(field)%>"><%=field.name%></a></span>
+      </div>
+  </div>
   <% end %>
+</div>
 </div>
 <br>
 
+
 <style>
+  body {
+    background: #f9f9f9;
+    text-align: center;
+  }
   #b_form {
     text-align: center;
   }
