@@ -11,12 +11,14 @@
 </header>
 <br>
 <div class="col-md-10 ml-auto mr-auto">
-  <div class="row">
+  <div class="row card_link">
     <% @company_fields.each_with_index do |field, index| %>
+    <a href="<%=company_field_path(field)%>">
       <div class="card card-1 col-lg-4 col-md-4 col-sm-6">
               <div class="swatch"><img src='<%=asset_path "#{field.name}.png"%>' style="max-width: 100%; width: 50px;"></div>
               <span class="title"><a href="<%=company_field_path(field)%>"><%=field.name%></a></span>
       </div>
+    </a>
     <% end %>
   </div>
 </div>
@@ -34,7 +36,7 @@
     padding-top: 5px;
     padding-bottom: 5px;
     margin: 5px;
-    max-width: 30%;
+    max-width: 31%;
   }
 
   .card-1 {
@@ -46,3 +48,7 @@
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   }
 </style>
+<script>
+
+
+</script>
